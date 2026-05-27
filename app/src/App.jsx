@@ -7,6 +7,7 @@ import AlphabetGrid from './components/AlphabetGrid.jsx'
 import Quiz from './components/Quiz.jsx'
 import PhrasesView from './components/PhrasesView.jsx'
 import LookupView from './components/LookupView.jsx'
+import VocabBrowser from './components/VocabBrowser.jsx'
 import { VOCAB, getLang } from './data/loader.js'
 
 export default function App() {
@@ -89,6 +90,7 @@ export default function App() {
                   { id: 'due', label: '🔁 Practice Due' },
                   { id: 'new', label: '✨ Learn New' },
                   { id: 'quiz', label: '🎯 Quiz' },
+                  { id: 'browse', label: '📋 Browse' },
                   ...(activeLang !== 'french' ? [{ id: 'alphabet', label: activeLang === 'russian' ? '🔤 Azbuka' : '🔤 Pinyin' }] : []),
                 ].map((btn) => (
                   <button
@@ -108,8 +110,14 @@ export default function App() {
                 </span>
               </div>
 
-              <div className="flex-1">
-                {subMode === 'alphabet' ? (
+              <div className="flex-1 overflow-hidden flex flex-col">
+                {subMode === 'browse' ? (
+                  <VocabBrowser
+                    lang={activeLang}
+                    cards={vocabData?.all ?? []}
+                    topics={vocabData?.topics ?? {}}
+                  />
+                ) : subMode === 'alphabet' ? (
                   <AlphabetGrid lang={activeLang} />
                 ) : subMode === 'quiz' ? (
                   cards.length >= 4 ? (

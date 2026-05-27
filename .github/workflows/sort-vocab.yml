@@ -83,5 +83,7 @@ jobs:
           Sorted by sort_other.py using GitHub Models (gpt-4o-mini).
           
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            # Rebase onto latest main before pushing (concurrent pushes from deploy workflow)
+            git pull --rebase origin main
             git push
           fi
