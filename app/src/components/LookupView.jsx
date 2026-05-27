@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
+import { commitPendingWords } from '../utils/github.js'
+import { VOCAB } from '../data/loader.js'
 
 const WIKT_API = 'https://en.wiktionary.org/w/api.php'
 const WIKT_LANG = { french: 'French', russian: 'Russian', chinese: 'Chinese' }
@@ -169,64 +171,228 @@ function ResultCard({ word, parsed, lang, langMeta, onSave, alreadySaved }) {
 }
 
 // ---------------------------------------------------------------------------
-// Pending queue panel
+// Pending queue panel — with GitHub commit or JSON export
 // ---------------------------------------------------------------------------
-function PendingPanel({ pending, onRemove, onExport, onClear, langMeta }) {
-  if (pending.length === 0) return null
+function PendingPanel({
+  pending,
+  lang,
+  langMeta,
+  onRemove,
+  onExport,
+  onClear,
+  onCommit,
+  commitState,   // 'idle' | 'selectTopic' | 'committing' | 'success' | 'error'
+  commitTopic,
+  onTopicChange,
+  onCommitConfirm,
+  onCommitCancel,
+  commitResult,
+  commitError,
+  hasToken,
+  onSetupToken,
+}) {
+  if (pending.length === 0 && commitState !== 'success') return null
+
+  const existingTopics = Object.keys(VOCAB[lang]?.topics ?? {})
+
   return (
     <div className="mt-6">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-          Pending words ({pending.length})
-        </h3>
-        <div className="flex gap-2">
-          <button
-            onClick={onExport}
-            className={`px-3 py-1 rounded-lg text-xs font-medium ${langMeta.bgClass} text-white hover:opacity-90`}
-          >
-            ↓ Export JSON
-          </button>
-          <button
-            onClick={onClear}
-            className="px-3 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600"
-          >
-            Clear all
-          </button>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        {pending.map((entry, i) => {
-          const word = entry.word || entry.simplified || '?'
-          return (
-            <div
-              key={i}
-              className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm"
+      {/* Success banner */}
+      {commitState === 'success' && commitResult && (
+        <div className="mb-4 p-3 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 text-sm">
+          <p className="font-semibold">✅ Committed {commitResult.added} word(s) to GitHub!</p>
+          {commitResult.skipped > 0 && (
+            <p className="text-xs mt-0.5">{commitResult.skipped} duplicate(s) skipped.</p>
+          )}
+          {commitResult.commitUrl && (
+            <a
+              href={commitResult.commitUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs underline mt-1 block"
             >
-              <div>
-                <span className={`font-medium ${langMeta.accentClass}`}>{word}</span>
-                {entry.translation && (
-                  <span className="text-gray-500 dark:text-gray-400 ml-2">— {entry.translation}</span>
-                )}
-              </div>
+              View commit ↗
+            </a>
+          )}
+          <p className="text-xs mt-1 opacity-75">
+            GitHub Pages will redeploy in ~1 min. Pending queue cleared.
+          </p>
+        </div>
+      )}
+
+      {pending.length === 0 ? null : (
+        <>
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+              Pending words ({pending.length})
+            </h3>
+            <div className="flex gap-2">
               <button
-                onClick={() => onRemove(i)}
-                className="text-gray-300 dark:text-gray-600 hover:text-red-400 dark:hover:text-red-400 text-lg leading-none ml-2"
-                aria-label="Remove"
+                onClick={onExport}
+                className="px-3 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600"
               >
-                ×
+                ↓ Export JSON
+              </button>
+              <button
+                onClick={onClear}
+                className="px-3 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600"
+              >
+                Clear
               </button>
             </div>
-          )
-        })}
-      </div>
+          </div>
 
-      <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
-        After export, run:{' '}
-        <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded font-mono">
-          python scripts/import_pending.py --file pending_*.json --lang LANG --topic TOPIC
-        </code>
+          {/* Word list */}
+          <div className="space-y-2 mb-4">
+            {pending.map((entry, i) => {
+              const word = entry.word || entry.simplified || '?'
+              return (
+                <div
+                  key={i}
+                  className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm"
+                >
+                  <div>
+                    <span className={`font-medium ${langMeta.accentClass}`}>{word}</span>
+                    {entry.translation && (
+                      <span className="text-gray-500 dark:text-gray-400 ml-2">— {entry.translation}</span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => onRemove(i)}
+                    className="text-gray-300 dark:text-gray-600 hover:text-red-400 dark:hover:text-red-400 text-lg leading-none ml-2"
+                    aria-label="Remove"
+                  >
+                    ×
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Commit to GitHub section */}
+          {commitState === 'selectTopic' ? (
+            <div className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 bg-gray-50 dark:bg-gray-800">
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
+                Save {pending.length} word(s) to which topic?
+              </p>
+              <input
+                type="text"
+                value={commitTopic}
+                onChange={(e) => onTopicChange(e.target.value)}
+                placeholder="e.g. travel, food, home…"
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                autoFocus
+                onKeyDown={(e) => e.key === 'Enter' && commitTopic.trim() && onCommitConfirm()}
+              />
+              {existingTopics.length > 0 && (
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {existingTopics.map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => onTopicChange(t)}
+                      className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
+                        commitTopic === t
+                          ? `${langMeta.bgClass} text-white border-transparent`
+                          : 'border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400'
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className="flex gap-2">
+                <button
+                  onClick={onCommitConfirm}
+                  disabled={!commitTopic.trim()}
+                  className={`px-4 py-1.5 rounded-lg text-sm font-medium text-white transition-all ${langMeta.bgClass} disabled:opacity-40`}
+                >
+                  Commit to GitHub
+                </button>
+                <button
+                  onClick={onCommitCancel}
+                  className="px-4 py-1.5 rounded-lg text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          ) : commitState === 'committing' ? (
+            <div className="rounded-xl border border-gray-200 dark:border-gray-600 p-4 text-sm text-gray-500 dark:text-gray-400 text-center animate-pulse">
+              ⏳ Committing to GitHub…
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {commitState === 'error' && commitError && (
+                <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
+                  ❌ {commitError}
+                </div>
+              )}
+              {hasToken ? (
+                <button
+                  onClick={onCommit}
+                  className={`w-full py-2 rounded-xl text-sm font-medium text-white ${langMeta.bgClass} hover:opacity-90 transition-all`}
+                >
+                  💾 Commit to GitHub
+                </button>
+              ) : (
+                <button
+                  onClick={onSetupToken}
+                  className="w-full py-2 rounded-xl text-sm font-medium border-2 border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 transition-all"
+                >
+                  🔑 Set up GitHub token to commit directly
+                </button>
+              )}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Token settings panel
+// ---------------------------------------------------------------------------
+function TokenSettings({ token, onSave, onClose }) {
+  const [value, setValue] = useState(token || '')
+  return (
+    <div className="mb-6 rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 p-4">
+      <div className="flex items-start justify-between mb-2">
+        <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">🔑 GitHub Token Setup</p>
+        {token && (
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-lg leading-none">×</button>
+        )}
+      </div>
+      <p className="text-xs text-amber-700 dark:text-amber-400 mb-3">
+        Create a{' '}
+        <a
+          href="https://github.com/settings/tokens/new?scopes=repo&description=Learning+Languages+App"
+          target="_blank"
+          rel="noreferrer"
+          className="underline"
+        >
+          Personal Access Token (classic) ↗
+        </a>{' '}
+        with <strong>repo</strong> scope. Stored only in your browser's localStorage.
       </p>
+      <div className="flex gap-2">
+        <input
+          type="password"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="ghp_…"
+          className="flex-1 px-3 py-1.5 rounded-lg border border-amber-300 dark:border-amber-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-sm focus:outline-none"
+          autoFocus
+        />
+        <button
+          onClick={() => onSave(value.trim())}
+          disabled={!value.trim()}
+          className="px-4 py-1.5 rounded-lg text-sm font-medium bg-amber-500 text-white hover:bg-amber-600 disabled:opacity-40"
+        >
+          Save
+        </button>
+      </div>
     </div>
   )
 }
@@ -236,15 +402,24 @@ function PendingPanel({ pending, onRemove, onExport, onClear, langMeta }) {
 // ---------------------------------------------------------------------------
 export default function LookupView({ lang, langMeta }) {
   const [query, setQuery] = useState('')
-  const [result, setResult] = useState(null) // { word, parsed }
+  const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [pending, setPending] = useState([])
   const [savedWord, setSavedWord] = useState(null)
 
+  // GitHub token
+  const [githubToken, setGithubToken] = useState(() => localStorage.getItem('ll_github_token') || '')
+  const [showTokenSetup, setShowTokenSetup] = useState(false)
+
+  // Commit flow state
+  const [commitState, setCommitState] = useState('idle') // idle | selectTopic | committing | success | error
+  const [commitTopic, setCommitTopic] = useState('')
+  const [commitResult, setCommitResult] = useState(null)
+  const [commitError, setCommitError] = useState(null)
+
   const storageKey = `ll_pending_${lang}`
 
-  // Load pending list from localStorage when language changes
   useEffect(() => {
     try {
       const stored = localStorage.getItem(storageKey)
@@ -256,6 +431,8 @@ export default function LookupView({ lang, langMeta }) {
     setError(null)
     setQuery('')
     setSavedWord(null)
+    setCommitState('idle')
+    setCommitResult(null)
   }, [lang, storageKey])
 
   const search = useCallback(async () => {
@@ -312,6 +489,7 @@ export default function LookupView({ lang, langMeta }) {
   const clearPending = () => {
     setPending([])
     localStorage.removeItem(storageKey)
+    setCommitState('idle')
   }
 
   const exportPending = () => {
@@ -324,14 +502,53 @@ export default function LookupView({ lang, langMeta }) {
     URL.revokeObjectURL(url)
   }
 
+  const saveToken = (token) => {
+    setGithubToken(token)
+    localStorage.setItem('ll_github_token', token)
+    setShowTokenSetup(false)
+  }
+
+  const handleCommitClick = () => {
+    // Pre-fill topic from existing topics if only one exists
+    const topics = Object.keys(VOCAB[lang]?.topics ?? {})
+    setCommitTopic(topics.length === 1 ? topics[0] : '')
+    setCommitState('selectTopic')
+    setCommitError(null)
+  }
+
+  const handleCommitConfirm = async () => {
+    const topic = commitTopic.trim()
+    if (!topic) return
+    setCommitState('committing')
+    try {
+      const res = await commitPendingWords(githubToken, lang, topic, pending)
+      setCommitResult(res)
+      setCommitState('success')
+      setPending([])
+      localStorage.removeItem(storageKey)
+    } catch (e) {
+      setCommitError(e.message)
+      setCommitState('error')
+    }
+  }
+
   return (
     <div className="max-w-xl mx-auto px-4 py-6">
       <h2 className={`text-xl font-bold ${langMeta.accentClass} mb-1`}>
         🔍 Word Lookup
       </h2>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
-        Look up a word via Wiktionary and save it to your pending queue for import.
+        Look up a word via Wiktionary, save it to the pending queue, then commit to the repo.
       </p>
+
+      {/* Token setup */}
+      {showTokenSetup && (
+        <TokenSettings
+          token={githubToken}
+          onSave={saveToken}
+          onClose={() => setShowTokenSetup(false)}
+        />
+      )}
 
       {/* Search bar */}
       <div className="flex gap-2">
@@ -347,8 +564,7 @@ export default function LookupView({ lang, langMeta }) {
               ? 'Enter Cyrillic word, e.g. дом'
               : 'Enter word, e.g. maison'
           }
-          className="flex-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-opacity-50"
-          style={{ '--tw-ring-color': 'var(--accent)' }}
+          className="flex-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
           autoFocus
         />
         <button
@@ -384,11 +600,34 @@ export default function LookupView({ lang, langMeta }) {
       {/* Pending queue */}
       <PendingPanel
         pending={pending}
+        lang={lang}
+        langMeta={langMeta}
         onRemove={removePending}
         onExport={exportPending}
         onClear={clearPending}
-        langMeta={langMeta}
+        onCommit={handleCommitClick}
+        commitState={commitState}
+        commitTopic={commitTopic}
+        onTopicChange={setCommitTopic}
+        onCommitConfirm={handleCommitConfirm}
+        onCommitCancel={() => setCommitState('idle')}
+        commitResult={commitResult}
+        commitError={commitError}
+        hasToken={!!githubToken}
+        onSetupToken={() => setShowTokenSetup(true)}
       />
+
+      {/* Token management footer */}
+      {!showTokenSetup && (
+        <div className="mt-8 pt-4 border-t border-gray-100 dark:border-gray-800">
+          <button
+            onClick={() => setShowTokenSetup(true)}
+            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
+          >
+            {githubToken ? '🔑 Change GitHub token' : '🔑 Set up GitHub token'}
+          </button>
+        </div>
+      )}
     </div>
   )
 }
