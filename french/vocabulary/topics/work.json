@@ -1,0 +1,143 @@
+[
+  {
+    "id": "fr_work_001",
+    "word": "le poste",
+    "translation": "position / job post",
+    "pronunciation": "/pɔst/",
+    "example": "Elle a obtenu un nouveau poste dans la boîte.",
+    "example_translation": "She got a new position at the company.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_002",
+    "word": "l'entretien d'embauche",
+    "translation": "job interview",
+    "pronunciation": "/ɑ̃.tʁə.tjɛ̃ dɑ̃.boʃ/",
+    "example": "J'ai un entretien d'embauche demain matin.",
+    "example_translation": "I have a job interview tomorrow morning.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_003",
+    "word": "le congé",
+    "translation": "leave / vacation",
+    "pronunciation": "/kɔ̃.ʒe/",
+    "example": "Je prends un congé de deux semaines en août.",
+    "example_translation": "I'm taking two weeks of leave in August.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_004",
+    "word": "la réunion",
+    "translation": "meeting",
+    "pronunciation": "/ʁe.y.njɔ̃/",
+    "example": "La réunion commence à neuf heures.",
+    "example_translation": "The meeting starts at nine o'clock.",
+    "tags": ["work", "noun"],
+    "gender": "feminine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_005",
+    "word": "embaucher",
+    "translation": "to hire / to take on",
+    "pronunciation": "/ɑ̃.bo.ʃe/",
+    "example": "L'entreprise a embauché dix nouveaux employés.",
+    "example_translation": "The company hired ten new employees.",
+    "tags": ["work", "verb"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_006",
+    "word": "licencier",
+    "translation": "to lay off / to dismiss",
+    "pronunciation": "/li.sɑ̃.sje/",
+    "example": "Ils ont licencié plusieurs employés après la fusion.",
+    "example_translation": "They laid off several employees after the merger.",
+    "tags": ["work", "verb"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_007",
+    "word": "la charge de travail",
+    "translation": "workload",
+    "pronunciation": "/ʃaʁʒ də tʁa.vaj/",
+    "example": "Ma charge de travail est trop importante en ce moment.",
+    "example_translation": "My workload is too heavy right now.",
+    "tags": ["work", "noun"],
+    "gender": "feminine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_008",
+    "word": "le délai",
+    "translation": "deadline / time limit",
+    "pronunciation": "/de.lɛ/",
+    "example": "Nous devons respecter les délais imposés.",
+    "example_translation": "We must respect the imposed deadlines.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_009",
+    "word": "le télétravail",
+    "translation": "remote work / working from home",
+    "pronunciation": "/te.le.tʁa.vaj/",
+    "example": "Il fait du télétravail trois jours par semaine.",
+    "example_translation": "He works from home three days a week.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_010",
+    "word": "la promotion",
+    "translation": "promotion",
+    "pronunciation": "/pʁɔ.mɔ.sjɔ̃/",
+    "example": "Elle a eu une promotion après seulement un an.",
+    "example_translation": "She got a promotion after only one year.",
+    "tags": ["work", "noun"],
+    "gender": "feminine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_011",
+    "word": "le bilan",
+    "translation": "assessment / review / balance sheet",
+    "pronunciation": "/bi.lɑ̃/",
+    "example": "Nous ferons le bilan du projet vendredi.",
+    "example_translation": "We will do a review of the project on Friday.",
+    "tags": ["work", "noun"],
+    "gender": "masculine",
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_work_012",
+    "word": "collaborer",
+    "translation": "to collaborate",
+    "pronunciation": "/kɔ.la.bɔ.ʁe/",
+    "example": "Les deux équipes ont collaboré sur ce projet.",
+    "example_translation": "The two teams collaborated on this project.",
+    "tags": ["work", "verb"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]

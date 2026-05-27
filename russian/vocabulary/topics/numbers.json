@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ru_numbers_001",
+    "word": "один",
+    "translation": "one",
+    "pronunciation": "/ɐˈdʲin/",
+    "example": "У меня есть один брат.",
+    "example_translation": "I have one brother.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_002",
+    "word": "два",
+    "translation": "two",
+    "pronunciation": "/dva/",
+    "example": "Мне нужны два билета.",
+    "example_translation": "I need two tickets.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_003",
+    "word": "три",
+    "translation": "three",
+    "pronunciation": "/tri/",
+    "example": "У нас три кошки.",
+    "example_translation": "We have three cats.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_004",
+    "word": "четыре",
+    "translation": "four",
+    "pronunciation": "/tɕɪˈtɨrʲɪ/",
+    "example": "Четыре плюс один — пять.",
+    "example_translation": "Four plus one is five.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_005",
+    "word": "пять",
+    "translation": "five",
+    "pronunciation": "/pʲatʲ/",
+    "example": "Мне пять лет на этой работе.",
+    "example_translation": "I have been at this job for five years.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_006",
+    "word": "шесть",
+    "translation": "six",
+    "pronunciation": "/ʂɛsʲtʲ/",
+    "example": "Магазин работает до шести часов.",
+    "example_translation": "The shop works until six o'clock.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_007",
+    "word": "семь",
+    "translation": "seven",
+    "pronunciation": "/sʲemʲ/",
+    "example": "В неделе семь дней.",
+    "example_translation": "There are seven days in a week.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_008",
+    "word": "восемь",
+    "translation": "eight",
+    "pronunciation": "/ˈvosʲɪmʲ/",
+    "example": "Я работаю восемь часов в день.",
+    "example_translation": "I work eight hours a day.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_009",
+    "word": "девять",
+    "translation": "nine",
+    "pronunciation": "/ˈdʲevʲɪtʲ/",
+    "example": "Девять минус три — шесть.",
+    "example_translation": "Nine minus three is six.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_010",
+    "word": "десять",
+    "translation": "ten",
+    "pronunciation": "/ˈdʲesʲɪtʲ/",
+    "example": "Дайте мне десять минут.",
+    "example_translation": "Give me ten minutes.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_011",
+    "word": "сто",
+    "translation": "one hundred",
+    "pronunciation": "/sto/",
+    "example": "Это стоит сто рублей.",
+    "example_translation": "That costs one hundred rubles.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_numbers_012",
+    "word": "тысяча",
+    "translation": "one thousand",
+    "pronunciation": "/ˈtɨsʲɪtɕə/",
+    "example": "В городе живёт тысяча человек.",
+    "example_translation": "A thousand people live in the town.",
+    "tags": ["numbers"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ru_food_001",
+    "word": "хлеб",
+    "translation": "bread",
+    "pronunciation": "/xlʲep/",
+    "example": "Я купил свежий хлеб в магазине.",
+    "example_translation": "I bought fresh bread at the shop.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_002",
+    "word": "вода",
+    "translation": "water",
+    "pronunciation": "/vɐˈda/",
+    "example": "Дайте мне стакан воды, пожалуйста.",
+    "example_translation": "Give me a glass of water, please.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_003",
+    "word": "молоко",
+    "translation": "milk",
+    "pronunciation": "/məlɐˈko/",
+    "example": "Я пью молоко каждое утро.",
+    "example_translation": "I drink milk every morning.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_004",
+    "word": "яйцо",
+    "translation": "egg",
+    "pronunciation": "/jɪjˈt͡so/",
+    "example": "На завтрак я ем яйца.",
+    "example_translation": "I eat eggs for breakfast.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_005",
+    "word": "мясо",
+    "translation": "meat",
+    "pronunciation": "/ˈmʲæsə/",
+    "example": "Он не ест мясо.",
+    "example_translation": "He does not eat meat.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_006",
+    "word": "курица",
+    "translation": "chicken",
+    "pronunciation": "/ˈkurʲɪt͡sə/",
+    "example": "На ужин у нас курица с картошкой.",
+    "example_translation": "We are having chicken with potatoes for dinner.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_007",
+    "word": "рыба",
+    "translation": "fish",
+    "pronunciation": "/ˈrɨbə/",
+    "example": "Эта рыба очень вкусная.",
+    "example_translation": "This fish is very tasty.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_008",
+    "word": "суп",
+    "translation": "soup",
+    "pronunciation": "/sup/",
+    "example": "Мама варит суп.",
+    "example_translation": "Mum is making soup.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_009",
+    "word": "каша",
+    "translation": "porridge / kasha",
+    "pronunciation": "/ˈkaʂə/",
+    "example": "Утром я ем гречневую кашу.",
+    "example_translation": "In the morning I eat buckwheat porridge.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_010",
+    "word": "салат",
+    "translation": "salad",
+    "pronunciation": "/sɐˈlat/",
+    "example": "Этот салат с помидорами очень вкусный.",
+    "example_translation": "This tomato salad is very tasty.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_011",
+    "word": "чай",
+    "translation": "tea",
+    "pronunciation": "/t͡ɕaj/",
+    "example": "Хочешь чашку чая?",
+    "example_translation": "Would you like a cup of tea?",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_012",
+    "word": "кофе",
+    "translation": "coffee",
+    "pronunciation": "/ˈkofʲɪ/",
+    "example": "Он пьёт кофе без сахара.",
+    "example_translation": "He drinks coffee without sugar.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_013",
+    "word": "борщ",
+    "translation": "borscht (beetroot soup)",
+    "pronunciation": "/borɕt͡ɕ/",
+    "example": "Борщ — традиционное украинское блюдо.",
+    "example_translation": "Borscht is a traditional Ukrainian dish.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_014",
+    "word": "блины",
+    "translation": "blini / pancakes",
+    "pronunciation": "/blʲɪˈnɨ/",
+    "example": "На Масленицу едят блины.",
+    "example_translation": "Blini are eaten during Maslenitsa.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_food_015",
+    "word": "пельмени",
+    "translation": "pelmeni (dumplings)",
+    "pronunciation": "/pʲɪlʲˈmʲenʲɪ/",
+    "example": "Пельмени — моё любимое блюдо.",
+    "example_translation": "Pelmeni is my favourite dish.",
+    "tags": ["food", "noun"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]

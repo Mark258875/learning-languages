@@ -1,0 +1,167 @@
+[
+  {
+    "id": "fr_adjectives_001",
+    "word": "époustouflant(e)",
+    "translation": "stunning / breathtaking",
+    "pronunciation": "/e.pus.tu.flɑ̃/",
+    "example": "La vue depuis le sommet est époustouflante.",
+    "example_translation": "The view from the top is breathtaking.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_002",
+    "word": "déconcertant(e)",
+    "translation": "disconcerting / baffling",
+    "pronunciation": "/de.kɔ̃.sɛʁ.tɑ̃/",
+    "example": "Son comportement est vraiment déconcertant.",
+    "example_translation": "His behaviour is truly baffling.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_003",
+    "word": "pertinent(e)",
+    "translation": "relevant / pertinent",
+    "pronunciation": "/pɛʁ.ti.nɑ̃/",
+    "example": "C'est une remarque tout à fait pertinente.",
+    "example_translation": "That is a very pertinent remark.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_004",
+    "word": "douteux/douteuse",
+    "translation": "dubious / questionable",
+    "pronunciation": "/du.tø/",
+    "example": "Cette affaire a des origines douteuses.",
+    "example_translation": "This business has dubious origins.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_005",
+    "word": "insolite",
+    "translation": "unusual / strange",
+    "pronunciation": "/ɛ̃.sɔ.lit/",
+    "example": "Nous avons fait une expérience insolite.",
+    "example_translation": "We had an unusual experience.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_006",
+    "word": "pénible",
+    "translation": "painful / tedious / tiresome",
+    "pronunciation": "/pe.nibl/",
+    "example": "Cette situation est vraiment pénible.",
+    "example_translation": "This situation is truly tiresome.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_007",
+    "word": "éloquent(e)",
+    "translation": "eloquent",
+    "pronunciation": "/e.lɔ.kɑ̃/",
+    "example": "Il a fait un discours très éloquent.",
+    "example_translation": "He gave a very eloquent speech.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_008",
+    "word": "anodin(e)",
+    "translation": "harmless / trivial / bland",
+    "pronunciation": "/a.nɔ.dɛ̃/",
+    "example": "C'est une remarque anodine, ne t'en fais pas.",
+    "example_translation": "It's a trivial remark, don't worry about it.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_009",
+    "word": "bienveillant(e)",
+    "translation": "benevolent / kind-hearted",
+    "pronunciation": "/bjɛ̃.vɛ.jɑ̃/",
+    "example": "Son professeur était très bienveillant envers lui.",
+    "example_translation": "His teacher was very kind-hearted towards him.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_010",
+    "word": "accablant(e)",
+    "translation": "overwhelming / crushing",
+    "pronunciation": "/a.ka.blɑ̃/",
+    "example": "La chaleur était accablante cet été.",
+    "example_translation": "The heat was overwhelming this summer.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_011",
+    "word": "aguerri(e)",
+    "translation": "hardened / seasoned / experienced",
+    "pronunciation": "/a.ɡɛ.ʁi/",
+    "example": "C'est un négociateur aguerri.",
+    "example_translation": "He is a seasoned negotiator.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_012",
+    "word": "imprévu(e)",
+    "translation": "unexpected / unforeseen",
+    "pronunciation": "/ɛ̃.pʁe.vy/",
+    "example": "Un événement imprévu a retardé notre départ.",
+    "example_translation": "An unforeseen event delayed our departure.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_013",
+    "word": "saisissant(e)",
+    "translation": "striking / gripping",
+    "pronunciation": "/sɛ.zi.sɑ̃/",
+    "example": "Il y a une ressemblance saisissante entre eux.",
+    "example_translation": "There is a striking resemblance between them.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_014",
+    "word": "méfiant(e)",
+    "translation": "suspicious / wary",
+    "pronunciation": "/me.fjɑ̃/",
+    "example": "Il est très méfiant envers les inconnus.",
+    "example_translation": "He is very wary of strangers.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_adjectives_015",
+    "word": "lucide",
+    "translation": "lucid / clear-headed",
+    "pronunciation": "/ly.sid/",
+    "example": "Il faut être lucide sur la situation.",
+    "example_translation": "We need to be clear-headed about the situation.",
+    "tags": ["adjectives"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]

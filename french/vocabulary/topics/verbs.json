@@ -1,0 +1,222 @@
+[
+  {
+    "id": "fr_verbs_001",
+    "word": "s'épanouir",
+    "translation": "to flourish / to blossom",
+    "pronunciation": "/se.pa.nwiʁ/",
+    "example": "Elle s'épanouit dans son nouveau travail.",
+    "example_translation": "She is flourishing in her new job.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_002",
+    "word": "se méfier (de)",
+    "translation": "to be wary of / to distrust",
+    "pronunciation": "/sə me.fje/",
+    "example": "Méfie-toi des offres trop belles pour être vraies.",
+    "example_translation": "Be wary of offers that are too good to be true.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_003",
+    "word": "parvenir à",
+    "translation": "to manage to / to succeed in",
+    "pronunciation": "/paʁ.və.niʁ/",
+    "example": "Il est parvenu à terminer le projet à temps.",
+    "example_translation": "He managed to finish the project on time.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_004",
+    "word": "prétendre",
+    "translation": "to claim / to pretend",
+    "pronunciation": "/pʁe.tɑ̃dʁ/",
+    "example": "Il prétend tout savoir sur le sujet.",
+    "example_translation": "He claims to know everything about the subject.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_005",
+    "word": "se rendre compte (de)",
+    "translation": "to realize / to become aware of",
+    "pronunciation": "/sə ʁɑ̃dʁ kɔ̃t/",
+    "example": "Je me suis rendu compte de mon erreur trop tard.",
+    "example_translation": "I realized my mistake too late.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_006",
+    "word": "envisager",
+    "translation": "to consider / to envision",
+    "pronunciation": "/ɑ̃.vi.za.ʒe/",
+    "example": "J'envisage de déménager en France l'année prochaine.",
+    "example_translation": "I am considering moving to France next year.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_007",
+    "word": "soutenir",
+    "translation": "to support / to maintain",
+    "pronunciation": "/su.tə.niʁ/",
+    "example": "Ses amis l'ont soutenu dans cette épreuve.",
+    "example_translation": "His friends supported him through this ordeal.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_008",
+    "word": "s'y prendre",
+    "translation": "to go about (doing something)",
+    "pronunciation": "/si pʁɑ̃dʁ/",
+    "example": "Comment est-ce qu'il faut s'y prendre ?",
+    "example_translation": "How should one go about it?",
+    "tags": ["verbs", "reflexive", "idiomatic"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_009",
+    "word": "se plaindre",
+    "translation": "to complain",
+    "pronunciation": "/sə plɛ̃dʁ/",
+    "example": "Il se plaint tout le temps du mauvais temps.",
+    "example_translation": "He complains all the time about the bad weather.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_010",
+    "word": "aboutir à",
+    "translation": "to lead to / to result in",
+    "pronunciation": "/a.bu.tiʁ/",
+    "example": "Les négociations ont abouti à un accord.",
+    "example_translation": "The negotiations resulted in an agreement.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_011",
+    "word": "s'attendre à",
+    "translation": "to expect",
+    "pronunciation": "/sa.tɑ̃dʁ/",
+    "example": "Je ne m'attendais pas à ce résultat.",
+    "example_translation": "I wasn't expecting this result.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_012",
+    "word": "reprendre",
+    "translation": "to resume / to take back / to correct",
+    "pronunciation": "/ʁə.pʁɑ̃dʁ/",
+    "example": "Le professeur l'a repris sur sa prononciation.",
+    "example_translation": "The teacher corrected him on his pronunciation.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_013",
+    "word": "faire preuve de",
+    "translation": "to show / to demonstrate (a quality)",
+    "pronunciation": "/fɛʁ pʁøv də/",
+    "example": "Elle a fait preuve de beaucoup de courage.",
+    "example_translation": "She showed a lot of courage.",
+    "tags": ["verbs", "idiomatic"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_014",
+    "word": "tenir compte de",
+    "translation": "to take into account",
+    "pronunciation": "/tə.niʁ kɔ̃t də/",
+    "example": "Il faut tenir compte des contraintes budgétaires.",
+    "example_translation": "We must take budget constraints into account.",
+    "tags": ["verbs", "idiomatic"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_015",
+    "word": "se douter (de)",
+    "translation": "to suspect / to have an inkling",
+    "pronunciation": "/sə du.te/",
+    "example": "Je me doutais que quelque chose n'allait pas.",
+    "example_translation": "I suspected that something was wrong.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_016",
+    "word": "se souvenir de",
+    "translation": "to remember",
+    "pronunciation": "/sə su.və.niʁ/",
+    "example": "Tu te souviens de notre premier voyage ?",
+    "example_translation": "Do you remember our first trip?",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_017",
+    "word": "oser",
+    "translation": "to dare",
+    "pronunciation": "/o.ze/",
+    "example": "Il n'ose pas lui dire la vérité.",
+    "example_translation": "He doesn't dare tell her the truth.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_018",
+    "word": "franchir",
+    "translation": "to cross / to overcome (an obstacle)",
+    "pronunciation": "/fʁɑ̃.ʃiʁ/",
+    "example": "Ils ont franchi une nouvelle étape dans leur relation.",
+    "example_translation": "They crossed a new milestone in their relationship.",
+    "tags": ["verbs"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_019",
+    "word": "se taire",
+    "translation": "to be quiet / to shut up",
+    "pronunciation": "/sə tɛʁ/",
+    "example": "Tais-toi ! Tu fais trop de bruit.",
+    "example_translation": "Be quiet! You're making too much noise.",
+    "tags": ["verbs", "reflexive"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_020",
+    "word": "mettre en valeur",
+    "translation": "to highlight / to enhance / to showcase",
+    "pronunciation": "/mɛtʁ ɑ̃ va.lœʁ/",
+    "example": "Cette robe met ta silhouette en valeur.",
+    "example_translation": "This dress showcases your figure.",
+    "tags": ["verbs", "idiomatic"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]

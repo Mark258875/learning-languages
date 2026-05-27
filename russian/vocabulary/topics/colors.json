@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ru_colors_001",
+    "word": "красный",
+    "translation": "red",
+    "pronunciation": "/ˈkrasnɨj/",
+    "example": "Он купил красную машину.",
+    "example_translation": "He bought a red car.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_002",
+    "word": "синий",
+    "translation": "blue (dark/navy)",
+    "pronunciation": "/ˈsʲinʲɪj/",
+    "example": "Небо синее.",
+    "example_translation": "The sky is blue.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_003",
+    "word": "голубой",
+    "translation": "light blue",
+    "pronunciation": "/ɡəlʊˈboj/",
+    "example": "У неё голубые глаза.",
+    "example_translation": "She has light blue eyes.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_004",
+    "word": "зелёный",
+    "translation": "green",
+    "pronunciation": "/zʲɪˈlʲɵnɨj/",
+    "example": "Трава зелёная весной.",
+    "example_translation": "The grass is green in spring.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_005",
+    "word": "жёлтый",
+    "translation": "yellow",
+    "pronunciation": "/ˈʐɵltɨj/",
+    "example": "Солнце жёлтое.",
+    "example_translation": "The sun is yellow.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_006",
+    "word": "белый",
+    "translation": "white",
+    "pronunciation": "/ˈbʲelɨj/",
+    "example": "Снег белый.",
+    "example_translation": "Snow is white.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_007",
+    "word": "чёрный",
+    "translation": "black",
+    "pronunciation": "/ˈtɕɵrnɨj/",
+    "example": "Его пальто чёрного цвета.",
+    "example_translation": "His coat is black.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_008",
+    "word": "оранжевый",
+    "translation": "orange",
+    "pronunciation": "/ɐˈranʐɨvɨj/",
+    "example": "Тыква оранжевая.",
+    "example_translation": "The pumpkin is orange.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_009",
+    "word": "фиолетовый",
+    "translation": "purple / violet",
+    "pronunciation": "/fʲɪɐˈlʲetɨvɨj/",
+    "example": "Она надела фиолетовое платье.",
+    "example_translation": "She put on a purple dress.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_010",
+    "word": "розовый",
+    "translation": "pink",
+    "pronunciation": "/ˈrozɨvɨj/",
+    "example": "Цветок розового цвета.",
+    "example_translation": "The flower is pink.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_011",
+    "word": "серый",
+    "translation": "grey",
+    "pronunciation": "/ˈsʲerɨj/",
+    "example": "На улице серое небо.",
+    "example_translation": "There is a grey sky outside.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "ru_colors_012",
+    "word": "коричневый",
+    "translation": "brown",
+    "pronunciation": "/kɐˈrʲitɕnʲɪvɨj/",
+    "example": "У него коричневые волосы.",
+    "example_translation": "He has brown hair.",
+    "tags": ["colors", "adjective"],
+    "source": "wiktionary",
+    "verified": true
+  }
+]
