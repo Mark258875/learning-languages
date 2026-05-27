@@ -21,5 +21,17 @@
     "word": "grand",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_003",
+    "translation": "breast (the chest)",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "sein",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
