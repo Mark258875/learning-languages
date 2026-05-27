@@ -33,5 +33,19 @@
     "word": "sein",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_004",
+    "translation": "to find; to retrieve something lost, turn up something hidden, or encounter something previously unknown to one",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "example": "Quand est-ce qu'elle a '''trouvé''' les clés ?",
+    "example_translation": "",
+    "word": "trouver",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
