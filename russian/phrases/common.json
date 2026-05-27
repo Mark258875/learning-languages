@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ru_ph_001",
+    "phrase": "Как вас зовут?",
+    "pronunciation": "Kak vas zavut?",
+    "translation": "What is your name? (formal)",
+    "context": "Formal introduction",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "ru_ph_002",
+    "phrase": "Меня зовут...",
+    "pronunciation": "Menya zavut...",
+    "translation": "My name is...",
+    "context": "Introducing yourself",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "ru_ph_003",
+    "phrase": "Откуда вы?",
+    "pronunciation": "Otkuda vy?",
+    "translation": "Where are you from? (formal)",
+    "context": "Getting to know someone",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "ru_ph_004",
+    "phrase": "Я из Словакии.",
+    "pronunciation": "Ya iz Slovakii.",
+    "translation": "I am from Slovakia.",
+    "context": "Stating your origin",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "ru_ph_005",
+    "phrase": "Вы говорите по-английски?",
+    "pronunciation": "Vy govorite po-angliyski?",
+    "translation": "Do you speak English? (formal)",
+    "context": "Asking about languages",
+    "tags": ["useful"]
+  },
+  {
+    "id": "ru_ph_006",
+    "phrase": "Я не понимаю.",
+    "pronunciation": "Ya ne ponimayu.",
+    "translation": "I don't understand.",
+    "context": "When you're lost",
+    "tags": ["useful"]
+  },
+  {
+    "id": "ru_ph_007",
+    "phrase": "Повторите, пожалуйста.",
+    "pronunciation": "Povtorite, pozhaluysta.",
+    "translation": "Please repeat that.",
+    "context": "Asking for clarification",
+    "tags": ["useful"]
+  },
+  {
+    "id": "ru_ph_008",
+    "phrase": "Сколько это стоит?",
+    "pronunciation": "Skol'ko eto stoit?",
+    "translation": "How much does this cost?",
+    "context": "Shopping",
+    "tags": ["shopping"]
+  },
+  {
+    "id": "ru_ph_009",
+    "phrase": "Где находится...?",
+    "pronunciation": "Gde nakhoditsya...?",
+    "translation": "Where is...?",
+    "context": "Asking for directions",
+    "tags": ["navigation"]
+  },
+  {
+    "id": "ru_ph_010",
+    "phrase": "Мне нравится русский язык.",
+    "pronunciation": "Mne nravitsya russkiy yazyk.",
+    "translation": "I like the Russian language.",
+    "context": "Expressing interest",
+    "tags": ["useful"]
+  },
+  {
+    "id": "ru_ph_011",
+    "phrase": "Можно меню, пожалуйста?",
+    "pronunciation": "Mozhno menyu, pozhaluysta?",
+    "translation": "Can I have the menu, please?",
+    "context": "In a restaurant",
+    "tags": ["food"]
+  },
+  {
+    "id": "ru_ph_012",
+    "phrase": "Я учу русский язык.",
+    "pronunciation": "Ya uchu russkiy yazyk.",
+    "translation": "I am learning Russian.",
+    "context": "Talking about yourself",
+    "tags": ["useful"]
+  }
+]

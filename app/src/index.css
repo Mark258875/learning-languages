@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Enable class-based dark mode (toggled via JS on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 :root {
   --color-fr: #2563eb;

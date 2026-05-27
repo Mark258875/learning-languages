@@ -1,0 +1,110 @@
+[
+  {
+    "id": "zh_ph_001",
+    "simplified": "你叫什么名字？",
+    "traditional": "你叫什麼名字？",
+    "pinyin": "Nǐ jiào shénme míngzì?",
+    "translation": "What is your name?",
+    "context": "Asking someone's name",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "zh_ph_002",
+    "simplified": "我叫...",
+    "traditional": "我叫...",
+    "pinyin": "Wǒ jiào...",
+    "translation": "My name is...",
+    "context": "Introducing yourself",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "zh_ph_003",
+    "simplified": "你是哪国人？",
+    "traditional": "你是哪國人？",
+    "pinyin": "Nǐ shì nǎ guó rén?",
+    "translation": "Which country are you from?",
+    "context": "Getting to know someone",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "zh_ph_004",
+    "simplified": "我是斯洛伐克人。",
+    "traditional": "我是斯洛伐克人。",
+    "pinyin": "Wǒ shì Sīluòfákè rén.",
+    "translation": "I am Slovak.",
+    "context": "Stating your nationality",
+    "tags": ["greetings"]
+  },
+  {
+    "id": "zh_ph_005",
+    "simplified": "你会说英语吗？",
+    "traditional": "你會說英語嗎？",
+    "pinyin": "Nǐ huì shuō Yīngyǔ ma?",
+    "translation": "Can you speak English?",
+    "context": "Asking about languages",
+    "tags": ["useful"]
+  },
+  {
+    "id": "zh_ph_006",
+    "simplified": "我听不懂。",
+    "traditional": "我聽不懂。",
+    "pinyin": "Wǒ tīng bù dǒng.",
+    "translation": "I don't understand.",
+    "context": "When you're lost",
+    "tags": ["useful"]
+  },
+  {
+    "id": "zh_ph_007",
+    "simplified": "请再说一遍。",
+    "traditional": "請再說一遍。",
+    "pinyin": "Qǐng zài shuō yī biàn.",
+    "translation": "Please say it again.",
+    "context": "Asking for clarification",
+    "tags": ["useful"]
+  },
+  {
+    "id": "zh_ph_008",
+    "simplified": "这个多少钱？",
+    "traditional": "這個多少錢？",
+    "pinyin": "Zhège duōshǎo qián?",
+    "translation": "How much is this?",
+    "context": "Shopping",
+    "tags": ["shopping"]
+  },
+  {
+    "id": "zh_ph_009",
+    "simplified": "洗手间在哪里？",
+    "traditional": "洗手間在哪裡？",
+    "pinyin": "Xǐshǒujiān zài nǎlǐ?",
+    "translation": "Where is the bathroom?",
+    "context": "Asking for directions",
+    "tags": ["navigation"]
+  },
+  {
+    "id": "zh_ph_010",
+    "simplified": "我在学习中文。",
+    "traditional": "我在學習中文。",
+    "pinyin": "Wǒ zài xuéxí Zhōngwén.",
+    "translation": "I am learning Chinese.",
+    "context": "Talking about yourself",
+    "tags": ["useful"]
+  },
+  {
+    "id": "zh_ph_011",
+    "simplified": "可以给我菜单吗？",
+    "traditional": "可以給我菜單嗎？",
+    "pinyin": "Kěyǐ gěi wǒ càidān ma?",
+    "translation": "Can I have the menu?",
+    "context": "In a restaurant",
+    "tags": ["food"]
+  },
+  {
+    "id": "zh_ph_012",
+    "simplified": "慢慢说，谢谢。",
+    "traditional": "慢慢說，謝謝。",
+    "pinyin": "Màn màn shuō, xièxiè.",
+    "translation": "Please speak slowly, thank you.",
+    "context": "Asking someone to speak slower",
+    "tags": ["useful"]
+  }
+]
