@@ -47,5 +47,16 @@
     "word": "trouver",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_005",
+    "translation": "each",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "chaque",
+    "pronunciation": ""
   }
 ]
