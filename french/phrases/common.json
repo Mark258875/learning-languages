@@ -1,0 +1,14 @@
+[
+  { "id": "fr_phrase_001", "phrase": "Comment vous appelez-vous?", "pronunciation": "/kɔmɑ̃ vu zaple vu/", "translation": "What is your name? (formal)", "context": "Meeting someone formally", "tags": ["introductions"] },
+  { "id": "fr_phrase_002", "phrase": "Comment tu t'appelles?", "pronunciation": "/kɔmɑ̃ ty tapɛl/", "translation": "What is your name? (informal)", "context": "Meeting a peer", "tags": ["introductions"] },
+  { "id": "fr_phrase_003", "phrase": "Je m'appelle…", "pronunciation": "/ʒə mapɛl/", "translation": "My name is…", "context": "Introducing yourself", "tags": ["introductions"] },
+  { "id": "fr_phrase_004", "phrase": "Comment allez-vous?", "pronunciation": "/kɔmɑ̃ ale vu/", "translation": "How are you? (formal)", "context": "Formal greeting", "tags": ["greetings"] },
+  { "id": "fr_phrase_005", "phrase": "Ça va?", "pronunciation": "/sa va/", "translation": "How are you? / How's it going? (informal)", "context": "Casual greeting", "tags": ["greetings"] },
+  { "id": "fr_phrase_006", "phrase": "Ça va bien, merci.", "pronunciation": "/sa va bjɛ̃ mɛʁsi/", "translation": "I'm fine, thank you.", "context": "Responding to 'ça va'", "tags": ["greetings"] },
+  { "id": "fr_phrase_007", "phrase": "Je ne comprends pas.", "pronunciation": "/ʒə nə kɔ̃pʁɑ̃ pa/", "translation": "I don't understand.", "context": "When you don't understand something", "tags": ["communication"] },
+  { "id": "fr_phrase_008", "phrase": "Pouvez-vous répéter, s'il vous plaît?", "pronunciation": "/puve vu ʁepete sil vu plɛ/", "translation": "Could you repeat that, please?", "context": "Asking someone to repeat", "tags": ["communication"] },
+  { "id": "fr_phrase_009", "phrase": "Parlez-vous anglais?", "pronunciation": "/paʁle vu ɑ̃glɛ/", "translation": "Do you speak English?", "context": "Asking about language ability", "tags": ["communication"] },
+  { "id": "fr_phrase_010", "phrase": "Où est…?", "pronunciation": "/u ɛ/", "translation": "Where is…?", "context": "Asking for directions", "tags": ["directions"] },
+  { "id": "fr_phrase_011", "phrase": "Combien ça coûte?", "pronunciation": "/kɔ̃bjɛ̃ sa kut/", "translation": "How much does it cost?", "context": "Shopping", "tags": ["shopping"] },
+  { "id": "fr_phrase_012", "phrase": "L'addition, s'il vous plaît.", "pronunciation": "/ladisjɔ̃ sil vu plɛ/", "translation": "The bill, please.", "context": "At a restaurant", "tags": ["restaurant"] }
+]

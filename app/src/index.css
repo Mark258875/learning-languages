@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+
+:root {
+  --color-fr: #2563eb;
+  --color-ru: #dc2626;
+  --color-zh: #d97706;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Flashcard flip animation */
+.flip-card { perspective: 1000px; }
+.flip-card-inner {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-card-inner.flipped { transform: rotateY(180deg); }
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-back { transform: rotateY(180deg); }
