@@ -9,5 +9,17 @@
     "verified": false,
     "word": "maintenant",
     "pronunciation": ""
+  },
+  {
+    "id": "fr_other_002",
+    "translation": "big",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "grand",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
