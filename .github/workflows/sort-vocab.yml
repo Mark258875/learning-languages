@@ -54,8 +54,16 @@ jobs:
       - name: Sort other.json
         if: steps.detect.outputs.lang != ''
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GH_MODELS_TOKEN must be a GitHub PAT stored in repo Settings → Secrets → Actions.
+          # The auto-generated GITHUB_TOKEN is NOT accepted by the GitHub Models API (401).
+          # Create one at: https://github.com/settings/tokens (no extra scopes needed for free tier).
+          GITHUB_TOKEN: ${{ secrets.GH_MODELS_TOKEN }}
         run: |
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "::error::GH_MODELS_TOKEN secret is not set. Go to Settings → Secrets → Actions and add it."
+            echo "::error::Create a PAT at https://github.com/settings/tokens (no extra scopes needed)"
+            exit 1
+          fi
           python scripts/sort_other.py --lang ${{ steps.detect.outputs.lang }}
 
       - name: Commit sorted words

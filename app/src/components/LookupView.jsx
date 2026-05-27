@@ -181,6 +181,7 @@ function PendingPanel({
   onExport,
   onClear,
   onCommit,
+  onCommitToInbox,
   commitState,   // 'idle' | 'selectTopic' | 'committing' | 'success' | 'error'
   commitTopic,
   onTopicChange,
@@ -340,12 +341,21 @@ function PendingPanel({
                 </div>
               )}
               {hasToken ? (
-                <button
-                  onClick={onCommit}
-                  className={`w-full py-2 rounded-xl text-sm font-medium text-white ${langMeta.bgClass} hover:opacity-90 transition-all`}
-                >
-                  💾 Commit to GitHub
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={onCommit}
+                    className={`flex-1 py-2 rounded-xl text-sm font-medium text-white ${langMeta.bgClass} hover:opacity-90 transition-all`}
+                  >
+                    💾 Commit to GitHub
+                  </button>
+                  <button
+                    onClick={onCommitToInbox}
+                    title="Commit directly to 'other' inbox — auto-sorted by GitHub Actions"
+                    className="px-3 py-2 rounded-xl text-sm border border-dashed border-gray-300 dark:border-gray-500 text-gray-500 dark:text-gray-400 hover:border-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-all"
+                  >
+                    📥
+                  </button>
+                </div>
               ) : (
                 <button
                   onClick={onSetupToken}
@@ -543,6 +553,23 @@ export default function LookupView({ lang, langMeta }) {
     }
   }
 
+  // Skip topic selector — commit directly to the "other" inbox for auto-sorting
+  const handleCommitToInbox = async () => {
+    setCommitTopic('other')
+    setCommitState('committing')
+    setCommitError(null)
+    try {
+      const res = await commitPendingWords(githubToken, lang, 'other', pending)
+      setCommitResult(res)
+      setCommitState('success')
+      setPending([])
+      localStorage.removeItem(storageKey)
+    } catch (e) {
+      setCommitError(e.message)
+      setCommitState('error')
+    }
+  }
+
   return (
     <div className="max-w-xl mx-auto px-4 py-6">
       <h2 className={`text-xl font-bold ${langMeta.accentClass} mb-1`}>
@@ -617,6 +644,7 @@ export default function LookupView({ lang, langMeta }) {
         onExport={exportPending}
         onClear={clearPending}
         onCommit={handleCommitClick}
+        onCommitToInbox={handleCommitToInbox}
         commitState={commitState}
         commitTopic={commitTopic}
         onTopicChange={setCommitTopic}
