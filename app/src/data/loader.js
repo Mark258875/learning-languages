@@ -8,31 +8,31 @@
 // --- Vocabulary ---
 
 const frenchFiles = import.meta.glob(
-  '../../french/vocabulary/topics/*.json', { eager: true }
+  '../../../french/vocabulary/topics/*.json', { eager: true }
 )
 const russianFiles = import.meta.glob(
-  '../../russian/vocabulary/topics/*.json', { eager: true }
+  '../../../russian/vocabulary/topics/*.json', { eager: true }
 )
 const chineseFiles = import.meta.glob(
-  '../../chinese/vocabulary/topics/*.json', { eager: true }
+  '../../../chinese/vocabulary/topics/*.json', { eager: true }
 )
 
 const frenchPhrases = import.meta.glob(
-  '../../french/phrases/*.json', { eager: true }
+  '../../../french/phrases/*.json', { eager: true }
 )
 const russianPhrases = import.meta.glob(
-  '../../russian/phrases/*.json', { eager: true }
+  '../../../russian/phrases/*.json', { eager: true }
 )
 const chinesePhrases = import.meta.glob(
-  '../../chinese/phrases/*.json', { eager: true }
+  '../../../chinese/phrases/*.json', { eager: true }
 )
 
 // Alphabet data
 const azbukaData = import.meta.glob(
-  '../../russian/theory/azbuka.json', { eager: true }
+  '../../../russian/theory/azbuka.json', { eager: true }
 )
 const pinyinTheory = import.meta.glob(
-  '../../chinese/theory/pinyin.json', { eager: true }
+  '../../../chinese/theory/pinyin.json', { eager: true }
 )
 
 function flattenGlob(globResult) {
@@ -74,13 +74,13 @@ export const AZBUKA = flattenGlob(azbukaData)
 // --- Theory markdown (raw strings) ---
 
 const frenchTheory = import.meta.glob(
-  '../../french/theory/*.md', { eager: true, query: '?raw', import: 'default' }
+  '../../../french/theory/*.md', { eager: true, query: '?raw', import: 'default' }
 )
 const russianTheory = import.meta.glob(
-  '../../russian/theory/*.md', { eager: true, query: '?raw', import: 'default' }
+  '../../../russian/theory/*.md', { eager: true, query: '?raw', import: 'default' }
 )
 const chineseTheory = import.meta.glob(
-  '../../chinese/theory/*.md', { eager: true, query: '?raw', import: 'default' }
+  '../../../chinese/theory/*.md', { eager: true, query: '?raw', import: 'default' }
 )
 
 function theoryFromGlob(globResult) {
