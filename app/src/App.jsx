@@ -6,6 +6,7 @@ import TheoryView from './components/TheoryView.jsx'
 import AlphabetGrid from './components/AlphabetGrid.jsx'
 import Quiz from './components/Quiz.jsx'
 import PhrasesView from './components/PhrasesView.jsx'
+import LookupView from './components/LookupView.jsx'
 import { VOCAB, getLang } from './data/loader.js'
 
 export default function App() {
@@ -33,7 +34,9 @@ export default function App() {
 
   function handleModeChange(mode) {
     setActiveMode(mode)
-    setActiveSection(mode === 'vocabulary' ? 'all' : Object.keys(VOCAB[activeLang]?.topics ?? {})[0] ?? 'grammar')
+    if (mode !== 'lookup') {
+      setActiveSection(mode === 'vocabulary' ? 'all' : Object.keys(VOCAB[activeLang]?.topics ?? {})[0] ?? 'grammar')
+    }
     setSubMode('due')
     setSidebarOpen(false)
   }
@@ -127,6 +130,10 @@ export default function App() {
 
           {activeMode === 'phrases' && (
             <PhrasesView phrases={phrases} lang={activeLang} />
+          )}
+
+          {activeMode === 'lookup' && (
+            <LookupView lang={activeLang} langMeta={langMeta} />
           )}
         </main>
       </div>

@@ -24,6 +24,29 @@ CHINESE_VOCAB_DIR = REPO_ROOT / "chinese" / "vocabulary" / "topics"
 CEDICT_CACHE = Path(__file__).parent / ".cedict_cache.txt"
 CEDICT_URL = "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz"
 
+ARTICLE_RE = re.compile(r"^(le |la |les |l'|l\u2019|un |une |des )", re.IGNORECASE)
+
+
+def normalize_key(word: str) -> str:
+    w = word.lower().strip()
+    w = ARTICLE_RE.sub("", w)
+    return w.strip()
+
+
+def load_index() -> dict:
+    path = REPO_ROOT / "chinese" / "words_index.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {}
+
+
+def update_index(index: dict, word: str, topic: str, word_id: str):
+    key = normalize_key(word)
+    if key:
+        index[key] = f"{topic}:{word_id}"
+    path = REPO_ROOT / "chinese" / "words_index.json"
+    path.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+
 
 def download_cedict():
     """Download and cache CC-CEDICT dictionary."""
@@ -164,6 +187,7 @@ def main():
     topic_file = CHINESE_VOCAB_DIR / f"{args.topic}.json"
     existing_cards = load_topic_file(topic_file)
     existing_words = {card["simplified"] for card in existing_cards}
+    index = load_index()
     start_index = len(existing_cards) + 1
 
     print(f"\n📖 Loading CC-CEDICT...")
@@ -177,6 +201,10 @@ def main():
     for i, word in enumerate(words):
         if word in existing_words:
             print(f"  ⏭️  '{word}' already exists, skipping")
+            continue
+
+        if normalize_key(word) in index:
+            print(f"  ⏭️  '{word}' already in index, skipping")
             continue
 
         entry = lookup_word(cedict, word)
@@ -199,6 +227,7 @@ def main():
                 card["alt_definitions"] = entry["definitions"][1:3]
 
             new_cards.append(card)
+            update_index(index, entry["simplified"], args.topic, card_id)
             print(f"  ✅ {entry['simplified']} ({entry['traditional']}) [{entry['pinyin']}] → {entry['definitions'][0]}")
         else:
             print(f"  ❌ '{word}' not found in CC-CEDICT")

@@ -19,6 +19,33 @@ import requests
 
 REPO_ROOT = Path(__file__).parent.parent
 
+ARTICLE_RE = re.compile(
+    r"^(le |la |les |l'|l\u2019|un |une |des )",
+    re.IGNORECASE,
+)
+
+
+def normalize_key(word: str) -> str:
+    """Lowercase + strip articles for dedup index key."""
+    w = word.lower().strip()
+    w = ARTICLE_RE.sub("", w)
+    return w.strip()
+
+
+def load_index(lang: str) -> dict:
+    path = REPO_ROOT / lang / "words_index.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {}
+
+
+def update_index(lang: str, index: dict, word: str, topic: str, word_id: str):
+    key = normalize_key(word)
+    if key:
+        index[key] = f"{topic}:{word_id}"
+    path = REPO_ROOT / lang / "words_index.json"
+    path.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+
 LANG_CONFIG = {
     "french": {
         "wiktionary_section": "French",
@@ -159,9 +186,10 @@ def main():
         print("Error: provide --words or --file", file=sys.stderr)
         sys.exit(1)
 
-    # Load existing cards
+    # Load existing cards + dedup index
     existing_cards = load_topic_file(topic_file)
     existing_words = {card["word"] for card in existing_cards}
+    index = load_index(args.lang)
     start_index = len(existing_cards) + 1
 
     print(f"\n🔍 Looking up {len(words)} word(s) in {lang_section} (Wiktionary)...\n")
@@ -170,6 +198,11 @@ def main():
     for i, word in enumerate(words):
         if word in existing_words:
             print(f"  ⏭️  '{word}' already exists, skipping")
+            continue
+
+        norm = normalize_key(word)
+        if norm in index:
+            print(f"  ⏭️  '{word}' already in index (as '{norm}'), skipping")
             continue
 
         print(f"  📖 Fetching '{word}'...")
@@ -192,6 +225,7 @@ def main():
                 card["gender"] = data["gender"]
 
             new_cards.append(card)
+            update_index(args.lang, index, data["word"], args.topic, card_id)
             print(f"  ✅ '{word}' → '{data['translation']}' ({data['pronunciation']})")
         else:
             print(f"  ❌ Could not fetch '{word}' — add manually")

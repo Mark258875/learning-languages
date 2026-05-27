@@ -1,0 +1,9 @@
+{
+  "language": "chinese",
+  "cefr_level": "A1",
+  "total_words": 20,
+  "topics_covered": ["basics"],
+  "next_topics": ["greetings", "numbers", "colors", "family", "food", "transport", "home", "work", "time", "body"],
+  "learner_notes": "Slovak native speaker, complete beginner in Chinese. No prior exposure to characters or tones. Generate vocabulary with Simplified + Traditional characters, pinyin with tone marks, and memory tips (mnemonics, visual links) where helpful. Keep examples short and clear.",
+  "last_updated": "2026-05-27"
+}

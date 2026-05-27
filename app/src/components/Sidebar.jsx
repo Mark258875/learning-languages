@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { VOCAB, getLang } from '../data/loader.js'
 import { loadProgress, getCompletionPercent } from '../utils/progress.js'
 import { countDue } from '../utils/srs.js'
@@ -12,10 +13,21 @@ export default function Sidebar({ activeLang, activeMode, activeSection, onModeC
   const streak = progress.stats?.streak ?? 0
   const topics = Object.keys(VOCAB[activeLang]?.topics ?? {})
 
+  const [pendingCount, setPendingCount] = useState(0)
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(`ll_pending_${activeLang}`)
+      setPendingCount(stored ? JSON.parse(stored).length : 0)
+    } catch {
+      setPendingCount(0)
+    }
+  }, [activeLang, activeMode])
+
   const modes = [
     { id: 'theory', label: '📖 Theory' },
     { id: 'vocabulary', label: '🗂 Vocabulary' },
     { id: 'phrases', label: '💬 Phrases' },
+    { id: 'lookup', label: '🔍 Lookup' },
   ]
 
   return (
@@ -69,13 +81,20 @@ export default function Sidebar({ activeLang, activeMode, activeSection, onModeC
           <button
             key={m.id}
             onClick={() => onModeChange(m.id)}
-            className={`w-full text-left px-3 py-2 rounded-lg text-sm mb-1 transition-all ${
+            className={`w-full text-left px-3 py-2 rounded-lg text-sm mb-1 transition-all flex items-center justify-between ${
               activeMode === m.id
                 ? `${lang.bgClass} text-white font-medium`
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
-            {m.label}
+            <span>{m.label}</span>
+            {m.id === 'lookup' && pendingCount > 0 && (
+              <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                activeMode === 'lookup' ? 'bg-white/30 text-white' : `${lang.lightBgClass} ${lang.accentClass}`
+              } font-semibold`}>
+                {pendingCount}
+              </span>
+            )}
           </button>
         ))}
       </div>

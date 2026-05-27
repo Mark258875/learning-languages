@@ -1,0 +1,22 @@
+{
+  "привет": "basics:ru_basics_001",
+  "здравствуйте": "basics:ru_basics_002",
+  "до свидания": "basics:ru_basics_003",
+  "пока": "basics:ru_basics_004",
+  "спасибо": "basics:ru_basics_005",
+  "пожалуйста": "basics:ru_basics_006",
+  "да": "basics:ru_basics_007",
+  "нет": "basics:ru_basics_008",
+  "я": "basics:ru_basics_009",
+  "ты": "basics:ru_basics_010",
+  "он": "basics:ru_basics_011",
+  "она": "basics:ru_basics_012",
+  "мы": "basics:ru_basics_013",
+  "дом": "basics:ru_basics_014",
+  "кот": "basics:ru_basics_015",
+  "вода": "basics:ru_basics_016",
+  "хлеб": "basics:ru_basics_017",
+  "говорить": "basics:ru_basics_018",
+  "понимать": "basics:ru_basics_019",
+  "знать": "basics:ru_basics_020"
+}
