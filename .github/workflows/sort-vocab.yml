@@ -1,0 +1,79 @@
+name: Sort "other" vocab into topics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*/vocabulary/topics/other.json'
+
+# Prevent the bot's own commits from re-triggering this workflow
+concurrency:
+  group: sort-vocab-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  sort:
+    runs-on: ubuntu-latest
+    # Skip commits made by this workflow itself
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so we can detect which files changed
+          fetch-depth: 2
+
+      - name: Detect changed language
+        id: detect
+        run: |
+          # Find which language's other.json changed in this push
+          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep 'vocabulary/topics/other\.json' | head -1)
+          if [ -z "$CHANGED" ]; then
+            echo "No other.json changed — nothing to do."
+            echo "lang=" >> "$GITHUB_OUTPUT"
+          else
+            LANG=$(echo "$CHANGED" | cut -d'/' -f1)
+            echo "Detected changed language: $LANG"
+            echo "lang=$LANG" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Python
+        if: steps.detect.outputs.lang != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        if: steps.detect.outputs.lang != ''
+        run: pip install requests
+
+      - name: Sort other.json
+        if: steps.detect.outputs.lang != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/sort_other.py --lang ${{ steps.detect.outputs.lang }}
+
+      - name: Commit sorted words
+        if: steps.detect.outputs.lang != ''
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — other.json was already empty or fully sorted."
+          else
+            LANG=${{ steps.detect.outputs.lang }}
+            git commit -m "chore(${LANG}): auto-sort other.json into topics [skip ci]
+
+          Sorted by sort_other.py using GitHub Models (gpt-4o-mini).
+          
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push
+          fi

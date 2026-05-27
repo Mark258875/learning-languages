@@ -284,23 +284,34 @@ function PendingPanel({
                 autoFocus
                 onKeyDown={(e) => e.key === 'Enter' && commitTopic.trim() && onCommitConfirm()}
               />
-              {existingTopics.length > 0 && (
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {existingTopics.map((t) => (
-                    <button
-                      key={t}
-                      onClick={() => onTopicChange(t)}
-                      className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
-                        commitTopic === t
-                          ? `${langMeta.bgClass} text-white border-transparent`
-                          : 'border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400'
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div className="flex flex-wrap gap-1 mb-3">
+                {/* Pinned inbox topic — always shown first */}
+                <button
+                  key="other"
+                  onClick={() => onTopicChange('other')}
+                  title="Dump here for auto-sorting later"
+                  className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
+                    commitTopic === 'other'
+                      ? `${langMeta.bgClass} text-white border-transparent`
+                      : 'border-dashed border-gray-300 dark:border-gray-500 text-gray-500 dark:text-gray-400 hover:border-gray-400'
+                  }`}
+                >
+                  📥 other
+                </button>
+                {existingTopics.filter((t) => t !== 'other').map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => onTopicChange(t)}
+                    className={`text-xs px-2 py-0.5 rounded-full border transition-all ${
+                      commitTopic === t
+                        ? `${langMeta.bgClass} text-white border-transparent`
+                        : 'border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400'
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
               <div className="flex gap-2">
                 <button
                   onClick={onCommitConfirm}
