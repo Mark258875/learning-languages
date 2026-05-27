@@ -28,5 +28,6 @@
   "poulet": "food:fr_food_007",
   "poisson": "food:fr_food_008",
   "légumes": "food:fr_food_009",
-  "restaurant": "food:fr_food_010"
+  "restaurant": "food:fr_food_010",
+  "maintenant": "other:fr_other_001"
 }
