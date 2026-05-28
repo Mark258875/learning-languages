@@ -124,5 +124,6 @@
   "collaborer": "work:fr_work_012",
   "envers": "other:fr_other_007",
   "événement": "other:fr_other_008",
-  "argent": "other:fr_other_009"
+  "argent": "other:fr_other_009",
+  "semaine": "other:fr_other_010"
 }
