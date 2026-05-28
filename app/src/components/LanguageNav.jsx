@@ -1,6 +1,6 @@
 import { LANGUAGES } from '../data/loader.js'
 
-export default function LanguageNav({ activeLang, onSelect, darkMode, onToggleDark, onToggleSidebar }) {
+export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onOpenQuickLookup }) {
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm shrink-0 z-30">
       <div className="px-4">
@@ -37,14 +37,16 @@ export default function LanguageNav({ activeLang, onSelect, darkMode, onToggleDa
             })}
           </div>
 
-          {/* Dark mode toggle */}
+          {/* Quick Lookup button */}
           <button
-            onClick={onToggleDark}
-            className="ml-auto shrink-0 p-2 text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all"
-            aria-label="Toggle dark mode"
-            title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            onClick={onOpenQuickLookup}
+            className="ml-auto shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-600"
+            title="Quick Lookup (/ or Ctrl+K)"
+            aria-label="Quick Lookup"
           >
-            <span className="text-xl">{darkMode ? '☀️' : '🌙'}</span>
+            <span>🔍</span>
+            <span className="hidden sm:inline">Quick Lookup</span>
+            <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500 font-normal ml-0.5">/</span>
           </button>
         </div>
       </div>

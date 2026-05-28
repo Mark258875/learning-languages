@@ -2,110 +2,16 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { commitPendingWords } from '../utils/github.js'
 import { VOCAB } from '../data/loader.js'
 import { buildFuse, detectDirection } from '../utils/search.js'
+import {
+  WIKT_API,
+  WIKT_LANG,
+  parseWikitext,
+  buildEntry,
+  wiktionaryLookup as wiktLookup,
+  fetchSuggestions as wiktSuggestions,
+} from '../utils/wiktionary.js'
 
-const WIKT_API = 'https://en.wiktionary.org/w/api.php'
-const WIKT_LANG = { french: 'French', russian: 'Russian', chinese: 'Chinese' }
 const OPENSEARCH_LIMIT = 5
-
-// ---------------------------------------------------------------------------
-// Wikitext parser — extracts IPA, definition, example, POS from a language
-// section of English Wiktionary wikitext.
-// ---------------------------------------------------------------------------
-function parseWikitext(wikitext, targetLang) {
-  // Split into top-level ==Language== sections
-  const parts = wikitext.split(/(?=\n==[^=][^=]*==\n)/)
-  let langSection = null
-  for (const part of parts) {
-    const header = part.match(/^[\n]*==([^=]+)==\n/)
-    if (header && header[1].trim().toLowerCase() === targetLang.toLowerCase()) {
-      langSection = part
-      break
-    }
-  }
-  if (!langSection) return null
-
-  // IPA — e.g. {{IPA|fr|/mɛ.zɔ̃/}}
-  const ipaMatch = langSection.match(/\{\{IPA\|[^|]*\|([^|}]+)/)
-  const ipa = ipaMatch ? ipaMatch[1].trim() : null
-
-  // Part of speech — first ===Noun/Verb/Adjective/...=== heading
-  const posMatch = langSection.match(
-    /===\s*(Noun|Verb|Adjective|Adverb|Pronoun|Phrase|Interjection|Conjunction|Preposition|Particle)\s*===/
-  )
-  const pos = posMatch ? posMatch[1].toLowerCase() : null
-
-  // Gender (French nouns)
-  let gender = null
-  if (/\{\{fr-noun\|m/.test(langSection) || /g=m/.test(langSection)) gender = 'masculine'
-  else if (/\{\{fr-noun\|f/.test(langSection) || /g=f/.test(langSection)) gender = 'feminine'
-
-  // Definitions — lines starting with exactly one # (not ## or #:)
-  const rawDefs = [...langSection.matchAll(/^# ([^#:\n][^\n]*)/gm)]
-    .map((m) =>
-      m[1]
-        .replace(/\{\{[^}]+\}\}/g, '')              // remove templates
-        .replace(/\[\[(?:[^|\]]+\|)?([^\]]+)\]\]/g, '$1') // [[link|text]] → text
-        .replace(/'{2,3}/g, '')                     // remove bold/italic
-        .replace(/^\s*[:;]\s*/, '')
-        .trim()
-    )
-    .filter(Boolean)
-
-  // Example — prefer {{ux|lang|text}} template, fall back to #: ''text''
-  const uxMatch = langSection.match(/\{\{ux\|[^|]+\|([^|}\n]+)/)
-  const italicMatch = langSection.match(/^#: ''([^']+)''/m)
-  const example = uxMatch
-    ? uxMatch[1].trim()
-    : italicMatch
-    ? italicMatch[1].trim()
-    : null
-
-  // Chinese: extract pinyin from {{zh-pron|m=...}} or {{zh-l|...}}
-  let pinyin = null
-  const pinyinMatch = langSection.match(/\|m=([a-züāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ\s]+)/i)
-  if (pinyinMatch) pinyin = pinyinMatch[1].trim().split('\n')[0].split('|')[0].trim()
-
-  return {
-    ipa,
-    pos,
-    gender,
-    pinyin,
-    definitions: rawDefs.slice(0, 3),
-    definition: rawDefs[0] || null,
-    example,
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Build a pending entry in the repo vocab schema
-// ---------------------------------------------------------------------------
-function buildEntry(word, parsed, lang) {
-  const base = {
-    id: '',
-    translation: parsed.definition || '',
-    tags: ['lookup'],
-    source: 'wiktionary',
-    verified: false,
-  }
-  if (parsed.example) {
-    base.example = parsed.example
-    base.example_translation = ''
-  }
-  if (lang === 'chinese') {
-    return {
-      ...base,
-      simplified: word,
-      traditional: '',
-      pinyin: parsed.pinyin || parsed.ipa || '',
-    }
-  }
-  return {
-    ...base,
-    word,
-    pronunciation: parsed.ipa || '',
-    ...(lang === 'french' && parsed.gender ? { gender: parsed.gender } : {}),
-  }
-}
 
 // ---------------------------------------------------------------------------
 // Result card — shows parsed Wiktionary data
@@ -510,27 +416,17 @@ export default function LookupView({ lang, langMeta }) {
     if (!q || q.length < 2) { setSuggestions([]); return }
     debounceRef.current = setTimeout(async () => {
       try {
-        const url = `${WIKT_API}?action=opensearch&search=${encodeURIComponent(q)}&limit=${OPENSEARCH_LIMIT}&format=json&origin=*`
-        const res = await fetch(url)
-        const data = await res.json()
-        setSuggestions((data[1] ?? []).filter((s) => s.toLowerCase() !== q.toLowerCase()))
+        const results = await wiktSuggestions(q, OPENSEARCH_LIMIT)
+        setSuggestions(results.filter((s) => s.toLowerCase() !== q.toLowerCase()))
       } catch {
         setSuggestions([])
       }
     }, 300)
   }, [])
 
-  // Wiktionary full-article lookup (extracted for reuse in auto-correct retry)
+  // Wiktionary full-article lookup (wrapper around util for auto-correct retry)
   const wiktionaryLookup = useCallback(async (word) => {
-    const url =
-      `${WIKT_API}?action=parse&page=${encodeURIComponent(word)}` +
-      `&prop=wikitext&format=json&origin=*`
-    const res = await fetch(url)
-    if (!res.ok) throw new Error(`Network error: ${res.status}`)
-    const data = await res.json()
-    if (data.error) throw new Error(data.error.info)
-    const wikitext = data.parse?.wikitext?.['*'] || ''
-    return parseWikitext(wikitext, WIKT_LANG[lang])
+    return wiktLookup(word, lang)
   }, [lang])
 
   const search = useCallback(async (wordOverride) => {

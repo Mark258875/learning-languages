@@ -8,6 +8,7 @@ import Quiz from './components/Quiz.jsx'
 import PhrasesView from './components/PhrasesView.jsx'
 import LookupView from './components/LookupView.jsx'
 import VocabBrowser from './components/VocabBrowser.jsx'
+import QuickLookup from './components/QuickLookup.jsx'
 import { VOCAB, getLang } from './data/loader.js'
 
 export default function App() {
@@ -17,11 +18,27 @@ export default function App() {
   const [subMode, setSubMode] = useState('due')
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('ll_dark') === 'true')
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [quickLookupOpen, setQuickLookupOpen] = useState(false)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
     localStorage.setItem('ll_dark', String(darkMode))
   }, [darkMode])
+
+  // Global keyboard shortcut: `/` or `Ctrl+K` opens Quick Lookup
+  useEffect(() => {
+    const handler = (e) => {
+      if (quickLookupOpen) return
+      const tag = document.activeElement?.tagName
+      const isEditing = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable
+      if ((e.key === '/' && !isEditing) || (e.key === 'k' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault()
+        setQuickLookupOpen(true)
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [quickLookupOpen])
 
   const langMeta = getLang(activeLang)
 
@@ -55,9 +72,8 @@ export default function App() {
       <LanguageNav
         activeLang={activeLang}
         onSelect={handleLangChange}
-        darkMode={darkMode}
-        onToggleDark={() => setDarkMode(d => !d)}
         onToggleSidebar={() => setSidebarOpen(o => !o)}
+        onOpenQuickLookup={() => setQuickLookupOpen(true)}
       />
 
       <div className="flex flex-1 overflow-hidden relative">
@@ -76,6 +92,8 @@ export default function App() {
           onModeChange={handleModeChange}
           onSectionChange={(s) => { setActiveSection(s); setSidebarOpen(false) }}
           isOpen={sidebarOpen}
+          darkMode={darkMode}
+          onToggleDark={() => setDarkMode(d => !d)}
         />
 
         <main className="flex-1 overflow-y-auto flex flex-col dark:bg-gray-900">
@@ -145,6 +163,15 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Quick Lookup modal */}
+      {quickLookupOpen && (
+        <QuickLookup
+          lang={activeLang}
+          langMeta={langMeta}
+          onClose={() => setQuickLookupOpen(false)}
+        />
+      )}
     </div>
   )
 }
