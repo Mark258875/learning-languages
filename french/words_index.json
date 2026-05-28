@@ -122,5 +122,6 @@
   "promotion": "work:fr_work_010",
   "bilan": "work:fr_work_011",
   "collaborer": "work:fr_work_012",
-  "envers": "other:fr_other_007"
+  "envers": "other:fr_other_007",
+  "événement": "other:fr_other_008"
 }
