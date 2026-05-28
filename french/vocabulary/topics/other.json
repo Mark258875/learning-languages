@@ -58,5 +58,17 @@
     "verified": false,
     "word": "chaque",
     "pronunciation": ""
+  },
+  {
+    "id": "fr_other_006",
+    "translation": "error",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "erreur",
+    "pronunciation": "",
+    "gender": "feminine"
   }
 ]
