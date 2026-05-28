@@ -82,5 +82,17 @@
     "word": "envers",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_008",
+    "translation": "event",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "événement",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
