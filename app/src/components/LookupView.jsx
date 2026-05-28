@@ -1,9 +1,11 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { commitPendingWords } from '../utils/github.js'
 import { VOCAB } from '../data/loader.js'
+import { buildFuse, detectDirection } from '../utils/search.js'
 
 const WIKT_API = 'https://en.wiktionary.org/w/api.php'
 const WIKT_LANG = { french: 'French', russian: 'Russian', chinese: 'Chinese' }
+const OPENSEARCH_LIMIT = 5
 
 // ---------------------------------------------------------------------------
 // Wikitext parser — extracts IPA, definition, example, POS from a language
@@ -419,6 +421,36 @@ function TokenSettings({ token, onSave, onClose }) {
 }
 
 // ---------------------------------------------------------------------------
+// LocalMatchCard — shows a single locally-stored vocab card matched by an
+// English reverse lookup, with a button to look it up on Wiktionary.
+// ---------------------------------------------------------------------------
+function LocalMatchCard({ card, lang, langMeta, onLookup }) {
+  const isChinese = lang === 'chinese'
+  const primary = isChinese
+    ? `${card.simplified}${card.traditional && card.traditional !== card.simplified ? ` (${card.traditional})` : ''}`
+    : card.word
+  const secondary = isChinese ? card.pinyin : card.pronunciation
+
+  return (
+    <div className="p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex items-center gap-3">
+      <div className="flex-1 min-w-0">
+        <p className="font-medium text-gray-800 dark:text-gray-100 text-sm">{primary}</p>
+        {secondary && (
+          <p className="text-xs text-gray-400 dark:text-gray-500 font-mono">{secondary}</p>
+        )}
+        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.translation}</p>
+      </div>
+      <button
+        onClick={onLookup}
+        className={`shrink-0 text-xs px-2.5 py-1.5 rounded-md font-medium text-white ${langMeta.bgClass} hover:opacity-90 transition-opacity`}
+      >
+        🔍 Look up
+      </button>
+    </div>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Main LookupView component
 // ---------------------------------------------------------------------------
 export default function LookupView({ lang, langMeta }) {
@@ -428,6 +460,15 @@ export default function LookupView({ lang, langMeta }) {
   const [error, setError] = useState(null)
   const [pending, setPending] = useState([])
   const [savedWord, setSavedWord] = useState(null)
+
+  // Autocomplete state
+  const [suggestions, setSuggestions] = useState([])
+  const [showDropdown, setShowDropdown] = useState(false)
+  const debounceRef = useRef(null)
+
+  // Bidirectional state
+  const [correctedWord, setCorrectedWord] = useState(null)
+  const [localMatches, setLocalMatches] = useState(null)
 
   // GitHub token
   const [githubToken, setGithubToken] = useState(() => localStorage.getItem('ll_github_token') || '')
@@ -440,6 +481,9 @@ export default function LookupView({ lang, langMeta }) {
   const [commitError, setCommitError] = useState(null)
 
   const storageKey = `ll_pending_${lang}`
+
+  // Fuse.js index over all local vocab for bidirectional (English→target) search
+  const localFuse = useMemo(() => buildFuse(VOCAB[lang]?.all ?? [], lang), [lang])
 
   useEffect(() => {
     try {
@@ -454,30 +498,95 @@ export default function LookupView({ lang, langMeta }) {
     setSavedWord(null)
     setCommitState('idle')
     setCommitResult(null)
+    setSuggestions([])
+    setShowDropdown(false)
+    setCorrectedWord(null)
+    setLocalMatches(null)
   }, [lang, storageKey])
 
-  const search = useCallback(async () => {
-    const word = query.trim()
+  // Fetch Wiktionary opensearch suggestions (debounced, target-lang only)
+  const fetchSuggestions = useCallback((q) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    if (!q || q.length < 2) { setSuggestions([]); return }
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const url = `${WIKT_API}?action=opensearch&search=${encodeURIComponent(q)}&limit=${OPENSEARCH_LIMIT}&format=json&origin=*`
+        const res = await fetch(url)
+        const data = await res.json()
+        setSuggestions((data[1] ?? []).filter((s) => s.toLowerCase() !== q.toLowerCase()))
+      } catch {
+        setSuggestions([])
+      }
+    }, 300)
+  }, [])
+
+  // Wiktionary full-article lookup (extracted for reuse in auto-correct retry)
+  const wiktionaryLookup = useCallback(async (word) => {
+    const url =
+      `${WIKT_API}?action=parse&page=${encodeURIComponent(word)}` +
+      `&prop=wikitext&format=json&origin=*`
+    const res = await fetch(url)
+    if (!res.ok) throw new Error(`Network error: ${res.status}`)
+    const data = await res.json()
+    if (data.error) throw new Error(data.error.info)
+    const wikitext = data.parse?.wikitext?.['*'] || ''
+    return parseWikitext(wikitext, WIKT_LANG[lang])
+  }, [lang])
+
+  const search = useCallback(async (wordOverride) => {
+    const word = (wordOverride ?? query).trim()
     if (!word) return
     setLoading(true)
     setError(null)
     setResult(null)
     setSavedWord(null)
+    setCorrectedWord(null)
+    setLocalMatches(null)
+    setSuggestions([])
+    setShowDropdown(false)
+
+    // Bidirectional: English query → search local vocab translations
+    const dir = detectDirection(word, lang)
+    if (dir === 'english') {
+      const matches = localFuse.search(word, { limit: 6 })
+      setLocalMatches(matches.map((m) => m.item))
+      setLoading(false)
+      return
+    }
+
+    // Target-lang query → Wiktionary article lookup
     try {
-      const url =
-        `${WIKT_API}?action=parse&page=${encodeURIComponent(word)}` +
-        `&prop=wikitext&format=json&origin=*`
-      const res = await fetch(url)
-      if (!res.ok) throw new Error(`Network error: ${res.status}`)
-      const data = await res.json()
-      if (data.error) throw new Error(data.error.info)
-      const wikitext = data.parse?.wikitext?.['*'] || ''
-      const parsed = parseWikitext(wikitext, WIKT_LANG[lang])
+      const parsed = await wiktionaryLookup(word)
       if (!parsed || !parsed.definition) {
-        setError(
-          `No ${WIKT_LANG[lang]} entry found on Wiktionary for "${word}". ` +
-            `Try the exact form (e.g. "maison", not "maisons").`
-        )
+        // Fallback: try top opensearch suggestion
+        const osUrl = `${WIKT_API}?action=opensearch&search=${encodeURIComponent(word)}&limit=3&format=json&origin=*`
+        const osr = await fetch(osUrl)
+        const osd = await osr.json()
+        const topSuggestion = (osd[1] ?? [])[0]
+        if (topSuggestion && topSuggestion.toLowerCase() !== word.toLowerCase()) {
+          try {
+            const parsed2 = await wiktionaryLookup(topSuggestion)
+            if (parsed2?.definition) {
+              setCorrectedWord(topSuggestion)
+              setResult({ word: topSuggestion, parsed: parsed2 })
+            } else {
+              setError(
+                `No ${WIKT_LANG[lang]} entry found for "${word}". ` +
+                  `Try the exact form (e.g. "maison", not "maisons").`
+              )
+            }
+          } catch {
+            setError(
+              `No ${WIKT_LANG[lang]} entry found for "${word}". ` +
+                `Try the exact form (e.g. "maison", not "maisons").`
+            )
+          }
+        } else {
+          setError(
+            `No ${WIKT_LANG[lang]} entry found on Wiktionary for "${word}". ` +
+              `Try the exact form (e.g. "maison", not "maisons").`
+          )
+        }
       } else {
         setResult({ word, parsed })
       }
@@ -486,10 +595,31 @@ export default function LookupView({ lang, langMeta }) {
     } finally {
       setLoading(false)
     }
-  }, [query, lang])
+  }, [query, lang, localFuse, wiktionaryLookup])
+
+  const handleQueryChange = (e) => {
+    const val = e.target.value
+    setQuery(val)
+    const dir = detectDirection(val, lang)
+    if (dir === 'target') {
+      fetchSuggestions(val)
+      setShowDropdown(true)
+    } else {
+      setSuggestions([])
+      setShowDropdown(false)
+    }
+  }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') search()
+    if (e.key === 'Escape') { setSuggestions([]); setShowDropdown(false) }
+  }
+
+  const selectSuggestion = (s) => {
+    setQuery(s)
+    setSuggestions([])
+    setShowDropdown(false)
+    search(s)
   }
 
   const savePending = useCallback(() => {
@@ -589,30 +719,55 @@ export default function LookupView({ lang, langMeta }) {
       )}
 
       {/* Search bar */}
-      <div className="flex gap-2">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder={
-            lang === 'chinese'
-              ? 'Enter characters, e.g. 苹果'
-              : lang === 'russian'
-              ? 'Enter Cyrillic word, e.g. дом'
-              : 'Enter word, e.g. maison'
-          }
-          className="flex-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
-          autoFocus
-        />
+      <div className="relative flex gap-2">
+        <div className="relative flex-1">
+          <input
+            type="text"
+            value={query}
+            onChange={handleQueryChange}
+            onKeyDown={handleKeyDown}
+            onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
+            onFocus={() => suggestions.length > 0 && setShowDropdown(true)}
+            placeholder={
+              lang === 'chinese'
+                ? 'Target characters (e.g. 苹果) or English translation'
+                : lang === 'russian'
+                ? 'Cyrillic word (e.g. дом) or English translation'
+                : 'French word (e.g. maison) or English translation'
+            }
+            className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-1"
+            autoFocus
+          />
+          {/* Autocomplete dropdown */}
+          {showDropdown && suggestions.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-20 overflow-hidden">
+              {suggestions.map((s) => (
+                <button
+                  key={s}
+                  onMouseDown={() => selectSuggestion(s)}
+                  className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 border-b border-gray-100 dark:border-gray-700 last:border-0"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
         <button
-          onClick={search}
+          onClick={() => search()}
           disabled={loading || !query.trim()}
           className={`px-5 py-2 rounded-lg font-medium text-white transition-all ${langMeta.bgClass} disabled:opacity-40`}
         >
           {loading ? '…' : 'Search'}
         </button>
       </div>
+
+      {/* Auto-correction notice */}
+      {correctedWord && (
+        <div className="mt-2 text-sm text-amber-600 dark:text-amber-400">
+          Showing results for <strong>{correctedWord}</strong> (auto-corrected)
+        </div>
+      )}
 
       {/* Error */}
       {error && (
@@ -632,6 +787,36 @@ export default function LookupView({ lang, langMeta }) {
             onSave={savePending}
             alreadySaved={savedWord === result.word}
           />
+        </div>
+      )}
+
+      {/* English → local vocab results (bidirectional) */}
+      {localMatches !== null && (
+        <div className="mt-5 space-y-3">
+          {localMatches.length === 0 ? (
+            <div className="p-3 rounded-lg bg-gray-50 dark:bg-gray-800/60 text-sm text-gray-500 dark:text-gray-400">
+              No saved words match <em>"{query}"</em>. Try typing the {WIKT_LANG[lang]} word directly.
+            </div>
+          ) : (
+            <>
+              <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">
+                Matching saved words
+              </p>
+              {localMatches.map((card) => (
+                <LocalMatchCard
+                  key={card.id}
+                  card={card}
+                  lang={lang}
+                  langMeta={langMeta}
+                  onLookup={() => {
+                    const w = card.word || card.simplified || ''
+                    setQuery(w)
+                    search(w)
+                  }}
+                />
+              ))}
+            </>
+          )}
         </div>
       )}
 

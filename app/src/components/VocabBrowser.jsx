@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react'
+import { buildFuse, matchLabel } from '../utils/search.js'
 
 /**
  * VocabBrowser — scrollable table view of all vocabulary for a language.
- * Supports search + topic filter chips. Rows expand to show example sentence.
+ * Supports fuzzy search (Fuse.js) + topic filter chips. Rows expand to show example sentence.
  */
 export default function VocabBrowser({ lang, cards, topics }) {
   const [search, setSearch] = useState('')
@@ -14,17 +15,22 @@ export default function VocabBrowser({ lang, cards, topics }) {
   // Build topic list from the topics object keys
   const topicNames = useMemo(() => Object.keys(topics ?? {}), [topics])
 
-  // Filter cards by topic then by search query
-  const filtered = useMemo(() => {
-    let list = activeTopic === 'all' ? cards : (topics[activeTopic] ?? [])
-    const q = search.trim().toLowerCase()
-    if (!q) return list
-    return list.filter((c) => {
-      const word = (c.word || c.simplified || c.traditional || c.pinyin || '').toLowerCase()
-      const trans = (c.translation || '').toLowerCase()
-      return word.includes(q) || trans.includes(q)
-    })
-  }, [cards, topics, activeTopic, search])
+  // Cards for the active topic
+  const topicCards = useMemo(
+    () => (activeTopic === 'all' ? cards : (topics[activeTopic] ?? [])),
+    [cards, topics, activeTopic]
+  )
+
+  // Fuse.js instance rebuilt whenever the card set changes
+  const fuse = useMemo(() => buildFuse(topicCards, lang), [topicCards, lang])
+
+  // Filter: fuzzy search when query present, full list otherwise
+  const { filtered, isFuzzy } = useMemo(() => {
+    const q = search.trim()
+    if (!q) return { filtered: topicCards.map((c) => ({ item: c, score: 0 })), isFuzzy: false }
+    const results = fuse.search(q)
+    return { filtered: results, isFuzzy: results.some((r) => (r.score ?? 0) > 0.01) }
+  }, [fuse, topicCards, search])
 
   const toggle = (i) => setExpanded(expanded === i ? null : i)
 
@@ -65,8 +71,13 @@ export default function VocabBrowser({ lang, cards, topics }) {
               {t}
             </button>
           ))}
-          <span className="ml-auto text-xs text-gray-400 dark:text-gray-500 shrink-0">
-            {filtered.length} / {activeTopic === 'all' ? cards.length : (topics[activeTopic]?.length ?? 0)} words
+          <span className="ml-auto flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 shrink-0">
+            {isFuzzy && (
+              <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 px-1.5 py-0.5 rounded text-xs">
+                fuzzy
+              </span>
+            )}
+            {filtered.length} / {activeTopic === 'all' ? cards.length : (topicCards.length)} words
           </span>
         </div>
       </div>
@@ -97,9 +108,10 @@ export default function VocabBrowser({ lang, cards, topics }) {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((card, i) => {
+              {filtered.map(({ item: card, score }, i) => {
                 const isOpen = expanded === i
                 const hasExample = card.example || card.example_translation
+                const fuzzyBadge = matchLabel(score)
 
                 return (
                   <>
@@ -126,6 +138,9 @@ export default function VocabBrowser({ lang, cards, topics }) {
                         <>
                           <td className="px-4 py-2.5 font-medium text-gray-800 dark:text-gray-100">
                             {card.word}
+                            {fuzzyBadge && (
+                              <span className="ml-1.5 text-xs text-amber-500 dark:text-amber-400 font-normal">{fuzzyBadge}</span>
+                            )}
                           </td>
                           <td className="px-4 py-2.5 text-gray-400 dark:text-gray-500 font-mono text-xs hidden sm:table-cell">
                             {card.pronunciation || '—'}
@@ -134,6 +149,9 @@ export default function VocabBrowser({ lang, cards, topics }) {
                       )}
                       <td className="px-4 py-2.5 text-gray-600 dark:text-gray-300">
                         {card.translation}
+                        {isChinese && fuzzyBadge && (
+                          <span className="ml-1.5 text-xs text-amber-500 dark:text-amber-400">{fuzzyBadge}</span>
+                        )}
                       </td>
                       <td className="px-2 py-2.5 text-gray-300 dark:text-gray-600 text-right">
                         {hasExample ? (isOpen ? '▾' : '▸') : ''}
