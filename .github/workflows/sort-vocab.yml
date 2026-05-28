@@ -74,14 +74,18 @@ jobs:
 
           LANG=${{ steps.detect.outputs.lang }}
 
+          # sort_other.py already regenerated words_index.json, but we
+          # must discard that copy before merging so git has a clean slate
+          # for the file. We always re-run rebuild_index.py after the merge
+          # anyway, so no data is lost.
+          git checkout -- "${LANG}/words_index.json" 2>/dev/null || true
+
           # Fetch latest remote changes BEFORE committing to avoid rebase conflicts.
-          # words_index.json is a generated file — we merge first, then regenerate it
-          # fresh so there is never a JSON conflict to resolve manually.
           git fetch origin main
           git merge origin/main --no-edit -X ours
 
-          # Regenerate the index to ensure it is consistent with all topic files
-          # (including any new files that arrived via the merge above).
+          # Regenerate the index fresh from all topic files (including any
+          # files that arrived via the merge above).
           python scripts/rebuild_index.py
 
           git add -A
