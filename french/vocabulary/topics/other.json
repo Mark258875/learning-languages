@@ -70,5 +70,17 @@
     "word": "erreur",
     "pronunciation": "",
     "gender": "feminine"
+  },
+  {
+    "id": "fr_other_007",
+    "translation": "reverse",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "envers",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
