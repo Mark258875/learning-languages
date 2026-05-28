@@ -121,5 +121,6 @@
   "télétravail": "work:fr_work_009",
   "promotion": "work:fr_work_010",
   "bilan": "work:fr_work_011",
-  "collaborer": "work:fr_work_012"
+  "collaborer": "work:fr_work_012",
+  "envers": "other:fr_other_007"
 }
