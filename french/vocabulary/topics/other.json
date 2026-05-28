@@ -94,5 +94,17 @@
     "word": "événement",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_009",
+    "translation": "silver",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "argent",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
