@@ -1,9 +1,8 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { commitPendingWords } from '../utils/github.js'
 import { VOCAB } from '../data/loader.js'
-import { buildFuse, detectDirection } from '../utils/search.js'
+import { buildFuse } from '../utils/search.js'
 import {
-  WIKT_API,
   WIKT_LANG,
   parseWikitext,
   buildEntry,
@@ -441,46 +440,40 @@ export default function LookupView({ lang, langMeta }) {
     setSuggestions([])
     setShowDropdown(false)
 
-    // Bidirectional: English query → search local vocab translations
-    const dir = detectDirection(word, lang)
-    if (dir === 'english') {
-      const matches = localFuse.search(word, { limit: 6 })
-      setLocalMatches(matches.map((m) => m.item))
-      setLoading(false)
-      return
-    }
-
-    // Target-lang query → Wiktionary article lookup
+    // Always try Wiktionary first — direction detection is unreliable for
+    // unaccented target-language words (fuir, amener, voir…). Local vocab
+    // fallback only runs when Wiktionary has no entry for the word.
     try {
       const parsed = await wiktionaryLookup(word)
       if (!parsed || !parsed.definition) {
-        // Fallback: try top opensearch suggestion
-        const osUrl = `${WIKT_API}?action=opensearch&search=${encodeURIComponent(word)}&limit=3&format=json&origin=*`
-        const osr = await fetch(osUrl)
-        const osd = await osr.json()
-        const topSuggestion = (osd[1] ?? [])[0]
-        if (topSuggestion && topSuggestion.toLowerCase() !== word.toLowerCase()) {
+        // Fallback: try top opensearch suggestion (auto-correct)
+        const topSuggestions = await wiktSuggestions(word, 3)
+        const topSuggestion = topSuggestions.find(
+          (s) => s.toLowerCase() !== word.toLowerCase()
+        )
+        if (topSuggestion) {
           try {
             const parsed2 = await wiktionaryLookup(topSuggestion)
             if (parsed2?.definition) {
               setCorrectedWord(topSuggestion)
               setResult({ word: topSuggestion, parsed: parsed2 })
-            } else {
-              setError(
-                `No ${WIKT_LANG[lang]} entry found for "${word}". ` +
-                  `Try the exact form (e.g. "maison", not "maisons").`
-              )
+              return
             }
-          } catch {
-            setError(
-              `No ${WIKT_LANG[lang]} entry found for "${word}". ` +
-                `Try the exact form (e.g. "maison", not "maisons").`
-            )
-          }
+          } catch { /* ignore — fall through to local search */ }
+        }
+
+        // Wiktionary found nothing and auto-correct failed →
+        // try local vocab as a reverse (English→target) fallback,
+        // but only show results with a tight score (< 0.2) to avoid
+        // false matches like "fuir" → "s'épanouir".
+        const rawMatches = localFuse.search(word, { limit: 6 })
+        const tightMatches = rawMatches.filter((r) => (r.score ?? 1) < 0.2)
+        if (tightMatches.length > 0) {
+          setLocalMatches(tightMatches.map((m) => m.item))
         } else {
           setError(
             `No ${WIKT_LANG[lang]} entry found on Wiktionary for "${word}". ` +
-              `Try the exact form (e.g. "maison", not "maisons").`
+              `Try the exact dictionary form (e.g. "maison", not "maisons").`
           )
         }
       } else {
@@ -496,8 +489,9 @@ export default function LookupView({ lang, langMeta }) {
   const handleQueryChange = (e) => {
     const val = e.target.value
     setQuery(val)
-    const dir = detectDirection(val, lang)
-    if (dir === 'target') {
+    // Always fire opensearch suggestions — they help even for unaccented
+    // target-language words (fuir, amener, voir…)
+    if (val.trim().length > 1) {
       fetchSuggestions(val)
       setShowDropdown(true)
     } else {
@@ -696,7 +690,7 @@ export default function LookupView({ lang, langMeta }) {
           ) : (
             <>
               <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">
-                Matching saved words
+                No Wiktionary entry found — did you mean one of these?
               </p>
               {localMatches.map((card) => (
                 <LocalMatchCard
