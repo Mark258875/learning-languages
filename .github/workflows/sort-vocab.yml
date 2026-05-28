@@ -72,18 +72,40 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          LANG=${{ steps.detect.outputs.lang }}
+
+          # Fetch latest remote changes BEFORE committing to avoid rebase conflicts.
+          # words_index.json is a generated file — we merge first, then regenerate it
+          # fresh so there is never a JSON conflict to resolve manually.
+          git fetch origin main
+          git merge origin/main --no-edit -X ours
+
+          # Regenerate the index to ensure it is consistent with all topic files
+          # (including any new files that arrived via the merge above).
+          python scripts/rebuild_index.py
+
           git add -A
 
           if git diff --cached --quiet; then
             echo "Nothing to commit — other.json was already empty or fully sorted."
           else
-            LANG=${{ steps.detect.outputs.lang }}
             git commit -m "chore(${LANG}): auto-sort other.json into topics [skip ci]
 
           Sorted by sort_other.py using GitHub Models (gpt-4o-mini).
           
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-            # Rebase onto latest main before pushing (concurrent pushes from deploy workflow)
-            git pull --rebase origin main
-            git push
+
+            # Push with retry: if another commit sneaked in between fetch and push,
+            # pull + regenerate + amend rather than rebasing (avoids conflict loops).
+            for attempt in 1 2 3; do
+              if git push; then
+                echo "Push succeeded on attempt ${attempt}."
+                break
+              fi
+              echo "Push rejected (attempt ${attempt}) — pulling and retrying..."
+              git pull --no-rebase -X ours --no-edit origin main
+              python scripts/rebuild_index.py
+              git add -A
+              git diff --cached --quiet || git commit --amend --no-edit
+            done
           fi
