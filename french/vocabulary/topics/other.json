@@ -106,5 +106,19 @@
     "word": "argent",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_010",
+    "translation": "week",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "example": "Je l'ai vu il n'y a pas plus longtemps qu'une '''semaine'''.",
+    "example_translation": "",
+    "word": "semaine",
+    "pronunciation": "",
+    "gender": "feminine"
   }
 ]
