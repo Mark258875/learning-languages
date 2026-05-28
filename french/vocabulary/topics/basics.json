@@ -1,22 +1,385 @@
 [
-  { "id": "fr_basics_001", "word": "bonjour", "translation": "hello / good morning", "pronunciation": "/bɔ̃ʒuʁ/", "example": "Bonjour, comment allez-vous?", "example_translation": "Hello, how are you?", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_002", "word": "bonsoir", "translation": "good evening", "pronunciation": "/bɔ̃swaʁ/", "example": "Bonsoir madame.", "example_translation": "Good evening, madam.", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_003", "word": "au revoir", "translation": "goodbye", "pronunciation": "/o ʁəvwaʁ/", "example": "Au revoir et à bientôt!", "example_translation": "Goodbye and see you soon!", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_004", "word": "merci", "translation": "thank you", "pronunciation": "/mɛʁsi/", "example": "Merci beaucoup!", "example_translation": "Thank you very much!", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_005", "word": "s'il vous plaît", "translation": "please (formal)", "pronunciation": "/sil vu plɛ/", "example": "Un café, s'il vous plaît.", "example_translation": "A coffee, please.", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_006", "word": "s'il te plaît", "translation": "please (informal)", "pronunciation": "/sil tə plɛ/", "example": "Aide-moi, s'il te plaît.", "example_translation": "Help me, please.", "tags": ["greetings", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_007", "word": "oui", "translation": "yes", "pronunciation": "/wi/", "example": "Oui, je comprends.", "example_translation": "Yes, I understand.", "tags": ["basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_008", "word": "non", "translation": "no", "pronunciation": "/nɔ̃/", "example": "Non, je ne sais pas.", "example_translation": "No, I don't know.", "tags": ["basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_009", "word": "pardon", "translation": "excuse me / sorry", "pronunciation": "/paʁdɔ̃/", "example": "Pardon, où est la gare?", "example_translation": "Excuse me, where is the train station?", "tags": ["basics", "apology"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_010", "word": "désolé(e)", "translation": "sorry", "pronunciation": "/dezɔle/", "example": "Je suis désolé, je suis en retard.", "example_translation": "I'm sorry, I'm late.", "tags": ["basics", "apology"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_011", "word": "je", "translation": "I", "pronunciation": "/ʒə/", "example": "Je suis étudiant.", "example_translation": "I am a student.", "tags": ["pronouns", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_012", "word": "tu", "translation": "you (informal)", "pronunciation": "/ty/", "example": "Tu parles français?", "example_translation": "Do you speak French?", "tags": ["pronouns", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_013", "word": "il", "translation": "he", "pronunciation": "/il/", "example": "Il est médecin.", "example_translation": "He is a doctor.", "tags": ["pronouns", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_014", "word": "elle", "translation": "she", "pronunciation": "/ɛl/", "example": "Elle aime lire.", "example_translation": "She likes to read.", "tags": ["pronouns", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_015", "word": "nous", "translation": "we", "pronunciation": "/nu/", "example": "Nous habitons à Paris.", "example_translation": "We live in Paris.", "tags": ["pronouns", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_016", "word": "un", "translation": "one / a (m.)", "pronunciation": "/œ̃/", "example": "Un homme.", "example_translation": "One man / A man.", "tags": ["numbers", "articles", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_017", "word": "deux", "translation": "two", "pronunciation": "/dø/", "example": "J'ai deux frères.", "example_translation": "I have two brothers.", "tags": ["numbers", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_018", "word": "trois", "translation": "three", "pronunciation": "/tʁwa/", "example": "Il y a trois chaises.", "example_translation": "There are three chairs.", "tags": ["numbers", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_019", "word": "aujourd'hui", "translation": "today", "pronunciation": "/oʒuʁdɥi/", "example": "Aujourd'hui, il fait beau.", "example_translation": "Today, the weather is nice.", "tags": ["time", "basics"], "source": "wiktionary", "verified": true },
-  { "id": "fr_basics_020", "word": "demain", "translation": "tomorrow", "pronunciation": "/dəmɛ̃/", "example": "On se voit demain.", "example_translation": "We'll see each other tomorrow.", "tags": ["time", "basics"], "source": "wiktionary", "verified": true }
+  {
+    "id": "fr_basics_001",
+    "word": "bonjour",
+    "translation": "hello / good morning",
+    "pronunciation": "/bɔ̃ʒuʁ/",
+    "example": "Bonjour, comment allez-vous?",
+    "example_translation": "Hello, how are you?",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_002",
+    "word": "bonsoir",
+    "translation": "good evening",
+    "pronunciation": "/bɔ̃swaʁ/",
+    "example": "Bonsoir madame.",
+    "example_translation": "Good evening, madam.",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_003",
+    "word": "au revoir",
+    "translation": "goodbye",
+    "pronunciation": "/o ʁəvwaʁ/",
+    "example": "Au revoir et à bientôt!",
+    "example_translation": "Goodbye and see you soon!",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_004",
+    "word": "merci",
+    "translation": "thank you",
+    "pronunciation": "/mɛʁsi/",
+    "example": "Merci beaucoup!",
+    "example_translation": "Thank you very much!",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_005",
+    "word": "s'il vous plaît",
+    "translation": "please (formal)",
+    "pronunciation": "/sil vu plɛ/",
+    "example": "Un café, s'il vous plaît.",
+    "example_translation": "A coffee, please.",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_006",
+    "word": "s'il te plaît",
+    "translation": "please (informal)",
+    "pronunciation": "/sil tə plɛ/",
+    "example": "Aide-moi, s'il te plaît.",
+    "example_translation": "Help me, please.",
+    "tags": [
+      "greetings",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_007",
+    "word": "oui",
+    "translation": "yes",
+    "pronunciation": "/wi/",
+    "example": "Oui, je comprends.",
+    "example_translation": "Yes, I understand.",
+    "tags": [
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_008",
+    "word": "non",
+    "translation": "no",
+    "pronunciation": "/nɔ̃/",
+    "example": "Non, je ne sais pas.",
+    "example_translation": "No, I don't know.",
+    "tags": [
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_009",
+    "word": "pardon",
+    "translation": "excuse me / sorry",
+    "pronunciation": "/paʁdɔ̃/",
+    "example": "Pardon, où est la gare?",
+    "example_translation": "Excuse me, where is the train station?",
+    "tags": [
+      "basics",
+      "apology"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_010",
+    "word": "désolé(e)",
+    "translation": "sorry",
+    "pronunciation": "/dezɔle/",
+    "example": "Je suis désolé, je suis en retard.",
+    "example_translation": "I'm sorry, I'm late.",
+    "tags": [
+      "basics",
+      "apology"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_011",
+    "word": "je",
+    "translation": "I",
+    "pronunciation": "/ʒə/",
+    "example": "Je suis étudiant.",
+    "example_translation": "I am a student.",
+    "tags": [
+      "pronouns",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_012",
+    "word": "tu",
+    "translation": "you (informal)",
+    "pronunciation": "/ty/",
+    "example": "Tu parles français?",
+    "example_translation": "Do you speak French?",
+    "tags": [
+      "pronouns",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_013",
+    "word": "il",
+    "translation": "he",
+    "pronunciation": "/il/",
+    "example": "Il est médecin.",
+    "example_translation": "He is a doctor.",
+    "tags": [
+      "pronouns",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_014",
+    "word": "elle",
+    "translation": "she",
+    "pronunciation": "/ɛl/",
+    "example": "Elle aime lire.",
+    "example_translation": "She likes to read.",
+    "tags": [
+      "pronouns",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_015",
+    "word": "nous",
+    "translation": "we",
+    "pronunciation": "/nu/",
+    "example": "Nous habitons à Paris.",
+    "example_translation": "We live in Paris.",
+    "tags": [
+      "pronouns",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_016",
+    "word": "un",
+    "translation": "one / a (m.)",
+    "pronunciation": "/œ̃/",
+    "example": "Un homme.",
+    "example_translation": "One man / A man.",
+    "tags": [
+      "numbers",
+      "articles",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_017",
+    "word": "deux",
+    "translation": "two",
+    "pronunciation": "/dø/",
+    "example": "J'ai deux frères.",
+    "example_translation": "I have two brothers.",
+    "tags": [
+      "numbers",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_018",
+    "word": "trois",
+    "translation": "three",
+    "pronunciation": "/tʁwa/",
+    "example": "Il y a trois chaises.",
+    "example_translation": "There are three chairs.",
+    "tags": [
+      "numbers",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_019",
+    "word": "aujourd'hui",
+    "translation": "today",
+    "pronunciation": "/oʒuʁdɥi/",
+    "example": "Aujourd'hui, il fait beau.",
+    "example_translation": "Today, the weather is nice.",
+    "tags": [
+      "time",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_020",
+    "word": "demain",
+    "translation": "tomorrow",
+    "pronunciation": "/dəmɛ̃/",
+    "example": "On se voit demain.",
+    "example_translation": "We'll see each other tomorrow.",
+    "tags": [
+      "time",
+      "basics"
+    ],
+    "source": "wiktionary",
+    "verified": true
+  },
+  {
+    "id": "fr_basics_021",
+    "translation": "now, currently",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "maintenant",
+    "pronunciation": ""
+  },
+  {
+    "id": "fr_basics_022",
+    "translation": "breast (the chest)",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "sein",
+    "pronunciation": "",
+    "gender": "masculine"
+  },
+  {
+    "id": "fr_basics_023",
+    "translation": "each",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "chaque",
+    "pronunciation": ""
+  },
+  {
+    "id": "fr_basics_024",
+    "translation": "error",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "erreur",
+    "pronunciation": "",
+    "gender": "feminine"
+  },
+  {
+    "id": "fr_basics_025",
+    "translation": "reverse",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "envers",
+    "pronunciation": "",
+    "gender": "masculine"
+  },
+  {
+    "id": "fr_basics_026",
+    "translation": "event",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "événement",
+    "pronunciation": "",
+    "gender": "masculine"
+  },
+  {
+    "id": "fr_basics_027",
+    "translation": "silver",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "argent",
+    "pronunciation": "",
+    "gender": "masculine"
+  },
+  {
+    "id": "fr_basics_028",
+    "translation": "week",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "example": "Je l'ai vu il n'y a pas plus longtemps qu'une '''semaine'''.",
+    "example_translation": "",
+    "word": "semaine",
+    "pronunciation": "",
+    "gender": "feminine"
+  }
 ]

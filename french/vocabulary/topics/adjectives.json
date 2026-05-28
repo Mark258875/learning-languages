@@ -6,7 +6,9 @@
     "pronunciation": "/e.pus.tu.flɑ̃/",
     "example": "La vue depuis le sommet est époustouflante.",
     "example_translation": "The view from the top is breathtaking.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -17,7 +19,9 @@
     "pronunciation": "/de.kɔ̃.sɛʁ.tɑ̃/",
     "example": "Son comportement est vraiment déconcertant.",
     "example_translation": "His behaviour is truly baffling.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -28,7 +32,9 @@
     "pronunciation": "/pɛʁ.ti.nɑ̃/",
     "example": "C'est une remarque tout à fait pertinente.",
     "example_translation": "That is a very pertinent remark.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -39,7 +45,9 @@
     "pronunciation": "/du.tø/",
     "example": "Cette affaire a des origines douteuses.",
     "example_translation": "This business has dubious origins.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -50,7 +58,9 @@
     "pronunciation": "/ɛ̃.sɔ.lit/",
     "example": "Nous avons fait une expérience insolite.",
     "example_translation": "We had an unusual experience.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -61,7 +71,9 @@
     "pronunciation": "/pe.nibl/",
     "example": "Cette situation est vraiment pénible.",
     "example_translation": "This situation is truly tiresome.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -72,7 +84,9 @@
     "pronunciation": "/e.lɔ.kɑ̃/",
     "example": "Il a fait un discours très éloquent.",
     "example_translation": "He gave a very eloquent speech.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -83,7 +97,9 @@
     "pronunciation": "/a.nɔ.dɛ̃/",
     "example": "C'est une remarque anodine, ne t'en fais pas.",
     "example_translation": "It's a trivial remark, don't worry about it.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -94,7 +110,9 @@
     "pronunciation": "/bjɛ̃.vɛ.jɑ̃/",
     "example": "Son professeur était très bienveillant envers lui.",
     "example_translation": "His teacher was very kind-hearted towards him.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -105,7 +123,9 @@
     "pronunciation": "/a.ka.blɑ̃/",
     "example": "La chaleur était accablante cet été.",
     "example_translation": "The heat was overwhelming this summer.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -116,7 +136,9 @@
     "pronunciation": "/a.ɡɛ.ʁi/",
     "example": "C'est un négociateur aguerri.",
     "example_translation": "He is a seasoned negotiator.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -127,7 +149,9 @@
     "pronunciation": "/ɛ̃.pʁe.vy/",
     "example": "Un événement imprévu a retardé notre départ.",
     "example_translation": "An unforeseen event delayed our departure.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -138,7 +162,9 @@
     "pronunciation": "/sɛ.zi.sɑ̃/",
     "example": "Il y a une ressemblance saisissante entre eux.",
     "example_translation": "There is a striking resemblance between them.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -149,7 +175,9 @@
     "pronunciation": "/me.fjɑ̃/",
     "example": "Il est très méfiant envers les inconnus.",
     "example_translation": "He is very wary of strangers.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -160,8 +188,23 @@
     "pronunciation": "/ly.sid/",
     "example": "Il faut être lucide sur la situation.",
     "example_translation": "We need to be clear-headed about the situation.",
-    "tags": ["adjectives"],
+    "tags": [
+      "adjectives"
+    ],
     "source": "wiktionary",
     "verified": true
+  },
+  {
+    "id": "fr_adjectives_016",
+    "translation": "big",
+    "tags": [
+      "adjectives",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "grand",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]

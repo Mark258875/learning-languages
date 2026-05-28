@@ -6,7 +6,10 @@
     "pronunciation": "/se.pa.nwiʁ/",
     "example": "Elle s'épanouit dans son nouveau travail.",
     "example_translation": "She is flourishing in her new job.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -17,7 +20,10 @@
     "pronunciation": "/sə me.fje/",
     "example": "Méfie-toi des offres trop belles pour être vraies.",
     "example_translation": "Be wary of offers that are too good to be true.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -28,7 +34,9 @@
     "pronunciation": "/paʁ.və.niʁ/",
     "example": "Il est parvenu à terminer le projet à temps.",
     "example_translation": "He managed to finish the project on time.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -39,7 +47,9 @@
     "pronunciation": "/pʁe.tɑ̃dʁ/",
     "example": "Il prétend tout savoir sur le sujet.",
     "example_translation": "He claims to know everything about the subject.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -50,7 +60,10 @@
     "pronunciation": "/sə ʁɑ̃dʁ kɔ̃t/",
     "example": "Je me suis rendu compte de mon erreur trop tard.",
     "example_translation": "I realized my mistake too late.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -61,7 +74,9 @@
     "pronunciation": "/ɑ̃.vi.za.ʒe/",
     "example": "J'envisage de déménager en France l'année prochaine.",
     "example_translation": "I am considering moving to France next year.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -72,7 +87,9 @@
     "pronunciation": "/su.tə.niʁ/",
     "example": "Ses amis l'ont soutenu dans cette épreuve.",
     "example_translation": "His friends supported him through this ordeal.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -83,7 +100,11 @@
     "pronunciation": "/si pʁɑ̃dʁ/",
     "example": "Comment est-ce qu'il faut s'y prendre ?",
     "example_translation": "How should one go about it?",
-    "tags": ["verbs", "reflexive", "idiomatic"],
+    "tags": [
+      "verbs",
+      "reflexive",
+      "idiomatic"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -94,7 +115,10 @@
     "pronunciation": "/sə plɛ̃dʁ/",
     "example": "Il se plaint tout le temps du mauvais temps.",
     "example_translation": "He complains all the time about the bad weather.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -105,7 +129,9 @@
     "pronunciation": "/a.bu.tiʁ/",
     "example": "Les négociations ont abouti à un accord.",
     "example_translation": "The negotiations resulted in an agreement.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -116,7 +142,10 @@
     "pronunciation": "/sa.tɑ̃dʁ/",
     "example": "Je ne m'attendais pas à ce résultat.",
     "example_translation": "I wasn't expecting this result.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -127,7 +156,9 @@
     "pronunciation": "/ʁə.pʁɑ̃dʁ/",
     "example": "Le professeur l'a repris sur sa prononciation.",
     "example_translation": "The teacher corrected him on his pronunciation.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -138,7 +169,10 @@
     "pronunciation": "/fɛʁ pʁøv də/",
     "example": "Elle a fait preuve de beaucoup de courage.",
     "example_translation": "She showed a lot of courage.",
-    "tags": ["verbs", "idiomatic"],
+    "tags": [
+      "verbs",
+      "idiomatic"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -149,7 +183,10 @@
     "pronunciation": "/tə.niʁ kɔ̃t də/",
     "example": "Il faut tenir compte des contraintes budgétaires.",
     "example_translation": "We must take budget constraints into account.",
-    "tags": ["verbs", "idiomatic"],
+    "tags": [
+      "verbs",
+      "idiomatic"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -160,7 +197,10 @@
     "pronunciation": "/sə du.te/",
     "example": "Je me doutais que quelque chose n'allait pas.",
     "example_translation": "I suspected that something was wrong.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -171,7 +211,10 @@
     "pronunciation": "/sə su.və.niʁ/",
     "example": "Tu te souviens de notre premier voyage ?",
     "example_translation": "Do you remember our first trip?",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -182,7 +225,9 @@
     "pronunciation": "/o.ze/",
     "example": "Il n'ose pas lui dire la vérité.",
     "example_translation": "He doesn't dare tell her the truth.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -193,7 +238,9 @@
     "pronunciation": "/fʁɑ̃.ʃiʁ/",
     "example": "Ils ont franchi une nouvelle étape dans leur relation.",
     "example_translation": "They crossed a new milestone in their relationship.",
-    "tags": ["verbs"],
+    "tags": [
+      "verbs"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -204,7 +251,10 @@
     "pronunciation": "/sə tɛʁ/",
     "example": "Tais-toi ! Tu fais trop de bruit.",
     "example_translation": "Be quiet! You're making too much noise.",
-    "tags": ["verbs", "reflexive"],
+    "tags": [
+      "verbs",
+      "reflexive"
+    ],
     "source": "wiktionary",
     "verified": true
   },
@@ -215,8 +265,26 @@
     "pronunciation": "/mɛtʁ ɑ̃ va.lœʁ/",
     "example": "Cette robe met ta silhouette en valeur.",
     "example_translation": "This dress showcases your figure.",
-    "tags": ["verbs", "idiomatic"],
+    "tags": [
+      "verbs",
+      "idiomatic"
+    ],
     "source": "wiktionary",
     "verified": true
+  },
+  {
+    "id": "fr_verbs_021",
+    "translation": "to find; to retrieve something lost, turn up something hidden, or encounter something previously unknown to one",
+    "tags": [
+      "verbs",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "example": "Quand est-ce qu'elle a '''trouvé''' les clés ?",
+    "example_translation": "",
+    "word": "trouver",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
