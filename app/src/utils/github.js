@@ -152,7 +152,7 @@ export async function commitPendingWords(token, lang, topic, words) {
   try {
     await putRepoFile(token, indexPath, index, indexFile.sha, indexMsg)
   } catch (e) {
-    if (e.message && /409|sha/.test(e.message)) {
+    if (e.message && (/409/.test(e.message) || /update is not a fast forward/i.test(e.message))) {
       // Stale sha — re-fetch the file, merge our new entries, and retry
       const freshIndex = await getRepoFile(token, indexPath)
       const mergedIndex = { ...(freshIndex.content ?? {}), ...index }

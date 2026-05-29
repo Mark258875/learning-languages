@@ -203,15 +203,21 @@ def main():
 
             gen = examples_by_id[word_id]
 
-            # Load the file, update the entry, save
+            # Load the file, find the entry by ID (not index — file may have changed)
             all_entries = load_json(file_path)
-            if idx < len(all_entries) and all_entries[idx].get("id") == word_id:
-                all_entries[idx]["example"] = gen["example"]
-                all_entries[idx]["example_translation"] = gen.get(
+            target_idx = None
+            for i, e in enumerate(all_entries):
+                if e.get("id") == word_id:
+                    target_idx = i
+                    break
+
+            if target_idx is not None:
+                all_entries[target_idx]["example"] = gen["example"]
+                all_entries[target_idx]["example_translation"] = gen.get(
                     "example_translation", ""
                 )
                 if lang == "chinese" and gen.get("example_pinyin"):
-                    all_entries[idx]["example_pinyin"] = gen["example_pinyin"]
+                    all_entries[target_idx]["example_pinyin"] = gen["example_pinyin"]
                 save_json(file_path, all_entries)
                 files_modified.add(file_path)
                 count += 1

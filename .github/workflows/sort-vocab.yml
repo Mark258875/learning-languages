@@ -81,10 +81,17 @@ jobs:
 
           # Fetch latest remote changes BEFORE committing to avoid rebase conflicts.
           git fetch origin main
-          git merge origin/main --no-edit || true
+          if ! git merge origin/main --no-edit; then
+            echo "⚠️ Merge conflict — aborting merge and applying stash on current HEAD"
+            git merge --abort
+          fi
 
           # Restore sorted changes on top of the merged state
-          git stash pop || true
+          if ! git stash pop; then
+            echo "⚠️ Stash pop had conflicts — resolving by keeping our sorted version"
+            git checkout --theirs . 2>/dev/null || true
+            git add -A
+          fi
 
           # Regenerate the index fresh from all topic files (including any
           # files that arrived via the merge above).
