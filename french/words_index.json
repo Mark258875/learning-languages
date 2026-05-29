@@ -43,6 +43,7 @@
   "événement": "basics:fr_basics_026",
   "argent": "basics:fr_basics_027",
   "semaine": "basics:fr_basics_028",
+  "ressemblance": "basics:fr_basics_029",
   "heureux": "emotions:fr_emotions_001",
   "triste": "emotions:fr_emotions_002",
   "en colère": "emotions:fr_emotions_003",
@@ -125,6 +126,5 @@
   "télétravail": "work:fr_work_009",
   "promotion": "work:fr_work_010",
   "bilan": "work:fr_work_011",
-  "collaborer": "work:fr_work_012",
-  "ressemblance": "other:fr_other_001"
+  "collaborer": "work:fr_work_012"
 }

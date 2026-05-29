@@ -381,5 +381,18 @@
     "word": "semaine",
     "pronunciation": "",
     "gender": "feminine"
+  },
+  {
+    "id": "fr_basics_029",
+    "translation": "resemblance (state of resembling)",
+    "tags": [
+      "basics",
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "ressemblance",
+    "pronunciation": "",
+    "gender": "feminine"
   }
 ]
