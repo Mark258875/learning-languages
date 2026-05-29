@@ -4,10 +4,10 @@ import { VOCAB } from '../data/loader.js'
 import { buildFuse } from '../utils/search.js'
 import {
   WIKT_LANG,
-  parseWikitext,
   buildEntry,
   wiktionaryLookup as wiktLookup,
   fetchSuggestions as wiktSuggestions,
+  externalLookupLinks,
 } from '../utils/wiktionary.js'
 
 const OPENSEARCH_LIMIT = 5
@@ -64,14 +64,17 @@ function ResultCard({ word, parsed, lang, langMeta, onSave, alreadySaved }) {
         >
           {alreadySaved ? '✓ Saved to pending' : '+ Save to pending'}
         </button>
-        <a
-          href={`https://en.wiktionary.org/wiki/${encodeURIComponent(word)}`}
-          target="_blank"
-          rel="noreferrer"
-          className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
-        >
-          Open in Wiktionary ↗
-        </a>
+        {externalLookupLinks(word, lang).map((link) => (
+          <a
+            key={link.id}
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
+          >
+            {link.label}
+          </a>
+        ))}
       </div>
     </div>
   )
@@ -447,19 +450,22 @@ export default function LookupView({ lang, langMeta }) {
       const parsed = await wiktionaryLookup(word)
       if (!parsed || !parsed.definition) {
         // Fallback: try top opensearch suggestion (auto-correct)
-        const topSuggestions = await wiktSuggestions(word, 3)
-        const topSuggestion = topSuggestions.find(
-          (s) => s.toLowerCase() !== word.toLowerCase()
-        )
-        if (topSuggestion) {
+        const topSuggestions = await wiktSuggestions(word, 5)
+        let corrected = null
+        for (const candidate of topSuggestions) {
+          if (candidate.toLowerCase() === word.toLowerCase()) continue
           try {
-            const parsed2 = await wiktionaryLookup(topSuggestion)
+            const parsed2 = await wiktionaryLookup(candidate)
             if (parsed2?.definition) {
-              setCorrectedWord(topSuggestion)
-              setResult({ word: topSuggestion, parsed: parsed2 })
-              return
+              corrected = { word: candidate, parsed: parsed2 }
+              break
             }
           } catch { /* ignore — fall through to local search */ }
+        }
+        if (corrected) {
+          setCorrectedWord(corrected.word)
+          setResult(corrected)
+          return
         }
 
         // Wiktionary found nothing and auto-correct failed →
