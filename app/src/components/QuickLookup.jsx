@@ -4,8 +4,8 @@ import {
   wiktionaryLookup,
   buildEntry,
   fetchSuggestions,
-  externalLookupLinks,
 } from '../utils/wiktionary.js'
+import { externalLinks } from '../utils/lingea.js'
 
 /**
  * QuickLookup — a compact modal dialog accessible from any page.
@@ -23,6 +23,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
   const [error, setError] = useState(null)
   const [correctedWord, setCorrectedWord] = useState(null)
   const [saved, setSaved] = useState(false)
+  const [direction, setDirection] = useState('target')
 
   // Autocomplete
   const [suggestions, setSuggestions] = useState([])
@@ -88,12 +89,11 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
 
   // ---- Search --------------------------------------------------------------
 
-  const doSearch = useCallback(async (wordOverride) => {
+  const doSearch = useCallback(async (wordOverride, dir) => {
     const word = (wordOverride ?? query).trim()
     if (!word) return
+    const searchDir = dir ?? direction
 
-    // English queries in QuickLookup just attempt Wiktionary directly —
-    // bidirectional local-search is available on the full Lookup page.
     setLoading(true)
     setError(null)
     setResult(null)
@@ -101,6 +101,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
     setCorrectedWord(null)
     setSuggestions([])
     setShowDropdown(false)
+    setDirection(searchDir)
 
     try {
       const parsed = await wiktionaryLookup(word, lang)
@@ -124,7 +125,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
           setCorrectedWord(corrected.word)
           setResult(corrected)
         } else {
-          setError(`No ${WIKT_LANG[lang]} entry found for "${word}".`)
+          setError(`No ${WIKT_LANG[lang]} entry found for "${word}". Try the external links below.`)
         }
       } else {
         setResult({ word, parsed })
@@ -134,7 +135,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
     } finally {
       setLoading(false)
     }
-  }, [query, lang])
+  }, [query, lang, direction])
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') doSearch()
@@ -184,44 +185,52 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
 
         {/* Search row */}
         <div className="px-4 pt-3 pb-2 shrink-0 relative">
-          <div className="relative flex gap-2">
-            <div className="relative flex-1">
-              <input
-                ref={inputRef}
-                type="text"
-                value={query}
-                onChange={handleQueryChange}
-                onKeyDown={handleKeyDown}
-                onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
-                onFocus={() => suggestions.length > 0 && setShowDropdown(true)}
-                placeholder={
-                  lang === 'chinese' ? 'Characters or English…'
-                  : lang === 'russian' ? 'Cyrillic word or English…'
-                  : 'French word or English…'
-                }
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 text-sm"
-              />
-              {/* Autocomplete dropdown */}
-              {showDropdown && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-10 overflow-hidden">
-                  {suggestions.map((s) => (
-                    <button
-                      key={s}
-                      onMouseDown={() => selectSuggestion(s)}
-                      className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 border-b border-gray-100 dark:border-gray-700 last:border-0"
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+          <div className="relative flex-1">
+            <input
+              ref={inputRef}
+              type="text"
+              value={query}
+              onChange={handleQueryChange}
+              onKeyDown={handleKeyDown}
+              onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
+              onFocus={() => suggestions.length > 0 && setShowDropdown(true)}
+              placeholder={
+                lang === 'chinese' ? 'Characters or English…'
+                : lang === 'russian' ? 'Cyrillic word or English…'
+                : 'French word or English…'
+              }
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 text-sm"
+            />
+            {/* Autocomplete dropdown */}
+            {showDropdown && suggestions.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-10 overflow-hidden">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    onMouseDown={() => selectSuggestion(s)}
+                    className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 border-b border-gray-100 dark:border-gray-700 last:border-0"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Direction buttons */}
+          <div className="flex gap-2 mt-2">
             <button
-              onClick={() => doSearch()}
+              onClick={() => doSearch(undefined, 'target')}
               disabled={loading || !query.trim()}
-              className={`px-4 py-2 rounded-lg font-medium text-white text-sm transition-all ${langMeta.bgClass} disabled:opacity-40`}
+              className={`flex-1 px-3 py-1.5 rounded-lg font-medium text-white text-sm transition-all ${langMeta.bgClass} disabled:opacity-40`}
             >
-              {loading ? '…' : 'Look up'}
+              {loading && direction === 'target' ? '…' : `${lang === 'french' ? '🇫🇷' : lang === 'russian' ? '🇷🇺' : '🇨🇳'} Find from ${lang === 'french' ? 'FR' : lang === 'russian' ? 'RU' : '中文'}`}
+            </button>
+            <button
+              onClick={() => doSearch(undefined, 'english')}
+              disabled={loading || !query.trim()}
+              className="flex-1 px-3 py-1.5 rounded-lg font-medium text-white text-sm transition-all bg-blue-600 disabled:opacity-40 hover:bg-blue-700"
+            >
+              {loading && direction === 'english' ? '…' : '🇬🇧 Find from EN'}
             </button>
           </div>
           {correctedWord && (
@@ -291,7 +300,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
                 >
                   {saved ? '✓ Saved to pending' : '+ Save to pending'}
                 </button>
-                {externalLookupLinks(result.word, lang).map((link) => (
+                {externalLinks(result.word, lang, direction).map((link) => (
                   <a
                     key={link.id}
                     href={link.url}
