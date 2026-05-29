@@ -143,15 +143,24 @@ export async function commitPendingWords(token, lang, topic, words) {
     added.map((e) => `- ${e.word || e.simplified}`).join('\n') +
     '\n\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>'
 
-  // Commit topic file first, then index
+  // Commit topic file first, then index (with retry for stale sha)
   const topicResult = await putRepoFile(token, topicPath, updatedTopic, topicFile.sha, msg)
-  await putRepoFile(
-    token,
-    indexPath,
-    index,
-    indexFile.sha,
-    `Update ${lang}/words_index.json after adding ${added.length} word(s) to ${topic}`
-  )
+
+  // The index file's sha may have become stale if the topic commit or another
+  // concurrent commit touched the same file. Re-fetch and retry once if needed.
+  const indexMsg = `Update ${lang}/words_index.json after adding ${added.length} word(s) to ${topic}`
+  try {
+    await putRepoFile(token, indexPath, index, indexFile.sha, indexMsg)
+  } catch (e) {
+    if (e.message && /409|sha/.test(e.message)) {
+      // Stale sha — re-fetch the file, merge our new entries, and retry
+      const freshIndex = await getRepoFile(token, indexPath)
+      const mergedIndex = { ...(freshIndex.content ?? {}), ...index }
+      await putRepoFile(token, indexPath, mergedIndex, freshIndex.sha, indexMsg)
+    } else {
+      throw e
+    }
+  }
 
   return {
     added: added.length,
