@@ -5,6 +5,25 @@
 export const WIKT_API = 'https://en.wiktionary.org/w/api.php'
 export const WIKT_LANG = { french: 'French', russian: 'Russian', chinese: 'Chinese' }
 
+export function externalLookupLinks(word, lang) {
+  const encoded = encodeURIComponent(word)
+  const links = [
+    {
+      id: 'wiktionary',
+      label: 'Open in Wiktionary ↗',
+      url: `https://en.wiktionary.org/wiki/${encoded}`,
+    },
+  ]
+  if (lang === 'french') {
+    links.push({
+      id: 'lingea',
+      label: 'Open in Lingea ↗',
+      url: `https://slovniky.lingea.cz/francouzsko-anglicky/${encoded}`,
+    })
+  }
+  return links
+}
+
 /**
  * Parse the wikitext of a Wiktionary page and extract the relevant data
  * for the given target language section.

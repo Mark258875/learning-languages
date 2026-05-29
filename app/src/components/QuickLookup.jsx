@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { WIKT_LANG, wiktionaryLookup, buildEntry, fetchSuggestions } from '../utils/wiktionary.js'
-import { detectDirection } from '../utils/search.js'
+import {
+  WIKT_LANG,
+  wiktionaryLookup,
+  buildEntry,
+  fetchSuggestions,
+  externalLookupLinks,
+} from '../utils/wiktionary.js'
 
 /**
  * QuickLookup — a compact modal dialog accessible from any page.
@@ -57,8 +62,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
     const val = e.target.value
     setQuery(val)
     setSaved(false)
-    const dir = detectDirection(val, lang)
-    if (dir === 'target' && val.length >= 2) {
+    if (val.length >= 2) {
       if (debounceRef.current) clearTimeout(debounceRef.current)
       debounceRef.current = setTimeout(async () => {
         try {
@@ -101,17 +105,24 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
     try {
       const parsed = await wiktionaryLookup(word, lang)
       if (!parsed || !parsed.definition) {
-        // Try auto-correct via opensearch
-        const topSuggestions = await fetchSuggestions(word, 3)
-        const top = topSuggestions.find((s) => s.toLowerCase() !== word.toLowerCase())
-        if (top) {
-          const parsed2 = await wiktionaryLookup(top, lang)
-          if (parsed2?.definition) {
-            setCorrectedWord(top)
-            setResult({ word: top, parsed: parsed2 })
-          } else {
-            setError(`No ${WIKT_LANG[lang]} entry found for "${word}".`)
+        // Try auto-correct via opensearch (multiple candidates)
+        const topSuggestions = await fetchSuggestions(word, 5)
+        let corrected = null
+        for (const candidate of topSuggestions) {
+          if (candidate.toLowerCase() === word.toLowerCase()) continue
+          try {
+            const parsed2 = await wiktionaryLookup(candidate, lang)
+            if (parsed2?.definition) {
+              corrected = { word: candidate, parsed: parsed2 }
+              break
+            }
+          } catch {
+            // ignore failed candidate and keep trying
           }
+        }
+        if (corrected) {
+          setCorrectedWord(corrected.word)
+          setResult(corrected)
         } else {
           setError(`No ${WIKT_LANG[lang]} entry found for "${word}".`)
         }
@@ -280,14 +291,17 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
                 >
                   {saved ? '✓ Saved to pending' : '+ Save to pending'}
                 </button>
-                <a
-                  href={`https://en.wiktionary.org/wiki/${encodeURIComponent(result.word)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
-                >
-                  Open in Wiktionary ↗
-                </a>
+                {externalLookupLinks(result.word, lang).map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
             </div>
           )}
