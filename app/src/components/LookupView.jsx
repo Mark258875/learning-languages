@@ -501,16 +501,18 @@ export default function LookupView({ lang, langMeta }) {
       }
 
       // Also try Wiktionary for the English word (it may have a translation section)
+      let foundWikt = false
       try {
         const parsed = await wiktionaryLookup(word)
         if (parsed?.definition) {
           setResult({ word, parsed })
+          foundWikt = true
         }
       } catch { /* Wiktionary lookup optional for English direction */ }
 
-      if (tightMatches.length === 0 && !result) {
+      if (tightMatches.length === 0 && !foundWikt) {
         setError(
-          `No matches found for "${word}". Try browsing Lingea or WordReference using the links below.`
+          `No matches found for "${word}". Try the external reference links for Lingea or WordReference.`
         )
       }
     } catch (e) {
@@ -757,8 +759,8 @@ export default function LookupView({ lang, langMeta }) {
         </div>
       )}
 
-      {/* 🔗 External References — always show when there's a query and results/error */}
-      {query.trim() && (result || error || (localMatches && localMatches.length > 0)) && (
+      {/* 🔗 External References — always show when there's a query */}
+      {query.trim() && (result || error || localMatches !== null) && (
         <div className="mt-5 p-3 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700">
           <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium mb-2">
             🔗 External References

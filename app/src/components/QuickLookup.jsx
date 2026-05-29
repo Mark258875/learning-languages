@@ -125,7 +125,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
           setCorrectedWord(corrected.word)
           setResult(corrected)
         } else {
-          setError(`No ${WIKT_LANG[lang]} entry found for "${word}". Try the external links below.`)
+          setError(`No ${WIKT_LANG[lang]} entry found for "${word}".`)
         }
       } else {
         setResult({ word, parsed })
@@ -223,7 +223,7 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
               disabled={loading || !query.trim()}
               className={`flex-1 px-3 py-1.5 rounded-lg font-medium text-white text-sm transition-all ${langMeta.bgClass} disabled:opacity-40`}
             >
-              {loading && direction === 'target' ? '…' : `${lang === 'french' ? '🇫🇷' : lang === 'russian' ? '🇷🇺' : '🇨🇳'} Find from ${lang === 'french' ? 'FR' : lang === 'russian' ? 'RU' : '中文'}`}
+              {loading && direction === 'target' ? '…' : `${langMeta.flag} Find from ${langMeta.label}`}
             </button>
             <button
               onClick={() => doSearch(undefined, 'english')}
@@ -243,8 +243,25 @@ export default function QuickLookup({ lang, langMeta, onClose }) {
         {/* Scrollable results area */}
         <div className="flex-1 overflow-y-auto px-4 pb-4">
           {error && (
-            <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
+            <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm mb-3">
               {error}
+            </div>
+          )}
+
+          {/* External links — shown when error or result exists */}
+          {query.trim() && (error || result) && (
+            <div className="mb-3 flex flex-wrap gap-2">
+              {externalLinks(query.trim(), lang, direction).map((link) => (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           )}
 
