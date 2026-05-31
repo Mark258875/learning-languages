@@ -10,6 +10,7 @@ const REPO_OWNER = 'Mark258875'
 const REPO_NAME = 'learning-languages'
 const BRANCH = 'main'
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`
+const GENERATE_VOCAB_WORKFLOW = 'generate-vocab.yml'
 
 /**
  * Encode a string (including Unicode/UTF-8) to base64 for the GitHub API.
@@ -166,5 +167,37 @@ export async function commitPendingWords(token, lang, topic, words) {
     added: added.length,
     skipped,
     commitUrl: topicResult.commit?.html_url ?? null,
+  }
+}
+
+/**
+ * Dispatch the manual workflow that generates vocabulary with GitHub Actions.
+ */
+export async function requestVocabGeneration(token, { lang, topic, count, cefrLevel }) {
+  const res = await fetch(`${API_BASE}/actions/workflows/${GENERATE_VOCAB_WORKFLOW}/dispatches`, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Content-Type': 'application/json',
+      Accept: 'application/vnd.github+json',
+    },
+    body: JSON.stringify({
+      ref: BRANCH,
+      inputs: {
+        lang,
+        topic,
+        count: String(count),
+        cefr_level: cefrLevel,
+      },
+    }),
+  })
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message || `GitHub API ${res.status}`)
+  }
+
+  return {
+    workflowUrl: `https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${GENERATE_VOCAB_WORKFLOW}`,
   }
 }

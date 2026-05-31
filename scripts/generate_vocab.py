@@ -17,6 +17,7 @@ Usage:
     python scripts/generate_vocab.py --lang russian --topic greetings --count 15
     python scripts/generate_vocab.py --lang chinese --topic food --count 10
     python scripts/generate_vocab.py --lang french --topic emotions --count 20 --model gpt-4o
+    python scripts/generate_vocab.py --lang russian --topic travel --count 15 --cefr-level B2
 """
 
 import argparse
@@ -33,6 +34,7 @@ REPO_ROOT = Path(__file__).parent.parent
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com/chat/completions"
 DEFAULT_MODEL = "gpt-4o-mini"
 LANGUAGES = ["french", "russian", "chinese"]
+CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 PREFIXES = {"french": "fr", "russian": "ru", "chinese": "zh"}
 
 ARTICLE_RE = re.compile(
@@ -187,6 +189,7 @@ def main():
     parser.add_argument("--topic", required=True, help="Topic name, e.g. travel, food, emotions")
     parser.add_argument("--count", type=int, default=20, help="Number of words to generate")
     parser.add_argument("--model", default=DEFAULT_MODEL, help="GitHub Models model ID")
+    parser.add_argument("--cefr-level", choices=CEFR_LEVELS, help="Override CEFR level (e.g. A2, B2, C1)")
     args = parser.parse_args()
 
     lang, topic, count = args.lang, args.topic, args.count
@@ -215,7 +218,7 @@ def main():
     exclusions = list(index.keys())[:300]
     excl_str = ", ".join(exclusions) if exclusions else "none yet"
 
-    cefr = meta.get("cefr_level", "A1")
+    cefr = args.cefr_level or meta.get("cefr_level", "A1")
     notes = meta.get("learner_notes", "")
     start_id = find_next_id_num(existing_entries, lang, topic)
     schema = SCHEMAS[lang].replace("TOPIC", topic).replace("NNN", f"{start_id:03d}")
