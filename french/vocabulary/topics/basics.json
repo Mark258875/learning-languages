@@ -288,7 +288,9 @@
     "source": "wiktionary",
     "verified": false,
     "word": "maintenant",
-    "pronunciation": ""
+    "pronunciation": "",
+    "example": "Maintenant, je vais étudier pour l'examen.",
+    "example_translation": "Now, I am going to study for the exam."
   },
   {
     "id": "fr_basics_022",
@@ -301,7 +303,9 @@
     "verified": false,
     "word": "sein",
     "pronunciation": "",
-    "gender": "masculine"
+    "gender": "masculine",
+    "example": "Elle a une cicatrice sur son sein.",
+    "example_translation": "She has a scar on her breast."
   },
   {
     "id": "fr_basics_023",
@@ -313,7 +317,9 @@
     "source": "wiktionary",
     "verified": false,
     "word": "chaque",
-    "pronunciation": ""
+    "pronunciation": "",
+    "example": "Chaque élève doit faire ses devoirs.",
+    "example_translation": "Each student must do their homework."
   },
   {
     "id": "fr_basics_024",
@@ -326,7 +332,9 @@
     "verified": false,
     "word": "erreur",
     "pronunciation": "",
-    "gender": "feminine"
+    "gender": "feminine",
+    "example": "J'ai fait une erreur en écrivant ma réponse.",
+    "example_translation": "I made an error in writing my answer."
   },
   {
     "id": "fr_basics_025",
@@ -339,7 +347,9 @@
     "verified": false,
     "word": "envers",
     "pronunciation": "",
-    "gender": "masculine"
+    "gender": "masculine",
+    "example": "Il faut regarder les choses sous un nouvel envers.",
+    "example_translation": "You need to look at things from a new reverse."
   },
   {
     "id": "fr_basics_026",
@@ -352,7 +362,9 @@
     "verified": false,
     "word": "événement",
     "pronunciation": "",
-    "gender": "masculine"
+    "gender": "masculine",
+    "example": "L'événement de ce soir est très attendu.",
+    "example_translation": "The event tonight is highly anticipated."
   },
   {
     "id": "fr_basics_027",
@@ -365,7 +377,9 @@
     "verified": false,
     "word": "argent",
     "pronunciation": "",
-    "gender": "masculine"
+    "gender": "masculine",
+    "example": "Ce bijou est en argent pur.",
+    "example_translation": "This jewelry is made of pure silver."
   },
   {
     "id": "fr_basics_028",
@@ -393,6 +407,8 @@
     "verified": false,
     "word": "ressemblance",
     "pronunciation": "",
-    "gender": "feminine"
+    "gender": "feminine",
+    "example": "Il y a une forte ressemblance entre ces deux frères.",
+    "example_translation": "There is a strong resemblance between these two brothers."
   }
 ]

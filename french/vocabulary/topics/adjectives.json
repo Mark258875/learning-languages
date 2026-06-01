@@ -205,6 +205,8 @@
     "verified": false,
     "word": "grand",
     "pronunciation": "",
-    "gender": "masculine"
+    "gender": "masculine",
+    "example": "Cet éléphant est très grand.",
+    "example_translation": "This elephant is very big."
   }
 ]
