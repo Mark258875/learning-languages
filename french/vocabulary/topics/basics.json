@@ -410,5 +410,17 @@
     "gender": "feminine",
     "example": "Il y a une forte ressemblance entre ces deux frères.",
     "example_translation": "There is a strong resemblance between these two brothers."
+  },
+  {
+    "id": "fr_basics_030",
+    "translation": "house",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "maison",
+    "pronunciation": "",
+    "gender": "feminine"
   }
 ]
