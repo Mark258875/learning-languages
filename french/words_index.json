@@ -127,5 +127,6 @@
   "promotion": "work:fr_work_010",
   "bilan": "work:fr_work_011",
   "collaborer": "work:fr_work_012",
-  "maison": "basics:fr_basics_030"
+  "maison": "basics:fr_basics_030",
+  "remboursement": "other:fr_other_001"
 }
