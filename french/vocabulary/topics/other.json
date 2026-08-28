@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "fr_other_001",
+    "translation": "reimbursement, refund",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "remboursement",
+    "pronunciation": "",
+    "gender": "masculine"
+  }
+]
