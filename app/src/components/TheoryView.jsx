@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { THEORY } from '../data/loader.js'
 
 export default function TheoryView({ lang, section }) {
@@ -30,7 +31,7 @@ export default function TheoryView({ lang, section }) {
         prose-p:text-gray-700 dark:prose-p:text-gray-300
         prose-li:text-gray-700 dark:prose-li:text-gray-300
       ">
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
       </div>
     </div>
   )

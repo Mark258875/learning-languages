@@ -171,9 +171,11 @@ function getTheoryPages(lang) {
   const pages = {
     french: [
       { key: 'grammar', label: '📝 Grammar' },
-      { key: 'pronunciation', label: '🔊 Pronunciation' },
+      { key: 'pronouns', label: '🔁 Pronouns' },
       { key: 'verbs', label: '⚡ Verbs' },
       { key: 'tenses', label: '⏳ Tenses' },
+      { key: 'pronunciation', label: '🔊 Pronunciation' },
+      { key: 'essentials', label: '🧰 Essentials' },
     ],
     russian: [
       { key: 'azbuka', label: '🔤 Azbuka (Alphabet)' },
