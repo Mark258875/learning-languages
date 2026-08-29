@@ -2,26 +2,17 @@
  * Shared Wiktionary helpers used by LookupView and QuickLookup.
  */
 
+import { externalLinks } from './lingea.js'
+
 export const WIKT_API = 'https://en.wiktionary.org/w/api.php'
 export const WIKT_LANG = { french: 'French', russian: 'Russian', chinese: 'Chinese' }
 
+/**
+ * @deprecated Use externalLinks from lingea.js directly for direction-aware links.
+ * Kept for backward compatibility — defaults to 'target' direction.
+ */
 export function externalLookupLinks(word, lang) {
-  const encoded = encodeURIComponent(word)
-  const links = [
-    {
-      id: 'wiktionary',
-      label: 'Open in Wiktionary ↗',
-      url: `https://en.wiktionary.org/wiki/${encoded}`,
-    },
-  ]
-  if (lang === 'french') {
-    links.push({
-      id: 'lingea',
-      label: 'Open in Lingea ↗',
-      url: `https://slovniky.lingea.cz/francouzsko-anglicky/${encoded}`,
-    })
-  }
-  return links
+  return externalLinks(word, lang, 'target')
 }
 
 /**
