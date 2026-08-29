@@ -1,5 +1,8 @@
 import { LANGUAGES } from '../data/loader.js'
 
+// ponytail: dev marker — only set via app/.env.development (dev branch); inert everywhere else.
+const IS_DEV = import.meta.env.VITE_APP_ENV === 'dev'
+
 export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onOpenQuickLookup }) {
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm shrink-0 z-30">
@@ -14,7 +17,15 @@ export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onO
             <span className="text-xl leading-none">☰</span>
           </button>
 
-          <span className="text-lg font-bold text-gray-700 dark:text-gray-200 mr-4 shrink-0">🌍 LangLearn</span>
+          <span className="text-lg font-bold text-gray-700 dark:text-gray-200 mr-2 shrink-0">🌍 LangLearn</span>
+          {IS_DEV && (
+            <span
+              className="mr-3 shrink-0 rounded bg-amber-500 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+              title="Local dev build"
+            >
+              dev
+            </span>
+          )}
 
           {/* Language buttons */}
           <div className="flex items-center gap-1 overflow-x-auto">

@@ -30,6 +30,11 @@ export default function App() {
     localStorage.setItem('ll_dark', String(darkMode))
   }, [darkMode])
 
+  // ponytail: dev title suffix — VITE_APP_ENV is only set by app/.env.development (dev branch)
+  useEffect(() => {
+    if (import.meta.env.VITE_APP_ENV === 'dev') document.title += ' — dev'
+  }, [])
+
   useEffect(() => {
     if (activeMode !== 'vocabulary') return
     setGenerateState('idle')
