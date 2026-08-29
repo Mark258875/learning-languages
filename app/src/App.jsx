@@ -65,7 +65,11 @@ export default function App() {
   function handleModeChange(mode) {
     setActiveMode(mode)
     if (mode !== 'lookup') {
-      setActiveSection(mode === 'vocabulary' ? 'all' : Object.keys(VOCAB[activeLang]?.topics ?? {})[0] ?? 'grammar')
+      setActiveSection(
+        mode === 'vocabulary' ? 'all'
+          : mode === 'theory' ? 'grammar'
+          : Object.keys(VOCAB[activeLang]?.topics ?? {})[0] ?? 'grammar'
+      )
     }
     setSubMode('due')
     setSidebarOpen(false)

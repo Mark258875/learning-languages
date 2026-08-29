@@ -1,8 +1,10 @@
-# French Pronunciation
+# French Pronunciation (Prononciation)
 
 ## The French Alphabet
 
 French uses the same 26 letters as English, but pronunciation differs significantly.
+French is **syllable-timed** (every syllable roughly equal length, no vowel reduction) and
+stresses the **last syllable of a rhythmic group**, not individual words.
 
 ---
 
@@ -62,8 +64,57 @@ When a normally silent final consonant is pronounced because the next word start
 - *vous avez* → /vuz‿ave/ (you have)
 - *un enfant* → /œ̃n‿ɑ̃fɑ̃/ (a child)
 
-**Mandatory liaison:** after determiners, subject pronouns + verb, etc.
-**Forbidden liaison:** after *et* (and), after singular nouns, etc.
+**Mandatory:** determiner + noun (*les‿amis*), pronoun + verb (*nous‿avons*, *ils‿ont*),
+adjective + noun (*un grand‿homme*), after monosyllabic prepositions (*en‿avion*, *sans‿elle*),
+*est* + complement (*c'est‿impossible*), fixed phrases (*de plus‿en plus*, *tout‿à fait*).
+**Forbidden:** after *et*; after a singular noun (*un enfant / intelligent* — no liaison);
+subject noun + verb (*Paul / arrive*); before *h aspiré* (*les / héros*); after interrogative
+*quand* (*Quand / est-il parti ?*).
+Liaison consonants change sound: *-s, -x, -z* → /z/ (*deux‿ans*); *-d* → /t/ (*un grand‿arbre*);
+*-f* → /v/ (*neuf‿heures*); *-n* nasalises + links (*un‿ami*).
+
+---
+
+## Enchaînement
+
+Different from liaison: a **normally pronounced** final consonant simply attaches to the next
+word's initial vowel, re-syllabifying across the word boundary. Happens constantly.
+- *elle arrive* → /ɛ.la.ʁiv/ ("e-lla-rive")
+- *une amie* → /y.na.mi/
+- *quatre euros* → /ka.tʁø.ʁo/
+- *avec elle* → /a.vɛ.kɛl/
+
+---
+
+## The *e* caduc (schwa) — dropping *e*
+
+The unstable /ə/ (in *le, je, ne, de, ce, me* and inside words) is often dropped in normal
+and rapid speech:
+- *je ne sais pas* → /ʒən.sɛ.pa/ → casual /ʃsɛ.pa/ ("chais pas")
+- *samedi* → /sam.di/ ; *acheter* → /aʃ.te/ ; *la petite* → /la.ptit/
+- **Kept** to avoid three stacked consonants ("loi des trois consonnes"):
+  *une petite table* keeps the *e* of *petite* → /pə.tit/.
+- Word-final *e* is always silent (*table, grande, elle*) — but pronounced in careful/southern
+  speech and in song/poetry.
+
+---
+
+## The verb ending *-ent*
+
+The 3rd-person plural *-ent* is **completely silent**: *ils parlent* = /il paʁl/ (identical to
+*il parle*). Do **not** nasalise it. Contrast with the *adverb* ending *-ment*, which **is**
+pronounced /mɑ̃/: *lentement* /lɑ̃t.mɑ̃/.
+
+---
+
+## Intonation
+
+- **Statement**: gentle rise through the sentence, **fall** on the final syllable.
+- **Yes/no question** (no *est-ce que* / inversion): **rise** on the final syllable —
+  often the only thing marking it as a question: *Tu viens↗*.
+- **Question word / inversion question**: starts high, **falls**: *Où↘ vas-tu ?*
+- **Continuation / list**: rise at the end of each non-final group, fall on the last:
+  *J'ai pris du pain↗, du fromage↗ et du vin↘.*
 
 ---
 
@@ -95,8 +146,20 @@ Dropping the final vowel of short words before a vowel or mute H:
 
 | Word | Wrong | Right |
 |------|-------|-------|
-| *plus* (more) | "ploos" | /plys/ |
+| *plus* (more) | "ploos" | /plys/ — but /ply/ before consonant, /plyz/ in liaison |
 | *plus* (no more, neg.) | "ploos" | /ply/ (silent s) |
 | *beaucoup* | "boh-koop" | /boku/ |
-| *fille* | "fill" | /fij/ |
+| *fille* | "fill" | /fij/ (but *ville, mille, tranquille* keep /il/) |
 | *grenouille* | "gren-oo-ill" | /ɡʁənuj/ |
+| *femme* | "fem" | /fam/ |
+| *second* | "se-kond" | /səɡɔ̃/ (c → /ɡ/) |
+| *oignon* | "oig-non" | /ɔɲɔ̃/ |
+| *-tion* | "-shun" | /sjɔ̃/ (*nation* /nasjɔ̃/) |
+| *examen* | "ex-a-men" | /ɛɡzamɛ̃/ (nasal, silent n) |
+| final *-um* (*forum, album*) | "-oom" | /ɔm/ |
+
+---
+
+## See Also
+
+- [Grammar](grammar.md) · [Verbs](verbs.md) · [Essentials](essentials.md)
