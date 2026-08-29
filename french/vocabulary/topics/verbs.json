@@ -286,5 +286,875 @@
     "word": "trouver",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_verbs_022",
+    "word": "être",
+    "translation": "to be",
+    "pronunciation": "/ɛtʁ/",
+    "example": "Je suis étudiant à l'École polytechnique.",
+    "example_translation": "I am a student at the École Polytechnique.",
+    "tags": [
+      "verbs",
+      "basics",
+      "auxiliary"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_023",
+    "word": "avoir",
+    "translation": "to have",
+    "pronunciation": "/a.vwaʁ/",
+    "example": "J'ai deux frères et une sœur.",
+    "example_translation": "I have two brothers and a sister.",
+    "tags": [
+      "verbs",
+      "basics",
+      "auxiliary"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_024",
+    "word": "aller",
+    "translation": "to go",
+    "pronunciation": "/a.le/",
+    "example": "Nous allons à Paris ce week-end.",
+    "example_translation": "We are going to Paris this weekend.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_025",
+    "word": "faire",
+    "translation": "to do / to make",
+    "pronunciation": "/fɛʁ/",
+    "example": "Qu'est-ce que tu fais ce soir ?",
+    "example_translation": "What are you doing tonight?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_026",
+    "word": "dire",
+    "translation": "to say / to tell",
+    "pronunciation": "/diʁ/",
+    "example": "Dis-moi ce que tu en penses.",
+    "example_translation": "Tell me what you think of it.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_027",
+    "word": "pouvoir",
+    "translation": "to be able to / can",
+    "pronunciation": "/pu.vwaʁ/",
+    "example": "Est-ce que tu peux m'aider ?",
+    "example_translation": "Can you help me?",
+    "tags": [
+      "verbs",
+      "basics",
+      "modal"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_028",
+    "word": "vouloir",
+    "translation": "to want",
+    "pronunciation": "/vu.lwaʁ/",
+    "example": "Je voudrais un café, s'il vous plaît.",
+    "example_translation": "I would like a coffee, please.",
+    "tags": [
+      "verbs",
+      "basics",
+      "modal"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_029",
+    "word": "savoir",
+    "translation": "to know (a fact) / to know how to",
+    "pronunciation": "/sa.vwaʁ/",
+    "example": "Elle sait parler trois langues.",
+    "example_translation": "She can speak three languages.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_030",
+    "word": "devoir",
+    "translation": "to have to / must / to owe",
+    "pronunciation": "/də.vwaʁ/",
+    "example": "Je dois partir tôt demain matin.",
+    "example_translation": "I have to leave early tomorrow morning.",
+    "tags": [
+      "verbs",
+      "basics",
+      "modal"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_031",
+    "word": "venir",
+    "translation": "to come",
+    "pronunciation": "/və.niʁ/",
+    "example": "Tu viens avec nous ?",
+    "example_translation": "Are you coming with us?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_032",
+    "word": "prendre",
+    "translation": "to take",
+    "pronunciation": "/pʁɑ̃dʁ/",
+    "example": "Je prends le train de huit heures.",
+    "example_translation": "I'm taking the eight o'clock train.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_033",
+    "word": "voir",
+    "translation": "to see",
+    "pronunciation": "/vwaʁ/",
+    "example": "On se voit demain ?",
+    "example_translation": "Shall we see each other tomorrow?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_034",
+    "word": "mettre",
+    "translation": "to put / to place / to put on",
+    "pronunciation": "/mɛtʁ/",
+    "example": "Mets ton manteau, il fait froid.",
+    "example_translation": "Put your coat on, it's cold.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_035",
+    "word": "donner",
+    "translation": "to give",
+    "pronunciation": "/dɔ.ne/",
+    "example": "Peux-tu me donner ton numéro ?",
+    "example_translation": "Can you give me your number?",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_036",
+    "word": "parler",
+    "translation": "to speak / to talk",
+    "pronunciation": "/paʁ.le/",
+    "example": "Nous parlons de nos projets.",
+    "example_translation": "We are talking about our plans.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_037",
+    "word": "aimer",
+    "translation": "to like / to love",
+    "pronunciation": "/e.me/",
+    "example": "J'aime beaucoup ce quartier.",
+    "example_translation": "I really like this neighbourhood.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_038",
+    "word": "penser",
+    "translation": "to think",
+    "pronunciation": "/pɑ̃.se/",
+    "example": "Je pense que tu as raison.",
+    "example_translation": "I think you're right.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_039",
+    "word": "comprendre",
+    "translation": "to understand",
+    "pronunciation": "/kɔ̃.pʁɑ̃dʁ/",
+    "example": "Je n'ai pas compris la question.",
+    "example_translation": "I didn't understand the question.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_040",
+    "word": "connaître",
+    "translation": "to know (a person or place)",
+    "pronunciation": "/kɔ.nɛtʁ/",
+    "example": "Tu connais un bon restaurant près d'ici ?",
+    "example_translation": "Do you know a good restaurant near here?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_041",
+    "word": "partir",
+    "translation": "to leave",
+    "pronunciation": "/paʁ.tiʁ/",
+    "example": "Le train part dans cinq minutes.",
+    "example_translation": "The train leaves in five minutes.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_042",
+    "word": "sortir",
+    "translation": "to go out / to take out",
+    "pronunciation": "/sɔʁ.tiʁ/",
+    "example": "On sort ce soir ?",
+    "example_translation": "Are we going out tonight?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_043",
+    "word": "tenir",
+    "translation": "to hold",
+    "pronunciation": "/tə.niʁ/",
+    "example": "Tiens-moi la porte, s'il te plaît.",
+    "example_translation": "Hold the door for me, please.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_044",
+    "word": "croire",
+    "translation": "to believe",
+    "pronunciation": "/kʁwaʁ/",
+    "example": "Je crois qu'il a raison.",
+    "example_translation": "I believe he's right.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_045",
+    "word": "demander",
+    "translation": "to ask (for)",
+    "pronunciation": "/də.mɑ̃.de/",
+    "example": "Il m'a demandé mon avis.",
+    "example_translation": "He asked me for my opinion.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_046",
+    "word": "rester",
+    "translation": "to stay / to remain",
+    "pronunciation": "/ʁɛs.te/",
+    "example": "Je reste à la maison ce soir.",
+    "example_translation": "I'm staying home tonight.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_047",
+    "word": "passer",
+    "translation": "to pass / to spend (time) / to drop by",
+    "pronunciation": "/pɑ.se/",
+    "example": "J'ai passé le week-end à réviser.",
+    "example_translation": "I spent the weekend revising.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_048",
+    "word": "attendre",
+    "translation": "to wait (for)",
+    "pronunciation": "/a.tɑ̃dʁ/",
+    "example": "Attends-moi, j'arrive !",
+    "example_translation": "Wait for me, I'm coming!",
+    "tags": [
+      "verbs",
+      "basics",
+      "-re"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_049",
+    "word": "entendre",
+    "translation": "to hear",
+    "pronunciation": "/ɑ̃.tɑ̃dʁ/",
+    "example": "Je t'entends mal, il y a du bruit.",
+    "example_translation": "I can't hear you well, there's noise.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-re"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_050",
+    "word": "répondre",
+    "translation": "to answer / to reply",
+    "pronunciation": "/ʁe.pɔ̃dʁ/",
+    "example": "Elle n'a pas répondu à mon message.",
+    "example_translation": "She didn't reply to my message.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-re"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_051",
+    "word": "perdre",
+    "translation": "to lose",
+    "pronunciation": "/pɛʁdʁ/",
+    "example": "J'ai perdu mes clés ce matin.",
+    "example_translation": "I lost my keys this morning.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-re"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_052",
+    "word": "écrire",
+    "translation": "to write",
+    "pronunciation": "/e.kʁiʁ/",
+    "example": "Il écrit sa thèse en français.",
+    "example_translation": "He is writing his thesis in French.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_053",
+    "word": "lire",
+    "translation": "to read",
+    "pronunciation": "/liʁ/",
+    "example": "Je lis un roman de Camus en ce moment.",
+    "example_translation": "I'm reading a Camus novel right now.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_054",
+    "word": "boire",
+    "translation": "to drink",
+    "pronunciation": "/bwaʁ/",
+    "example": "Tu veux boire quelque chose ?",
+    "example_translation": "Do you want something to drink?",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_055",
+    "word": "manger",
+    "translation": "to eat",
+    "pronunciation": "/mɑ̃.ʒe/",
+    "example": "On mange à midi et demi.",
+    "example_translation": "We eat at half past twelve.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_056",
+    "word": "dormir",
+    "translation": "to sleep",
+    "pronunciation": "/dɔʁ.miʁ/",
+    "example": "J'ai mal dormi cette nuit.",
+    "example_translation": "I slept badly last night.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_057",
+    "word": "courir",
+    "translation": "to run",
+    "pronunciation": "/ku.ʁiʁ/",
+    "example": "Elle court tous les matins.",
+    "example_translation": "She runs every morning.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_058",
+    "word": "ouvrir",
+    "translation": "to open",
+    "pronunciation": "/u.vʁiʁ/",
+    "example": "Ouvre la fenêtre, il fait chaud.",
+    "example_translation": "Open the window, it's hot.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_059",
+    "word": "finir",
+    "translation": "to finish",
+    "pronunciation": "/fi.niʁ/",
+    "example": "J'ai fini mes devoirs.",
+    "example_translation": "I finished my homework.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-ir"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_060",
+    "word": "falloir",
+    "translation": "to be necessary / must (impersonal)",
+    "pronunciation": "/fa.lwaʁ/",
+    "example": "Il faut que je parte maintenant.",
+    "example_translation": "I must leave now.",
+    "tags": [
+      "verbs",
+      "basics",
+      "impersonal"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_061",
+    "word": "s'appeler",
+    "translation": "to be called / named",
+    "pronunciation": "/sa.ple/",
+    "example": "Comment est-ce que tu t'appelles ?",
+    "example_translation": "What's your name?",
+    "tags": [
+      "verbs",
+      "basics",
+      "reflexive"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_062",
+    "word": "se lever",
+    "translation": "to get up",
+    "pronunciation": "/sə lə.ve/",
+    "example": "Je me lève à sept heures.",
+    "example_translation": "I get up at seven.",
+    "tags": [
+      "verbs",
+      "basics",
+      "reflexive"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_063",
+    "word": "commencer",
+    "translation": "to begin / to start",
+    "pronunciation": "/kɔ.mɑ̃.se/",
+    "example": "Le cours commence à neuf heures.",
+    "example_translation": "The class starts at nine.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_064",
+    "word": "apprendre",
+    "translation": "to learn",
+    "pronunciation": "/a.pʁɑ̃dʁ/",
+    "example": "J'apprends le français depuis six ans.",
+    "example_translation": "I've been learning French for six years.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_065",
+    "word": "chercher",
+    "translation": "to look for / to search",
+    "pronunciation": "/ʃɛʁ.ʃe/",
+    "example": "Je cherche mes lunettes.",
+    "example_translation": "I'm looking for my glasses.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_066",
+    "word": "arriver",
+    "translation": "to arrive / to happen / to manage to",
+    "pronunciation": "/a.ʁi.ve/",
+    "example": "J'arrive dans dix minutes.",
+    "example_translation": "I'll be there in ten minutes.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_067",
+    "word": "entrer",
+    "translation": "to enter / to come in",
+    "pronunciation": "/ɑ̃.tʁe/",
+    "example": "Entrez, je vous en prie.",
+    "example_translation": "Come in, please.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_068",
+    "word": "revenir",
+    "translation": "to come back",
+    "pronunciation": "/ʁə.və.niʁ/",
+    "example": "Je reviens tout de suite.",
+    "example_translation": "I'll be right back.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_069",
+    "word": "devenir",
+    "translation": "to become",
+    "pronunciation": "/də.və.niʁ/",
+    "example": "Elle est devenue médecin.",
+    "example_translation": "She became a doctor.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_070",
+    "word": "recevoir",
+    "translation": "to receive / to get",
+    "pronunciation": "/ʁə.sə.vwaʁ/",
+    "example": "J'ai reçu ta lettre hier.",
+    "example_translation": "I received your letter yesterday.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_071",
+    "word": "suivre",
+    "translation": "to follow / to take (a course)",
+    "pronunciation": "/sɥivʁ/",
+    "example": "Je suis un cours de mathématiques.",
+    "example_translation": "I'm taking a maths course.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_072",
+    "word": "vivre",
+    "translation": "to live",
+    "pronunciation": "/vivʁ/",
+    "example": "Ils vivent à Toulouse depuis dix ans.",
+    "example_translation": "They've lived in Toulouse for ten years.",
+    "tags": [
+      "verbs",
+      "basics",
+      "irregular"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_073",
+    "word": "payer",
+    "translation": "to pay",
+    "pronunciation": "/pe.je/",
+    "example": "Je paie par carte.",
+    "example_translation": "I'll pay by card.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_074",
+    "word": "essayer",
+    "translation": "to try",
+    "pronunciation": "/e.se.je/",
+    "example": "Essaie encore une fois.",
+    "example_translation": "Try once more.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_075",
+    "word": "acheter",
+    "translation": "to buy",
+    "pronunciation": "/aʃ.te/",
+    "example": "J'ai acheté du pain à la boulangerie.",
+    "example_translation": "I bought bread at the bakery.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_076",
+    "word": "jouer",
+    "translation": "to play",
+    "pronunciation": "/ʒwe/",
+    "example": "Les enfants jouent dans le jardin.",
+    "example_translation": "The children are playing in the garden.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_077",
+    "word": "travailler",
+    "translation": "to work",
+    "pronunciation": "/tʁa.va.je/",
+    "example": "Je travaille sur un projet important.",
+    "example_translation": "I'm working on an important project.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_078",
+    "word": "laisser",
+    "translation": "to leave (something) / to let",
+    "pronunciation": "/le.se/",
+    "example": "Laisse-moi tranquille.",
+    "example_translation": "Leave me alone.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
+  },
+  {
+    "id": "fr_verbs_079",
+    "word": "oublier",
+    "translation": "to forget",
+    "pronunciation": "/u.bli.je/",
+    "example": "N'oublie pas ton parapluie.",
+    "example_translation": "Don't forget your umbrella.",
+    "tags": [
+      "verbs",
+      "basics",
+      "-er"
+    ],
+    "source": "manual",
+    "verified": true
   }
 ]
