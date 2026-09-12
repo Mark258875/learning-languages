@@ -1,11 +1,39 @@
 /**
  * Progress persistence — read/write SRS progress JSON files.
  *
- * In the browser we use localStorage as a proxy, and provide
- * import/export helpers for syncing with the repo JSON files.
+ * In the browser we use localStorage as a proxy, and sync it with
+ * progress/<lang>.json in the repo via the GitHub Contents API (same PAT
+ * the Lookup panel uses) so progress carries across devices.
  */
 
+import { getRepoFile, putRepoFile } from './github.js'
+
 const STORAGE_KEY = (lang) => `ll_progress_${lang}`
+const PROGRESS_PATH = (lang) => `progress/${lang}.json`
+const PUSH_DEBOUNCE_MS = 8000
+
+// ponytail: module-level, in-memory only — one browser tab per session in
+// practice, so no need to persist these across reloads.
+const pushTimers = {}
+const remoteSha = {}
+
+function githubToken() {
+  try { return localStorage.getItem('ll_github_token')?.trim() || '' } catch { return '' }
+}
+
+/** Merge two progress objects: per-card by lastReview (newest wins), stats from whichever is more recently studied. */
+export function mergeProgress(a, b) {
+  if (!a) return b
+  if (!b) return a
+  const cards = { ...a.cards, ...b.cards }
+  for (const id of Object.keys(b.cards || {})) {
+    const ca = a.cards?.[id]
+    const cb = b.cards[id]
+    if (ca && cb) cards[id] = (ca.lastReview || '') >= (cb.lastReview || '') ? ca : cb
+  }
+  const fresher = (a.stats?.lastStudied || '') >= (b.stats?.lastStudied || '') ? a : b
+  return { ...fresher, cards }
+}
 
 const DEFAULT_PROGRESS = (lang) => ({
   version: 1,
@@ -51,7 +79,58 @@ export function updateCardProgress(lang, cardId, newState) {
   }
 
   saveProgress(lang, progress)
+  schedulePush(lang)
   return progress
+}
+
+/**
+ * Pull progress/<lang>.json from GitHub (if a token is set) and merge it into
+ * the local copy. Safe to call with no token configured — returns local
+ * progress unchanged. Call when a language becomes active / on app load.
+ */
+export async function pullProgress(lang) {
+  const local = loadProgress(lang)
+  const token = githubToken()
+  if (!token) return local
+  try {
+    const { content, sha } = await getRepoFile(token, PROGRESS_PATH(lang))
+    if (sha) remoteSha[lang] = sha
+    if (!content) return local
+    const merged = mergeProgress(local, content)
+    saveProgress(lang, merged)
+    return merged
+  } catch {
+    return local // offline / no repo access yet — keep local, retry next call
+  }
+}
+
+// ponytail: debounced per-change push (not a request queue) — a very fast
+// reviewer produces a handful of commits per session, not one per card.
+function schedulePush(lang) {
+  const token = githubToken()
+  if (!token) return
+  clearTimeout(pushTimers[lang])
+  pushTimers[lang] = setTimeout(() => pushNow(lang, token), PUSH_DEBOUNCE_MS)
+}
+
+async function pushNow(lang, token) {
+  const progress = loadProgress(lang)
+  const msg = `Sync ${lang} progress`
+  try {
+    const result = await putRepoFile(token, PROGRESS_PATH(lang), progress, remoteSha[lang] ?? null, msg)
+    remoteSha[lang] = result.content?.sha ?? remoteSha[lang]
+  } catch {
+    // Sha missing/stale (no prior pull this session, or another device pushed
+    // first) — re-fetch the current file, merge, and retry once. Refetching
+    // is always a safe recovery step regardless of why the first PUT failed.
+    try {
+      const fresh = await getRepoFile(token, PROGRESS_PATH(lang))
+      const merged = mergeProgress(progress, fresh.content)
+      saveProgress(lang, merged)
+      const result = await putRepoFile(token, PROGRESS_PATH(lang), merged, fresh.sha, msg)
+      remoteSha[lang] = result.content?.sha ?? fresh.sha
+    } catch { /* give up silently (e.g. bad token); the next change reschedules a push */ }
+  }
 }
 
 /** Export progress as a JSON string (for saving to progress/*.json) */

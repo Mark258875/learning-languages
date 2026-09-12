@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AZBUKA } from '../data/loader.js'
 import { reviewCard, RATING_LABELS, RATING_COLORS } from '../utils/srs.js'
 import { loadProgress, updateCardProgress } from '../utils/progress.js'
@@ -160,6 +160,10 @@ export default function AlphabetGrid({ lang }) {
   const [progress, setProgress] = useState(() => loadProgress(lang))
   const [drillQueue, setDrillQueue] = useState(null)
   const [drillIdx, setDrillIdx] = useState(0)
+
+  // Not remounted on a language switch — reload so a stale instance doesn't
+  // keep the previous language's progress around.
+  useEffect(() => { setProgress(loadProgress(lang)) }, [lang])
 
   if (lang === 'russian') {
     if (selectedLetter) {
