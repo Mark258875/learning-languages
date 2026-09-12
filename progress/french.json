@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 48,
+    "totalReviewed": 50,
     "weeklyGoal": 50
   },
   "cards": {
@@ -338,6 +338,20 @@
       "lastReview": "2026-09-12"
     },
     "fr_countries_022": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_024": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_026": {
       "easeFactor": 2.5,
       "interval": 1,
       "repetitions": 1,
