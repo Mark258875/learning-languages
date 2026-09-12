@@ -1,12 +1,13 @@
 {
   "language": "french",
   "cefr_level": "B1",
-  "total_words": 41,
+  "total_words": 240,
   "topics_covered": [
     "basics",
     "food",
     "adjectives",
-    "verbs"
+    "verbs",
+    "countries"
   ],
   "next_topics": [
     "travel",
@@ -21,5 +22,5 @@
     "family"
   ],
   "learner_notes": "Slovak native speaker with 6 years of French and a 2-year gap. Reading and writing are stronger than speaking. Knows IPA. Needs vocabulary refresher and B1-level expansion. Prioritize high-frequency, practical vocabulary.",
-  "last_updated": "2026-05-29"
+  "last_updated": "2026-09-12"
 }
