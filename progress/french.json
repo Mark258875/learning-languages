@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 133,
+    "totalReviewed": 136,
     "weeklyGoal": 50
   },
   "cards": {
@@ -934,6 +934,27 @@
     },
     "fr_verbs_063": {
       "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_065": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_067": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_069": {
+      "easeFactor": 2.3600000000000003,
       "interval": 1,
       "repetitions": 1,
       "dueDate": "2026-09-13",
