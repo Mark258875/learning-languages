@@ -65,9 +65,10 @@ export default function Flashcard({ cards, lang, subMode }) {
   const [flipped, setFlipped] = useState(false)
   const [sessionIndex, setSessionIndex] = useState(0)
   const [sessionDone, setSessionDone] = useState(false)
-  // ponytail: read once per mount — if you remap keys in Settings while this
-  // view is already open, switch away and back to pick up the change.
-  const [keys] = useState(() => loadKeybindings().keys)
+  // Read fresh every render (like `progress` in Sidebar) rather than caching
+  // once — otherwise a remap in Settings wouldn't take effect until this view
+  // happened to unmount/remount.
+  const keys = loadKeybindings().keys
   const rateKeys = [keys.again, keys.hard, keys.good, keys.easy]
 
   // Flashcard isn't remounted on a language switch — reload so a stale
