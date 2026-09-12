@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 147,
+    "totalReviewed": 159,
     "weeklyGoal": 50
   },
   "cards": {
@@ -32,16 +32,16 @@
     "fr_adjectives_002": {
       "easeFactor": 2.5,
       "interval": 1,
-      "repetitions": 0,
-      "dueDate": "2026-08-30",
-      "lastReview": "2026-08-29"
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
     },
     "fr_adjectives_004": {
       "easeFactor": 2.3600000000000003,
-      "interval": 1,
-      "repetitions": 1,
-      "dueDate": "2026-08-30",
-      "lastReview": "2026-08-29"
+      "interval": 6,
+      "repetitions": 2,
+      "dueDate": "2026-09-18",
+      "lastReview": "2026-09-12"
     },
     "fr_adjectives_007": {
       "easeFactor": 2.3600000000000003,
@@ -59,10 +59,10 @@
     },
     "fr_adjectives_006": {
       "easeFactor": 2.3600000000000003,
-      "interval": 1,
-      "repetitions": 1,
-      "dueDate": "2026-08-30",
-      "lastReview": "2026-08-29"
+      "interval": 6,
+      "repetitions": 2,
+      "dueDate": "2026-09-18",
+      "lastReview": "2026-09-12"
     },
     "fr_adjectives_010": {
       "easeFactor": 2.3600000000000003,
@@ -1032,6 +1032,69 @@
     },
     "fr_work_012": {
       "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_basics_003": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_basics_013": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_basics_021": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_basics_029": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_014": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_025": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_030": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_034": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_038": {
+      "easeFactor": 2.3600000000000003,
       "interval": 1,
       "repetitions": 1,
       "dueDate": "2026-09-13",
