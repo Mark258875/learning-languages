@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import LanguageNav from './components/LanguageNav.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import Flashcard from './components/Flashcard.jsx'
@@ -11,6 +11,7 @@ import VocabBrowser from './components/VocabBrowser.jsx'
 import QuickLookup from './components/QuickLookup.jsx'
 import { VOCAB, getLang } from './data/loader.js'
 import { requestVocabGeneration } from './utils/github.js'
+import { pullProgress } from './utils/progress.js'
 
 export default function App() {
   const [activeLang, setActiveLang] = useState('french')
@@ -24,6 +25,7 @@ export default function App() {
   const [generateState, setGenerateState] = useState('idle')
   const [generateError, setGenerateError] = useState('')
   const [workflowUrl, setWorkflowUrl] = useState('')
+  const [, refreshAfterSync] = useReducer((n) => n + 1, 0)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
@@ -34,6 +36,14 @@ export default function App() {
   useEffect(() => {
     if (import.meta.env.VITE_APP_ENV === 'dev') document.title += ' — dev'
   }, [])
+
+  // Pull this language's progress from GitHub (no-op without a token) and
+  // re-render once merged, so the Sidebar's due count reflects other devices.
+  useEffect(() => {
+    let alive = true
+    pullProgress(activeLang).then(() => { if (alive) refreshAfterSync() })
+    return () => { alive = false }
+  }, [activeLang])
 
   useEffect(() => {
     if (activeMode !== 'vocabulary') return
@@ -176,6 +186,9 @@ export default function App() {
                   </button>
                 ))}
                 <div className="ml-auto shrink-0 flex items-center gap-2 pl-2">
+                  <span className="text-xs text-gray-400 dark:text-gray-500 hidden sm:inline" title="Level used when generating new vocabulary — not a view filter">
+                    Generate at:
+                  </span>
                   <div className="flex items-center gap-1">
                     {['A2', 'B2', 'C1'].map((level) => (
                       <button
