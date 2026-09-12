@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { reviewCard, RATING_LABELS, RATING_COLORS, getDueCards, getNewCards } from '../utils/srs.js'
 import { loadProgress, updateCardProgress } from '../utils/progress.js'
+import { loadKeybindings, displayKey } from '../utils/keybindings.js'
 import { getLang } from '../data/loader.js'
 
 function CardDisplay({ card, lang }) {
@@ -64,6 +65,10 @@ export default function Flashcard({ cards, lang, subMode }) {
   const [flipped, setFlipped] = useState(false)
   const [sessionIndex, setSessionIndex] = useState(0)
   const [sessionDone, setSessionDone] = useState(false)
+  // ponytail: read once per mount — if you remap keys in Settings while this
+  // view is already open, switch away and back to pick up the change.
+  const [keys] = useState(() => loadKeybindings().keys)
+  const rateKeys = [keys.again, keys.hard, keys.good, keys.easy]
 
   // Flashcard isn't remounted on a language switch — reload so a stale
   // instance doesn't keep showing the previous language's progress/queue.
@@ -92,22 +97,24 @@ export default function Flashcard({ cards, lang, subMode }) {
     }
   }, [currentCard, currentId, progress, lang, sessionIndex, queue.length])
 
-  // Keyboard shortcuts: Space/Enter/F = flip, 1-4 = rate
+  // Keyboard shortcuts: Space/Enter always flip; the rest are customizable
+  // (Settings → ⚙️), defaulting to F to flip and 1-4 to rate.
   useEffect(() => {
     function handleKey(e) {
       const tag = document.activeElement?.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
-      if (e.key === ' ' || e.key === 'Enter' || e.key.toLowerCase() === 'f') {
+      const pressed = e.key.length === 1 ? e.key.toLowerCase() : e.key
+      if (e.key === ' ' || e.key === 'Enter' || pressed === keys.flip) {
         e.preventDefault()
         if (!flipped && currentCard) setFlipped(true)
       } else if (flipped) {
-        const map = { '1': 0, '2': 1, '3': 2, '4': 3 }
-        if (map[e.key] !== undefined) handleRate(map[e.key])
+        const idx = rateKeys.indexOf(pressed)
+        if (idx !== -1) handleRate(idx)
       }
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [flipped, handleRate, currentCard])
+  }, [flipped, handleRate, currentCard, keys])
 
   function handleRestart() {
     setSessionIndex(0)
@@ -165,7 +172,7 @@ export default function Flashcard({ cards, lang, subMode }) {
             {!flipped && (
               <div className="w-full">
                 <CardDisplay card={currentCard} lang={lang} />
-                <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-6">Click to reveal · Space / F</p>
+                <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-6">Click to reveal · Space / {displayKey(keys.flip)}</p>
               </div>
             )}
           </div>
@@ -184,7 +191,7 @@ export default function Flashcard({ cards, lang, subMode }) {
               key={i}
               onClick={() => handleRate(i)}
               className={`flex-1 py-3 rounded-xl text-white text-sm font-semibold transition-all ${RATING_COLORS[i]}`}
-              title={`Press ${i + 1}`}
+              title={`Press ${displayKey(rateKeys[i])}`}
             >
               {label}
             </button>

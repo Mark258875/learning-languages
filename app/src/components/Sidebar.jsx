@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { VOCAB, getLang } from '../data/loader.js'
 import { loadProgress, getCompletionPercent } from '../utils/progress.js'
 import { countDue } from '../utils/srs.js'
+import { loadKeybindings, displayKey } from '../utils/keybindings.js'
 
 export default function Sidebar({ activeLang, activeMode, activeSection, onModeChange, onSectionChange, isOpen, darkMode, onToggleDark }) {
   const lang = getLang(activeLang)
@@ -12,6 +13,7 @@ export default function Sidebar({ activeLang, activeMode, activeSection, onModeC
   const completionPct = getCompletionPercent(progress, allIds.length)
   const streak = progress.stats?.streak ?? 0
   const topics = Object.keys(VOCAB[activeLang]?.topics ?? {})
+  const { keys } = loadKeybindings()
 
   const [pendingCount, setPendingCount] = useState(0)
   useEffect(() => {
@@ -152,7 +154,7 @@ export default function Sidebar({ activeLang, activeMode, activeSection, onModeC
       {/* Keyboard hint + dark mode toggle */}
       <div className="mt-auto px-3 py-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between gap-2">
         <p className="text-xs text-gray-400 dark:text-gray-500">
-          ⌨️ Space/F to flip · 1-4 to rate
+          ⌨️ Space/{displayKey(keys.flip)} to flip · {displayKey(keys.again)}-{displayKey(keys.easy)} to rate
         </p>
         <button
           onClick={onToggleDark}

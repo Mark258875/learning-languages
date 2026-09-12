@@ -3,7 +3,7 @@ import { LANGUAGES } from '../data/loader.js'
 // ponytail: dev marker — only set via app/.env.development (dev branch); inert everywhere else.
 const IS_DEV = import.meta.env.VITE_APP_ENV === 'dev'
 
-export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onOpenQuickLookup }) {
+export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onOpenQuickLookup, onOpenSettings }) {
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm shrink-0 z-30">
       <div className="px-4">
@@ -58,6 +58,16 @@ export default function LanguageNav({ activeLang, onSelect, onToggleSidebar, onO
             <span>🔍</span>
             <span className="hidden sm:inline">Quick Lookup</span>
             <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500 font-normal ml-0.5">/</span>
+          </button>
+
+          {/* Settings button */}
+          <button
+            onClick={onOpenSettings}
+            className="shrink-0 p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all"
+            title="Settings — flashcard shortcuts"
+            aria-label="Settings"
+          >
+            <span className="text-lg leading-none">⚙️</span>
           </button>
         </div>
       </div>
