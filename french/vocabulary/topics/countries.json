@@ -1,0 +1,811 @@
+[
+  {
+    "id": "fr_countries_001",
+    "word": "la France",
+    "translation": "France",
+    "pronunciation": "/fʁɑ̃s/",
+    "example": "Je fais mes études en France, à Palaiseau.",
+    "example_translation": "I study in France, in Palaiseau.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_002",
+    "word": "la Slovaquie",
+    "translation": "Slovakia",
+    "pronunciation": "/slɔ.va.ki/",
+    "example": "Je viens de Slovaquie, de Bratislava.",
+    "example_translation": "I come from Slovakia, from Bratislava.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_003",
+    "word": "l'Allemagne",
+    "translation": "Germany",
+    "pronunciation": "/al.maɲ/",
+    "example": "Berlin est la capitale de l'Allemagne.",
+    "example_translation": "Berlin is the capital of Germany.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_004",
+    "word": "l'Italie",
+    "translation": "Italy",
+    "pronunciation": "/i.ta.li/",
+    "example": "On mange très bien en Italie.",
+    "example_translation": "The food is very good in Italy.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_005",
+    "word": "l'Espagne",
+    "translation": "Spain",
+    "pronunciation": "/ɛs.paɲ/",
+    "example": "Nous allons en Espagne cet été.",
+    "example_translation": "We are going to Spain this summer.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_006",
+    "word": "le Portugal",
+    "translation": "Portugal",
+    "pronunciation": "/pɔʁ.ty.ɡal/",
+    "example": "Il a passé ses vacances au Portugal.",
+    "example_translation": "He spent his holidays in Portugal.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_007",
+    "word": "le Royaume-Uni",
+    "translation": "United Kingdom",
+    "pronunciation": "/ʁwa.jom.y.ni/",
+    "example": "Elle travaille au Royaume-Uni depuis deux ans.",
+    "example_translation": "She has been working in the UK for two years.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_008",
+    "word": "l'Angleterre",
+    "translation": "England",
+    "pronunciation": "/ɑ̃.ɡlə.tɛʁ/",
+    "example": "Londres se trouve en Angleterre.",
+    "example_translation": "London is in England.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_009",
+    "word": "l'Irlande",
+    "translation": "Ireland",
+    "pronunciation": "/iʁ.lɑ̃d/",
+    "example": "Il pleut souvent en Irlande.",
+    "example_translation": "It often rains in Ireland.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_010",
+    "word": "la Belgique",
+    "translation": "Belgium",
+    "pronunciation": "/bɛl.ʒik/",
+    "example": "En Belgique, on dit « septante » pour 70.",
+    "example_translation": "In Belgium, people say \"septante\" for 70.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_011",
+    "word": "les Pays-Bas",
+    "translation": "Netherlands",
+    "pronunciation": "/pe.i.ba/",
+    "example": "Aux Pays-Bas, tout le monde fait du vélo.",
+    "example_translation": "In the Netherlands, everyone cycles.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "plural",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_012",
+    "word": "la Suisse",
+    "translation": "Switzerland",
+    "pronunciation": "/sɥis/",
+    "example": "Genève est en Suisse, pas en France.",
+    "example_translation": "Geneva is in Switzerland, not in France.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_013",
+    "word": "l'Autriche",
+    "translation": "Austria",
+    "pronunciation": "/o.tʁiʃ/",
+    "example": "Vienne est la capitale de l'Autriche.",
+    "example_translation": "Vienna is the capital of Austria.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_014",
+    "word": "la République tchèque",
+    "translation": "Czech Republic",
+    "pronunciation": "/ʁe.py.blik tʃɛk/",
+    "example": "Prague est en République tchèque.",
+    "example_translation": "Prague is in the Czech Republic.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_015",
+    "word": "la Pologne",
+    "translation": "Poland",
+    "pronunciation": "/pɔ.lɔɲ/",
+    "example": "Mon colocataire vient de Pologne.",
+    "example_translation": "My flatmate comes from Poland.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_016",
+    "word": "la Hongrie",
+    "translation": "Hungary",
+    "pronunciation": "/ɔ̃.ɡʁi/",
+    "example": "Budapest, en Hongrie, est traversée par le Danube.",
+    "example_translation": "Budapest, in Hungary, is crossed by the Danube.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_017",
+    "word": "l'Ukraine",
+    "translation": "Ukraine",
+    "pronunciation": "/y.kʁɛn/",
+    "example": "Elle est née en Ukraine.",
+    "example_translation": "She was born in Ukraine.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_018",
+    "word": "la Russie",
+    "translation": "Russia",
+    "pronunciation": "/ʁy.si/",
+    "example": "Il fait très froid en Russie l'hiver.",
+    "example_translation": "It is very cold in Russia in winter.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_019",
+    "word": "la Grèce",
+    "translation": "Greece",
+    "pronunciation": "/ɡʁɛs/",
+    "example": "Les îles de Grèce sont magnifiques.",
+    "example_translation": "The Greek islands are magnificent.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_020",
+    "word": "la Turquie",
+    "translation": "Turkey",
+    "pronunciation": "/tyʁ.ki/",
+    "example": "Istanbul, en Turquie, est à cheval sur deux continents.",
+    "example_translation": "Istanbul, in Turkey, straddles two continents.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_021",
+    "word": "la Suède",
+    "translation": "Sweden",
+    "pronunciation": "/sɥɛd/",
+    "example": "En Suède, les nuits d'été sont très courtes.",
+    "example_translation": "In Sweden, summer nights are very short.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_022",
+    "word": "la Norvège",
+    "translation": "Norway",
+    "pronunciation": "/nɔʁ.vɛʒ/",
+    "example": "Les fjords de Norvège attirent beaucoup de touristes.",
+    "example_translation": "Norway's fjords attract many tourists.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_023",
+    "word": "le Danemark",
+    "translation": "Denmark",
+    "pronunciation": "/dan.maʁk/",
+    "example": "Copenhague est au Danemark.",
+    "example_translation": "Copenhagen is in Denmark.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_024",
+    "word": "les États-Unis",
+    "translation": "United States",
+    "pronunciation": "/e.ta.zy.ni/",
+    "example": "Mon frère habite aux États-Unis.",
+    "example_translation": "My brother lives in the United States.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "plural",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_025",
+    "word": "le Canada",
+    "translation": "Canada",
+    "pronunciation": "/ka.na.da/",
+    "example": "Au Canada, on parle français au Québec.",
+    "example_translation": "In Canada, French is spoken in Quebec.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_026",
+    "word": "le Mexique",
+    "translation": "Mexico",
+    "pronunciation": "/mɛk.sik/",
+    "example": "Le Mexique est masculin malgré le -e final : au Mexique.",
+    "example_translation": "Mexico is masculine despite the final -e: au Mexique.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_027",
+    "word": "le Brésil",
+    "translation": "Brazil",
+    "pronunciation": "/bʁe.zil/",
+    "example": "Au Brésil, on parle portugais.",
+    "example_translation": "In Brazil, people speak Portuguese.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_028",
+    "word": "l'Argentine",
+    "translation": "Argentina",
+    "pronunciation": "/aʁ.ʒɑ̃.tin/",
+    "example": "Le tango vient d'Argentine.",
+    "example_translation": "Tango comes from Argentina.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_029",
+    "word": "le Japon",
+    "translation": "Japan",
+    "pronunciation": "/ʒa.pɔ̃/",
+    "example": "Elle rêve d'aller au Japon.",
+    "example_translation": "She dreams of going to Japan.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_030",
+    "word": "la Chine",
+    "translation": "China",
+    "pronunciation": "/ʃin/",
+    "example": "J'apprends aussi le chinois pour aller en Chine.",
+    "example_translation": "I am also learning Chinese to go to China.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_031",
+    "word": "l'Inde",
+    "translation": "India",
+    "pronunciation": "/ɛ̃d/",
+    "example": "New Delhi est la capitale de l'Inde.",
+    "example_translation": "New Delhi is the capital of India.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_032",
+    "word": "la Corée du Sud",
+    "translation": "South Korea",
+    "pronunciation": "/kɔ.ʁe dy syd/",
+    "example": "Séoul est en Corée du Sud.",
+    "example_translation": "Seoul is in South Korea.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_033",
+    "word": "le Viêt Nam",
+    "translation": "Vietnam",
+    "pronunciation": "/vjɛt.nam/",
+    "example": "Il est parti au Viêt Nam pour un stage.",
+    "example_translation": "He went to Vietnam for an internship.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_034",
+    "word": "l'Iran",
+    "translation": "Iran",
+    "pronunciation": "/i.ʁɑ̃/",
+    "example": "On dit « en Iran » car le nom commence par une voyelle.",
+    "example_translation": "One says \"en Iran\" because the name starts with a vowel.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_035",
+    "word": "Israël",
+    "translation": "Israel",
+    "pronunciation": "/is.ʁa.ɛl/",
+    "example": "Israël s'emploie sans article : en Israël.",
+    "example_translation": "Israel is used without an article: en Israël.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_036",
+    "word": "le Maroc",
+    "translation": "Morocco",
+    "pronunciation": "/ma.ʁɔk/",
+    "example": "Beaucoup d'étudiants viennent du Maroc.",
+    "example_translation": "Many students come from Morocco.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_037",
+    "word": "l'Algérie",
+    "translation": "Algeria",
+    "pronunciation": "/al.ʒe.ʁi/",
+    "example": "Alger est la capitale de l'Algérie.",
+    "example_translation": "Algiers is the capital of Algeria.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_038",
+    "word": "la Tunisie",
+    "translation": "Tunisia",
+    "pronunciation": "/ty.ni.zi/",
+    "example": "Nous avons passé une semaine en Tunisie.",
+    "example_translation": "We spent a week in Tunisia.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_039",
+    "word": "l'Égypte",
+    "translation": "Egypt",
+    "pronunciation": "/e.ʒipt/",
+    "example": "Les pyramides se trouvent en Égypte.",
+    "example_translation": "The pyramids are in Egypt.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_040",
+    "word": "le Sénégal",
+    "translation": "Senegal",
+    "pronunciation": "/se.ne.ɡal/",
+    "example": "Au Sénégal, le français est langue officielle.",
+    "example_translation": "In Senegal, French is an official language.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_041",
+    "word": "l'Afrique du Sud",
+    "translation": "South Africa",
+    "pronunciation": "/a.fʁik dy syd/",
+    "example": "Le Cap est en Afrique du Sud.",
+    "example_translation": "Cape Town is in South Africa.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_042",
+    "word": "l'Australie",
+    "translation": "Australia",
+    "pronunciation": "/os.tʁa.li/",
+    "example": "Il est parti un an en Australie.",
+    "example_translation": "He went to Australia for a year.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_043",
+    "word": "l'Europe",
+    "translation": "Europe",
+    "pronunciation": "/ø.ʁɔp/",
+    "example": "La France est en Europe.",
+    "example_translation": "France is in Europe.",
+    "tags": [
+      "countries",
+      "continent"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_044",
+    "word": "l'Asie",
+    "translation": "Asia",
+    "pronunciation": "/a.zi/",
+    "example": "L'Asie est le plus grand continent.",
+    "example_translation": "Asia is the largest continent.",
+    "tags": [
+      "countries",
+      "continent"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_045",
+    "word": "l'Afrique",
+    "translation": "Africa",
+    "pronunciation": "/a.fʁik/",
+    "example": "Elle a voyagé en Afrique pendant six mois.",
+    "example_translation": "She travelled in Africa for six months.",
+    "tags": [
+      "countries",
+      "continent"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_046",
+    "word": "l'Amérique",
+    "translation": "America",
+    "pronunciation": "/a.me.ʁik/",
+    "example": "Christophe Colomb est arrivé en Amérique en 1492.",
+    "example_translation": "Christopher Columbus arrived in America in 1492.",
+    "tags": [
+      "countries",
+      "continent"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_047",
+    "word": "l'Océanie",
+    "translation": "Oceania",
+    "pronunciation": "/ɔ.se.a.ni/",
+    "example": "L'Australie fait partie de l'Océanie.",
+    "example_translation": "Australia is part of Oceania.",
+    "tags": [
+      "countries",
+      "continent"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_048",
+    "word": "le pays",
+    "translation": "country",
+    "pronunciation": "/pe.i/",
+    "example": "Tu viens de quel pays ?",
+    "example_translation": "Which country are you from?",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_049",
+    "word": "la capitale",
+    "translation": "capital city",
+    "pronunciation": "/ka.pi.tal/",
+    "example": "Quelle est la capitale de la Slovaquie ?",
+    "example_translation": "What is the capital of Slovakia?",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_050",
+    "word": "la nationalité",
+    "translation": "nationality",
+    "pronunciation": "/na.sjɔ.na.li.te/",
+    "example": "Quelle est votre nationalité ?",
+    "example_translation": "What is your nationality?",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_051",
+    "word": "étranger / étrangère",
+    "translation": "foreign; foreigner",
+    "pronunciation": "/e.tʁɑ̃.ʒe/",
+    "example": "Je suis un étudiant étranger à Polytechnique.",
+    "example_translation": "I am a foreign student at Polytechnique.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_052",
+    "word": "à l'étranger",
+    "translation": "abroad",
+    "pronunciation": "/a le.tʁɑ̃.ʒe/",
+    "example": "Elle vit à l'étranger depuis dix ans.",
+    "example_translation": "She has been living abroad for ten years.",
+    "tags": [
+      "countries",
+      "phrase"
+    ],
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_053",
+    "word": "la frontière",
+    "translation": "border",
+    "pronunciation": "/fʁɔ̃.tjɛʁ/",
+    "example": "La frontière avec l'Espagne est à deux heures.",
+    "example_translation": "The border with Spain is two hours away.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
+  },
+  {
+    "id": "fr_countries_054",
+    "word": "le continent",
+    "translation": "continent",
+    "pronunciation": "/kɔ̃.ti.nɑ̃/",
+    "example": "Il y a sept continents.",
+    "example_translation": "There are seven continents.",
+    "tags": [
+      "countries",
+      "noun"
+    ],
+    "gender": "masculine",
+    "source": "claude",
+    "verified": false
+  }
+]
