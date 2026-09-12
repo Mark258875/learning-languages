@@ -9,9 +9,11 @@ import PhrasesView from './components/PhrasesView.jsx'
 import LookupView from './components/LookupView.jsx'
 import VocabBrowser from './components/VocabBrowser.jsx'
 import QuickLookup from './components/QuickLookup.jsx'
+import SettingsModal from './components/SettingsModal.jsx'
 import { VOCAB, getLang } from './data/loader.js'
 import { requestVocabGeneration } from './utils/github.js'
 import { pullProgress } from './utils/progress.js'
+import { pullKeybindings } from './utils/keybindings.js'
 
 export default function App() {
   const [activeLang, setActiveLang] = useState('french')
@@ -21,6 +23,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('ll_dark') === 'true')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [quickLookupOpen, setQuickLookupOpen] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   const [cefrLevel, setCefrLevel] = useState('A2')
   const [generateState, setGenerateState] = useState('idle')
   const [generateError, setGenerateError] = useState('')
@@ -44,6 +47,9 @@ export default function App() {
     pullProgress(activeLang).then(() => { if (alive) refreshAfterSync() })
     return () => { alive = false }
   }, [activeLang])
+
+  // Pull keybindings once on load (no-op without a token).
+  useEffect(() => { pullKeybindings() }, [])
 
   useEffect(() => {
     if (activeMode !== 'vocabulary') return
@@ -136,6 +142,7 @@ export default function App() {
         onSelect={handleLangChange}
         onToggleSidebar={() => setSidebarOpen(o => !o)}
         onOpenQuickLookup={() => setQuickLookupOpen(true)}
+        onOpenSettings={() => setSettingsOpen(true)}
       />
 
       <div className="flex flex-1 overflow-hidden relative">
@@ -281,6 +288,11 @@ export default function App() {
           langMeta={langMeta}
           onClose={() => setQuickLookupOpen(false)}
         />
+      )}
+
+      {/* Settings modal */}
+      {settingsOpen && (
+        <SettingsModal onClose={() => setSettingsOpen(false)} />
       )}
     </div>
   )
