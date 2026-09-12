@@ -162,4 +162,4 @@ Dropping the final vowel of short words before a vowel or mute H:
 
 ## See Also
 
-- [Grammar](grammar.md) · [Verbs](verbs.md) · [Essentials](essentials.md)
+- [Spelling → Sound Rules](pronunciation-rules.md) · [Grammar](grammar.md) · [Verbs](verbs.md) · [Essentials](essentials.md)
