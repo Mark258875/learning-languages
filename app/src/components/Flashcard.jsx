@@ -92,12 +92,12 @@ export default function Flashcard({ cards, lang, subMode }) {
     }
   }, [currentCard, currentId, progress, lang, sessionIndex, queue.length])
 
-  // Keyboard shortcuts: Space/Enter = flip, 1-4 = rate
+  // Keyboard shortcuts: Space/Enter/F = flip, 1-4 = rate
   useEffect(() => {
     function handleKey(e) {
       const tag = document.activeElement?.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
-      if (e.key === ' ' || e.key === 'Enter') {
+      if (e.key === ' ' || e.key === 'Enter' || e.key.toLowerCase() === 'f') {
         e.preventDefault()
         if (!flipped && currentCard) setFlipped(true)
       } else if (flipped) {
@@ -165,7 +165,7 @@ export default function Flashcard({ cards, lang, subMode }) {
             {!flipped && (
               <div className="w-full">
                 <CardDisplay card={currentCard} lang={lang} />
-                <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-6">Click to reveal · Space</p>
+                <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-6">Click to reveal · Space / F</p>
               </div>
             )}
           </div>
