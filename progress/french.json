@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 122,
+    "totalReviewed": 123,
     "weeklyGoal": 50
   },
   "cards": {
@@ -857,6 +857,13 @@
     },
     "fr_verbs_041": {
       "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_043": {
+      "easeFactor": 2.3600000000000003,
       "interval": 1,
       "repetitions": 1,
       "dueDate": "2026-09-13",
