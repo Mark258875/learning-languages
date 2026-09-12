@@ -152,7 +152,7 @@ export default function Sidebar({ activeLang, activeMode, activeSection, onModeC
       {/* Keyboard hint + dark mode toggle */}
       <div className="mt-auto px-3 py-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between gap-2">
         <p className="text-xs text-gray-400 dark:text-gray-500">
-          ⌨️ Space to flip · 1-4 to rate
+          ⌨️ Space/F to flip · 1-4 to rate
         </p>
         <button
           onClick={onToggleDark}
