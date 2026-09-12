@@ -53,6 +53,9 @@ stem = the infinitive (drop final *-e* for -RE verbs).
 
 ## Essential Irregular Verbs
 
+Summary only. Full six-form tables for every tense (présent, passé composé, imparfait, futur,
+conditionnel, subjonctif) of 25 irregular verbs: [Irregular Verbs](irregular-verbs.md).
+
 ### être / avoir / aller / faire
 | | Présent | Imparfait | Futur | Subjonctif (que je…) |
 |---|---|---|---|---|
@@ -197,6 +200,7 @@ Compound: *je me suis levé(e)* (always **être**, see agreement table above).
 
 ## See Also
 
+- [Irregular Verbs](irregular-verbs.md) — full conjugation tables + the three-stem method
 - [Tenses](tenses.md) — meaning and choice of each tense/mood
 - [Pronouns](pronouns.md) — where object pronouns sit around the verb
 - [Grammar](grammar.md) · [Essentials](essentials.md)
