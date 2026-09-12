@@ -422,5 +422,20 @@
     "word": "maison",
     "pronunciation": "",
     "gender": "feminine"
+  },
+  {
+    "id": "fr_basics_031",
+    "word": "la vérité",
+    "translation": "truth",
+    "pronunciation": "/ve.ʁi.te/",
+    "example": "Vous dites toujours la vérité ?",
+    "example_translation": "Do you always tell the truth?",
+    "tags": [
+      "basics",
+      "noun"
+    ],
+    "gender": "feminine",
+    "source": "claude",
+    "verified": false
   }
 ]

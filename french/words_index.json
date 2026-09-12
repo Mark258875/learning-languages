@@ -45,6 +45,7 @@
   "semaine": "basics:fr_basics_028",
   "ressemblance": "basics:fr_basics_029",
   "maison": "basics:fr_basics_030",
+  "vérité": "basics:fr_basics_031",
   "france": "countries:fr_countries_001",
   "slovaquie": "countries:fr_countries_002",
   "allemagne": "countries:fr_countries_003",
@@ -129,6 +130,8 @@
   "légumes": "food:fr_food_009",
   "restaurant": "food:fr_food_010",
   "remboursement": "other:fr_other_001",
+  "fidèlement": "other:fr_other_002",
+  "fidèle": "other:fr_other_003",
   "billet": "travel:fr_travel_001",
   "passeport": "travel:fr_travel_002",
   "valise": "travel:fr_travel_003",
@@ -239,7 +242,5 @@
   "télétravail": "work:fr_work_009",
   "promotion": "work:fr_work_010",
   "bilan": "work:fr_work_011",
-  "collaborer": "work:fr_work_012",
-  "fidèlement": "other:fr_other_002",
-  "fidèle": "other:fr_other_003"
+  "collaborer": "work:fr_work_012"
 }
