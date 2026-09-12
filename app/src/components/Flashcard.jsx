@@ -65,6 +65,10 @@ export default function Flashcard({ cards, lang, subMode }) {
   const [sessionIndex, setSessionIndex] = useState(0)
   const [sessionDone, setSessionDone] = useState(false)
 
+  // Flashcard isn't remounted on a language switch — reload so a stale
+  // instance doesn't keep showing the previous language's progress/queue.
+  useEffect(() => { setProgress(loadProgress(lang)) }, [lang])
+
   const allIds = cards.map((c) => c.id)
   const queue =
     subMode === 'new'
