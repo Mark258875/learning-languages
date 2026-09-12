@@ -780,21 +780,6 @@
   },
   {
     "id": "fr_countries_053",
-    "word": "la frontière",
-    "translation": "border",
-    "pronunciation": "/fʁɔ̃.tjɛʁ/",
-    "example": "La frontière avec l'Espagne est à deux heures.",
-    "example_translation": "The border with Spain is two hours away.",
-    "tags": [
-      "countries",
-      "noun"
-    ],
-    "gender": "feminine",
-    "source": "claude",
-    "verified": false
-  },
-  {
-    "id": "fr_countries_054",
     "word": "le continent",
     "translation": "continent",
     "pronunciation": "/kɔ̃.ti.nɑ̃/",
