@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 216,
+    "totalReviewed": 227,
     "weeklyGoal": 50
   },
   "cards": {
@@ -16,11 +16,11 @@
       "lastReview": "2026-09-12"
     },
     "fr_adjectives_003": {
-      "easeFactor": 2.5,
+      "easeFactor": 2.3600000000000003,
       "interval": 1,
-      "repetitions": 0,
-      "dueDate": "2026-08-30",
-      "lastReview": "2026-08-29"
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
     },
     "fr_adjectives_005": {
       "easeFactor": 2.3600000000000003,
@@ -1468,6 +1468,76 @@
       "easeFactor": 2.5,
       "interval": 1,
       "repetitions": 0,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_014": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_022": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_030": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_038": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_046": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_054": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_062": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_070": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_verbs_078": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_work_007": {
+      "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
       "dueDate": "2026-09-13",
       "lastReview": "2026-09-12"
     }
