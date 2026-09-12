@@ -4,7 +4,7 @@
   "stats": {
     "streak": 1,
     "lastStudied": "2026-09-12",
-    "totalReviewed": 72,
+    "totalReviewed": 95,
     "weeklyGoal": 50
   },
   "cards": {
@@ -507,6 +507,167 @@
     },
     "fr_countries_047": {
       "easeFactor": 2.3600000000000003,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_049": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_051": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_countries_053": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_002": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_004": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_006": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_008": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_010": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_012": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_014": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_016": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_018": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_emotions_020": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_food_002": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_food_004": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_food_006": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_food_008": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_food_010": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_other_002": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_travel_001": {
+      "easeFactor": 2.6,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_travel_003": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_travel_005": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 1,
+      "dueDate": "2026-09-13",
+      "lastReview": "2026-09-12"
+    },
+    "fr_travel_007": {
+      "easeFactor": 2.5,
       "interval": 1,
       "repetitions": 1,
       "dueDate": "2026-09-13",
