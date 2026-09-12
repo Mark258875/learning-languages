@@ -10,5 +10,30 @@
     "word": "remboursement",
     "pronunciation": "",
     "gender": "masculine"
+  },
+  {
+    "id": "fr_other_002",
+    "translation": "faithfully",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "word": "fidèlement",
+    "pronunciation": ""
+  },
+  {
+    "id": "fr_other_003",
+    "translation": "loyal",
+    "tags": [
+      "lookup"
+    ],
+    "source": "wiktionary",
+    "verified": false,
+    "example": "Le chien était toujours '''fidèle''' à son maître.",
+    "example_translation": "",
+    "word": "fidèle",
+    "pronunciation": "",
+    "gender": "masculine"
   }
 ]
